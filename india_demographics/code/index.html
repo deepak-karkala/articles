@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bubble Chart v4 - vallandingham.me</title>
+  <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+  <meta name="author" content="Jim Vallandingham">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bubble_chart.css">
+
+</head>
+<body >
+<div class="graphic"> <!--style="background-color:black;">-->
+
+
+  <div class="container title_buttons">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p class="main_title">Putting Indian Demographics in perspective</p>
+        <div id="toolbar" class="btn-toolbar">
+          <a href="#" id="all" class="button active">All Indians</a>
+          <a href="#" id="gender" class="button">Gender</a>
+          <a href="#" id="agegroup" class="button">Age group</a>
+          <a href="#" id="ruralurban" class="button">Rural Urban</a>
+          <a href="#" id="religion" class="button">Religion</a>
+          <a href="#" id="state" class="button">States</a>
+          <a href="#" id="language" class="button">Language</a>
+          <a href="#" id="literacy" class="button">Literacy</a>
+          <a href="#" id="employment" class="button">Employment Sectors</a>
+          <a href="#" id="sanitation" class="button">Open defecation</a>
+          <a href="#" id="poverty" class="button">Less than 3 dollars/day</a>
+          <a href="#" id="tax" class="button mr-1">Income tax payers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:5px;">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="header_text text-center">Click on the above buttons to explore and get insights on Indian demographics</div>
+        <div class="chart" id="vis">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div id="footer_legend"></div>
+          <p class="footer_text" id="footer_text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!--<script src="//d3js.org/d3.v4.min.js"></script>-->
+  <!--<script src="src/tooltip.js"></script>-->
+  <script src="src/bubble_chart.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

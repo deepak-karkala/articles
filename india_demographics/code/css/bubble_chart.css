@@ -1,0 +1,134 @@
+
+body {
+  background-color: black;
+  color: white;
+}
+
+a, a:visited, a:active {
+  color: #444;
+}
+
+.container {
+  /*max-width: 900px;*/
+  margin: auto;
+}
+
+.button {
+  /*min-width: 130px;*/
+  padding: 3px 2px;
+  margin: 2px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-family: Times New Roman;
+  font-weight: bold;
+  /*border: 1px solid #e0e0e0;*/
+  border: 1px solid #ffffff;
+  background: #f1e0d6;
+  color: black;
+}
+
+.button.active {
+  background: #000;
+  color: #fff;
+  border: 1px solid #ffffff;
+}
+
+#vis {
+  height: 50vh;
+  clear: both;
+}
+
+.graphic {
+  position: relative;
+}
+
+.chart {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+}
+
+#toolbar {
+  margin-top: 10px;
+}
+
+
+.footer {
+  text-align: center;
+}
+
+
+.label {
+  fill: white;
+  font-family: Times New Roman;
+  font-size: 15px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.footer_text {
+  font-size: 12px;
+  font-family: Times New Roman;
+}
+
+.footer_text a {
+  color: #3366BB;
+}
+
+.intro_info {
+  color: #fff;
+  font-family: Times New Roman;
+}
+
+.header_text {
+  font-size: 10px;
+}
+
+.title_buttons {
+  padding-top: 5px;
+}
+
+.btn-toolbar {
+  padding-top:15px;
+}
+
+.main_title {
+  text-align: center;
+  font-size: 24px;
+}
+
+@media (max-width: 500px) {
+  .label {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 350px) {
+  .btn-toolbar {
+    padding-top: 5px;
+  }
+  #vis {
+    height: 50vh;
+  }
+}
+
+@media (min-width: 768px) {
+  #vis {
+    height: 65vh;
+    margin-top: 10px;
+  }
+  .label {
+    fill: white;
+    font-family: Times New Roman;
+    font-size: 20px;
+  }
+  .main_title {
+    font-size: 32px;
+  }
+  .footer_text {
+    font-size: 16px;
+  }
+}
