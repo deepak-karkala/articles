@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="expires" content="0">
+
+    <title>IPL 2019</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/grayscale_light.css" rel="stylesheet">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">HOME</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">IPL 2019: Who needs what to win ?</h1>
+              <p class="intro-text">A sabermetrics based approach to selecting the perfect T20 team.
+                <br></p>
+              <a href="#about" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Introduction</h2>
+            <p>
+              IPL 2018 featured teams comprising of newly selected players. The selection process at the auction has improved vastly over the 10 years of IPL and this resulted in IPL 2018 being arguably the most closely fought season. However over the course of the tournament, it was evident that not all the teams were well balanced ultimately costing them places in the playoffs. This brings us to the possibility of building that all elusive perfect T20 team. Can we quantify the ...   
+              <ul>
+                <li>Team composition of champion T20 teams</li>
+                <li>Winning formula of champion T20 teams</li>
+                <li>X-factor wins</li>
+                <li>IPL 2019: Who is missing what ?</li>
+                <li>Scouting guide: Where to find the missing pieces ?</li>
+              </ul>
+            </p>
+
+            <p>
+              This article aims to answer the above questions in an attempt to discover the formula to win a T20 competition. But how much can we rely on past numbers alone ? Beauty of sports lies in its uncertainity. On any day, any given player can completely overcome all the odds of performing and win the game for his team. That is the reason we all watch sports and the resulting adrenaline rush. Nevertheless it will be interesting to see how far can past numbers tell us the present story and predict the future outcomes. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about" class="teamComposition-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Team composition</h2>
+            <p>
+              Can we put together a team which will maximise the chances of winning ? If so what type of players should constitute the batting and bowling units ? How many and what type of allrounders should be included ? Let us the try to answer these questions by studying the batting and bowling metrics of the T20 league champions from across the world. 
+            </p>
+            <p>
+              We begin by looking at the batting chart of IPL 2018. The horizontal axis of this chart shows the average of the batsman whereas the vertical axis shows the strike-rate of the batsman. Using this chart, we can categorize the batsmen into roughly four types. 
+              <ul>
+                <li>Duds</li>
+                <li>Accumulators</li>
+                <li>Strikers</li>
+                <li>Ideals</li>
+              </ul>
+            </p>
+
+            <p>
+              We can perform a similar analysis for bowlers by looking at the bowling chart of IPL 2018. The horizontal axis of this chart shows the economy rate of the bowler whereas the vertical axis shows the strike-rate of the bowler. Using this chart, we can categorize the bowlers into roughly four types. 
+              <ul>
+                <li>Duds</li>
+                <li>Containers</li>
+                <li>Strikers</li>
+                <li>Ideals</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+           
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-5 teamComposition text-center" id="ipl_batting">IPL 2018 batting chart</div>
+              <div class="col-lg-5 offset-lg-1 teamComposition text-center" id="ipl_bowling">IPL 2018 bowling chart</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">    
+          <div class="col-lg-8 mx-auto">
+            <p>
+              Given a chance, all the teams would like to have their batting lineups filled with <em>Ideals</em> and no teams would want to have duds. But while it is likely any player could be an <em>Ideal</em> during his/her purple patch, it is very unlikely that the entire lineup ends up being <em>Ideal</em> during a season. This warrants us to have a team with combinations of <em>Accumulators</em>, <em>Strikers</em> and <em>Ideals</em>. But how many of these different players does a team need ? Too many <em>Accumulators</em> in the top order often results in sub 200 score even with good starts whereas a team filled with <em>Strikers</em> will invariably have scores either around the 200 mark or have batting collapses with scores around the 140 runs mark. Similarly for bowling, the question is how many of each kind of these bowlers does a team need in order to increase its chances of winning ?. So how many <em>Accumulators</em> and <em>Strikers</em> does a team really need ?
+
+              A look at the batting and bowling metrics of few of the T20 league champions during the 2018 season provides an insight for this elusive winning combination. 
+            </p>
+          </div>
+        </div>
+      </div>    
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">    
+            <div class="col-lg-6 text-center top_batting" id="top_batting">
+              <span class="top_bottom_heading">Batting charts of top ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6 " id="top_batting1"><span class="top_bottom_chart">Chennai Super Kings</span><img src="img/team_composition/top_batting/csk_batting.png"></div>
+                <div class="col-lg-6" id="top_batting2"><span class="top_bottom_chart">Adelaide Strikers</span><img src="img/team_composition/top_batting/adelaide_batting.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="top_batting3"><span class="top_bottom_chart">Worcestershire</span><img src="img/team_composition/top_batting/worcestershire_batting.png"></div>
+                <div class="col-lg-6" id="top_batting4"><span class="top_bottom_chart">Kolkata Knight Riders</span><img src="img/team_composition/top_batting/kkr_batting.png"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center bottom_batting" id="bottom_batting">
+              <span class="top_bottom_heading">Batting charts of bottom ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_batting1"><span class="top_bottom_chart">Royal Challengers Bangalore</span><img src="img/team_composition/bottom_batting/rcb_batting.png"></div>
+                <div class="col-lg-6" id="bottom_batting2"><span class="top_bottom_chart">Barbados</span><img src="img/team_composition/bottom_batting/barbados_batting.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_batting3"><span class="top_bottom_chart">Brisbane</span><img src="img/team_composition/bottom_batting/brisbane_batting.png"></div>
+                <div class="col-lg-6" id="bottom_batting4"><span class="top_bottom_chart">Lahore</span><img src="img/team_composition/bottom_batting/lahore_batting.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+      <div class="container">
+        <div class="row">    
+          <div class="col-lg-8 mx-auto">
+            <p>  
+              Based on this, we can deduce that a winning T20 team will need __ <em>Strikers</em>, __ <em>Accumulators</em> and hope that one of the batsman ends up being an <em>Ideal</em>. Similarly for bowlers, we can deduce that a winning T20 team will need __ <em>Strikers</em>, __ <em>Containers</em> and hope that one of the bowlers ends up being an <em>Ideal</em>. Such winning combinations are clearly missing in the batting and bowling charts of the bottom ranked teams as shown in the following charts.
+            </p>
+
+            <h1>Bottom teams batting and bowling charts examples</h1>
+          </div>
+        </div>
+      </div>      
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">    
+            <div class="col-lg-6 text-center top_bowling" id="top_bowling">
+              <span class="top_bottom_heading">Bowling charts of top ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6 " id="top_bowling1"><span class="top_bottom_chart">Sunrisers Hyderabad</span><img src="img/team_composition/top_bowling/srh_bowling.png"></div>
+                <div class="col-lg-6" id="top_bowling2"><span class="top_bottom_chart">Trinbago Knight Riders</span><img src="img/team_composition/top_bowling/trinbago_bowling.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="top_bowling3"><span class="top_bottom_chart">Adelaide Strikers</span><img src="img/team_composition/top_bowling/adelaide_bowling.png"></div>
+                <div class="col-lg-6" id="top_bowling4"><span class="top_bottom_chart">Worcestershire</span><img src="img/team_composition/top_bowling/worcestershire_bowling.png"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center bottom_bowling" id="bottom_batting">
+              <span class="top_bottom_heading">Bowling charts of bottom ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_bowling1"><span class="top_bottom_chart">Brisbane</span><img src="img/team_composition/bottom_bowling/brisbane_bowling.png"></div>
+                <div class="col-lg-6" id="bottom_bowling2"><span class="top_bottom_chart">Middlesex</span><img src="img/team_composition/bottom_bowling/middlesex_bowling.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_bowling3"><span class="top_bottom_chart">Chittagong</span><img src="img/team_composition/bottom_bowling/chittagong_bowling.png"></div>
+                <div class="col-lg-6" id="bottom_bowling4"><span class="top_bottom_chart">Northamptonshire</span><img src="img/team_composition/bottom_bowling/northamptonshire_bowling.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+      <p>
+        Explore the interactive graph below to see the batting and bowling metrics of your team. You can analyze what your favourite team needs in order to have a better shot at next year's title.
+      </p>
+    </section>
+
+
+    <section id="about" class="interactivePlayerTypes-section">
+      <div class="jumbotron">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+
+              <div id="metric_league_button_bar">
+                <button type="button" id="ipl" class="btn btn-primary active">IPL</button>
+                <button type="button" id="bbl" class="btn btn-primary">BBL</button>
+                <button type="button" id="blast" class="btn btn-primary">BLAST</button>
+                <button type="button" id="cpl" class="btn btn-primary">CPL</button>
+                <button type="button" id="bpl" class="btn btn-primary">BPL</button>
+                <button type="button" id="psl" class="btn btn-primary">PSL</button>
+              </div>
+
+              <div class="team_button_bar" id="metric_team_button_bar" style="padding-top:10px;">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="interactivePlayerTypeChart">
+          <div class="row">
+              <div class="col-lg-5 teamComposition" id="interactive_batting"></div>
+              <div class="col-lg-5 offset-lg-1 teamComposition" id="interactive_bowling"></div>
+          </div>
+        </div>
+
+      </div>          
+    </section>
+
+
+    <section id="about" class="impactPeriod-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Impact period</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-4 impactPeriod text-center" id="csk_batting_impact">CSK batting impact</div>
+              <div class="col-lg-4 impactPeriod text-center" id="rcb_batting_impact">RCB batting impact</div>
+              <div class="col-lg-4 impactPeriod text-center" id="kxip_batting_impact">KXIP batting impact</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">    
+            <div class="col-lg-6 text-center top_batting" id="impact_top_batting">
+              <span class="top_bottom_heading">Batting impact periods of top ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6 " id="impact_top_batting1"><span class="top_bottom_chart">Chennai Super Kings</span><img src="img/impact_period/top_batting/csk_batting.png"></div>
+                <div class="col-lg-6" id="impact_top_batting2"><span class="top_bottom_chart">Sussex</span><img src="img/impact_period/top_batting/sussex_batting.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="impact_top_batting3"><span class="top_bottom_chart">Adelaide Strikers</span><img src="img/impact_period/top_batting/adelaide_batting.png"></div>
+                <div class="col-lg-6" id="impact_top_batting4"><span class="top_bottom_chart">Rangpur Riders</span><img src="img/impact_period/top_batting/rangpur_batting.png"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center bottom_batting" id="impact_bottom_batting">
+              <span class="top_bottom_heading">Batting impact periods of bottom ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_batting1"><span class="top_bottom_chart">Mumbai Indians</span><img src="img/impact_period/bottom_batting/mi_batting.png"></div>
+                <div class="col-lg-6" id="bottom_batting2"><span class="top_bottom_chart">Melbourne Stars</span><img src="img/impact_period/bottom_batting/melstars_batting.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="bottom_batting3"><span class="top_bottom_chart">Hampshire</span><img src="img/impact_period/bottom_batting/hampshire_batting.png"></div>
+                <div class="col-lg-6" id="bottom_batting4"><span class="top_bottom_chart">Chittagong Vikings</span><img src="img/impact_period/bottom_batting/chittagong_batting.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-4 impactPeriod text-center" id="srh_bowling_impact">SRH bowling impact</div>
+              <div class="col-lg-4 impactPeriod text-center" id="mi_bowling_impact">MI bowling impact</div>
+              <div class="col-lg-4 impactPeriod text-center" id="rcb_bowling_impact">RCB bowling impact</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">    
+            <div class="col-lg-6 text-center top_bowling" id="impact_top_bowling">
+              <span class="top_bottom_heading">Bowling impact periods of top ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6 " id="impact_top_bowling1"><span class="top_bottom_chart">Sunrisers Hyderabad</span><img src="img/impact_period/top_bowling/srh_bowling.png"></div>
+                <div class="col-lg-6" id="impact_top_bowling2"><span class="top_bottom_chart">Trinbago Knight Riders</span><img src="img/impact_period/top_bowling/trinbago_bowling.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="impact_top_bowling3"><span class="top_bottom_chart">Sussex</span><img src="img/impact_period/top_bowling/sussex_bowling.png"></div>
+                <div class="col-lg-6" id="impact_top_bowling4"><span class="top_bottom_chart">Adelaide Strikers</span><img src="img/impact_period/top_bowling/adelaide_bowling.png"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center bottom_batting" id="impact_bottom_batting">
+              <span class="top_bottom_heading">Bowling impact periods of bottom ranked teams</span>
+              <div class="row">
+                <div class="col-lg-6" id="impact_bottom_bowling1"><span class="top_bottom_chart">Delhi Daredevils</span><img src="img/impact_period/bottom_bowling/dd_bowling.png"></div>
+                <div class="col-lg-6" id="impact_bottom_bowling2"><span class="top_bottom_chart">Barbados Tridents</span><img src="img/impact_period/bottom_bowling/barbados_bowling.png"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" id="impact_bottom_bowling3"><span class="top_bottom_chart">Sydney Thunder</span><img src="img/impact_period/bottom_bowling/sydney_thunder_bowling.png"></div>
+                <div class="col-lg-6" id="impact_bottom_bowling4"><span class="top_bottom_chart">Rajasthan Royals</span><img src="img/impact_period/bottom_bowling/rr_bowling.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+    </section>
+
+
+    <section id="about" class="interactiveImpactPeriod-section">
+      <div class="jumbotron">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+
+              <div id="impact_league_button_bar">
+                <button type="button" id="ipl" class="btn btn-primary active">IPL</button>
+                <button type="button" id="bbl" class="btn btn-primary">BBL</button>
+                <button type="button" id="blast" class="btn btn-primary">BLAST</button>
+                <button type="button" id="cpl" class="btn btn-primary">CPL</button>
+                <button type="button" id="bpl" class="btn btn-primary">BPL</button>
+                <button type="button" id="psl" class="btn btn-primary">PSL</button>
+              </div>
+
+              <div class="impact_team_button_bar" id="impact_team_button_bar" style="padding-top:10px;">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="interactiveImpactPeriodChart">
+          <div class="row">
+              <div class="col-lg-5 interactiveImpactPeriod" id="impact_batting"></div>
+              <div class="col-lg-5 offset-lg-1 interactiveImpactPeriod" id="impact_bowling"></div>
+          </div>
+        </div>
+
+      </div>          
+    </section>
+
+
+
+    <section id="about" class="xfactor-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">X-factor performances</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-6 xfactor text-center" id="batting_xfactor">AB De Villiers in RCB vs DD</div>
+              <div class="col-lg-6 xfactor text-center" id="bowling_xfactor">Rashid Khan in SRH vs KKR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Top contributions to winning and losing causes</h2>
+            <div id="top_bottom_xfactor"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-8 mx-auto xfactor text-center" id="xfactor_top_bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron"> 
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-6 xfactor text-center" id="xfactor_team_batting"></div>
+              <div class="col-lg-6 xfactor text-center" id="xfactor_team_bowling"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <section id="about" class="analysis-section">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Who needs what to win ?</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron"> 
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <div id="analysis_league_button_bar">
+                <button type="button" id="ipl" class="btn btn-primary active">IPL</button>
+                <!--
+                <button type="button" id="bbl" class="btn btn-primary">BBL</button>
+                <button type="button" id="blast" class="btn btn-primary">BLAST</button>
+                <button type="button" id="cpl" class="btn btn-primary">CPL</button>
+                <button type="button" id="bpl" class="btn btn-primary">BPL</button>
+                <button type="button" id="psl" class="btn btn-primary">PSL</button>
+                -->
+              </div>
+
+              <div class="team_button_bar" id="analysis_team_button_bar" style="padding-top:10px;">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container justify-content-center text-center">
+          <div class="row justify-content-center text-center" class="analysis" style="padding-top:20px;">
+
+            <div class="col-lg-12 col-12 text-center analysis_graphic" id="analysis_graphic">
+              <div class="row">
+                <div class="col-lg-5 analysis_batting" style="border-style:solid;border-width: 1px;">
+
+                  <div class="row">
+                    <div class="col-lg-12 bold_text analysis_color_text">Batting</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-6 text-center analysis_types bold_text" id="analysis_batting_metric_title"></div>
+                    <div class="col-lg-6 col-6 text-center analysis_impact bold_text" id="analysis_batting_impact_title"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-6 text-center analysis_types" id="analysis_batting_metric"></div>
+                    <div class="col-lg-6 col-6 text-center analysis_impact" id="analysis_batting_impact"></div>
+                  </div>
+
+                  <div class="row justify-content-center text-center">
+                    <div class="col-lg-10">
+                      <table class="table table-bordered table-hover table-striped table-sm">
+                        <thead>
+                          <tr class="table-primary">
+                            <th scope="col" id="analysis_batting_team_title"></th>
+                          </tr>
+                        </thead>
+                        <tbody class="missing_list" id="batting_shortcoming">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-lg-1">
+                </div>
+
+                
+                <div class="col-lg-5 analysis_bowling" style="border-style:solid;border-width: 1px;">
+
+                  <div class="row">
+                    <div class="col-lg-12 bold_text analysis_color_text">Bowling</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-6 text-center analysis_types bold_text" id="analysis_bowling_metric_title"></div>
+                    <div class="col-lg-6 col-6 text-center analysis_impact bold_text" id="analysis_bowling_impact_title"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-6 text-center analysis_types" id="analysis_bowling_metric"></div>
+                    <div class="col-lg-6 col-6 text-center analysis_impact" id="analysis_bowling_impact"></div>
+                  </div>
+
+                  <div class="row justify-content-center text-center">
+                    <div class="col-lg-10">
+                      <table class="table table-bordered table-hover table-striped table-sm">
+                        <thead>
+                          <tr class="table-primary">
+                            <th scope="col" id="analysis_bowling_team_title"></th>
+                          </tr>
+                        </thead>
+                        <tbody class="missing_list" id="bowling_shortcoming">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section id="about" class="analysis-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-center">Scouting</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Top order aggressors</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Batsman</td>
+                    <td>Runs</td>
+                    <td>Strike Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Arun Karthik</td>
+                    <td>319</td>
+                    <td>158</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Anirudha</td>
+                    <td>184</td>
+                    <td>140</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Shahrukh Khan</td>
+                    <td>293</td>
+                    <td>140</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Kaushik Gandhi</td>
+                    <td>239</td>
+                    <td>150</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Hari Nishanth</td>
+                    <td>250</td>
+                    <td>150</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>Abhishek Reddy</td>
+                    <td>163</td>
+                    <td>145</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>UM Patel</td>
+                    <td>201</td>
+                    <td>153</td>
+                    <td>SMAT</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Middle order accumulators</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Batsman</td>
+                    <td>Runs</td>
+                    <td>Strike Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>S Dinesh</td>
+                    <td>190</td>
+                    <td>138</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>N Jagadeesan</td>
+                    <td>348</td>
+                    <td>130</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Suresh Kumar</td>
+                    <td>218</td>
+                    <td>132</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Pavan Deshpande</td>
+                    <td>196</td>
+                    <td>143</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Shoaib Manager</td>
+                    <td>157</td>
+                    <td>141</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Chipli</td>
+                    <td>192</td>
+                    <td>138</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>KH Devdhar</td>
+                    <td>411</td>
+                    <td>137</td>
+                    <td>SMAT</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>B Vivek Singh</td>
+                    <td>286</td>
+                    <td>142</td>
+                    <td>SMAT</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Death overs hitters</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Batsman</td>
+                    <td>Runs</td>
+                    <td>Strike Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>J Kousik</td>
+                    <td>167</td>
+                    <td>148</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>Sathish</td>
+                    <td>220</td>
+                    <td>193</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>R Vivek</td>
+                    <td>262</td>
+                    <td>208</td>
+                    <td>TNPL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Powerplay strikers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Bowler</td>
+                    <td>Wickets</td>
+                    <td>Economy Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>S Ajith Ram</td>
+                    <td>11</td>
+                    <td>5.9</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>AA Sheth</td>
+                    <td>14</td>
+                    <td>7.0</td>
+                    <td>SMAT</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>DG Pathania</td>
+                    <td>11</td>
+                    <td>7.2</td>
+                    <td>SMAT</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>K Vignesh</td>
+                    <td>11</td>
+                    <td>7.3</td>
+                    <td>SMAT</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Middle order containers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Bowler</td>
+                    <td>Wickets</td>
+                    <td>Economy Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Chakravathi</td>
+                    <td>9</td>
+                    <td>4.7</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Rajkumar</td>
+                    <td>10</td>
+                    <td>7.3</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>S Manigandan</td>
+                    <td>7</td>
+                    <td>5.4</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Mahesh Patel</td>
+                    <td>12</td>
+                    <td>6.0</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>Anand Doddamani</td>
+                    <td>8</td>
+                    <td>5.9</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>LI Meriwala</td>
+                    <td>13</td>
+                    <td>8.0</td>
+                    <td>SMAT</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td>S Bhati</td>
+                    <td>12</td>
+                    <td>7.0</td>
+                    <td>SMAT</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Death overs strikers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-primary">
+                    <td>Bowler</td>
+                    <td>Wickets</td>
+                    <td>Economy Rate</td>
+                    <td>League</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>Abhishek Tanwar</td>
+                    <td>14</td>
+                    <td>9.0</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>Athisayaraj Davidson</td>
+                    <td>12</td>
+                    <td>8.9</td>
+                    <td>TNPL</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>Vyshak V</td>
+                    <td>11</td>
+                    <td>9.3</td>
+                    <td>KPL</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>RD Thakur</td>
+                    <td>11</td>
+                    <td>8.3</td>
+                    <td>SMAT</td>
+                  </tr>
+                  <tr class="table-info">
+                    <td>T Natarajan</td>
+                    <td>11</td>
+                    <td>4.7</td>
+                    <td>TNPL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </section>
+
+
+    <section id="about" class="additionalnotes-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <p>
+              Note: Mathematical equations are avoided in this article. Contact the author for more details regarding the underlying mathematical models and the complete list of players with numbers and other information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; Your Website 2018</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>-->
+
+    <!-- D3js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <!--
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    -->
+    <!-- Custom scripts for this template -->
+    <script src="js/grayscale.js"></script>
+    
+    <script src="js/plot_metric_chart_light.js"></script>
+    <script src="js/plot_impact_chart_light.js"></script>
+    <script src="js/plot_xfactor_we_light.js"></script>
+    
+    <script src="js/plot_analysis_graphic_light.js"></script>
+</html>
