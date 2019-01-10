@@ -24,7 +24,6 @@ var impactLegendShapeSize = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWi
 var impactLegendShapePaddingSize = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([35, 75]);
 var impactLegendShapeOffsetSize = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([100, 180]);
 
-
 /* For screenshot images */
 /*
 var runs_radius_factor = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([25, 25]);
@@ -342,8 +341,8 @@ function plot_batting_chart(id, file, league, width, height) {
   var tooltip = d3.select("body")
         .append("div")
         .attr("class", "tooltip1")
-        .style("position", "absolute")
-        .style("z-index", "10")
+        /*.style("position", "absolute")*/
+        //.style("z-index", "10")
         .style("visibility", "hidden");
 
   d3.csv(file, function(error, data) {
@@ -381,6 +380,7 @@ function plot_batting_chart(id, file, league, width, height) {
         .attr("height", function(d) { return y(d.start_sr) - y(d.end_sr); })
         .style("fill", function(d) { return batsman_type_colors(d.color_id); })
         .style("opacity", 0.45)
+        .style("z-index", "2")
         .style("stroke", "black");
 
     svg.selectAll(".text")
@@ -390,6 +390,7 @@ function plot_batting_chart(id, file, league, width, height) {
         .attr("y", function(d) { return y(d.end_sr+1); })
         .text(function(d) { return d.type;})
         .style("font-weight", "bold");
+        //.style("z-index", "4");
 
   });
 
@@ -458,6 +459,8 @@ function plot_batting_chart(id, file, league, width, height) {
         .style("stroke", "black")
         .style("stroke-width", "1.0px")
         .style("opacity", 0.40)
+        /*.style("position", "relative")*/
+        .style("z-index", "10")
         .on("mouseover", function(d){
           //return tooltip.text(d.city).style("visibility", "visible");
           d3.select(this).style('stroke', 'black').style("opacity", 1.0).style("stroke-width", 2).style("stroke-opacity", 1.0);

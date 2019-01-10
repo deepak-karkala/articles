@@ -6,8 +6,8 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 */
 
 var width_scale_factor = 0.95;
-var height_scale_factor = 0.65;
-var margin = {right:20, left:40, top:20, bottom:30};
+var height_scale_factor = 0.75;
+var margin = {right:10, left:40, top:20, bottom:30};
 
 var bb = d3.select('#batting_xfactor').node().offsetWidth;
 base_width = bb*width_scale_factor - margin.left - margin.right;
