@@ -69,9 +69,15 @@ var map;
         if (data_step_id==1) {
             idname = "#country_water_scarcity";
             d3.select(idname).select("svg").remove();
+            div = document.getElementById("data_source3");
+            div.innerHTML = "";
 
         } else if (data_step_id==2) {
-    
+            idname = "#country_water_scarcity";
+            d3.select(idname).select("svg").remove();
+            div = document.getElementById("data_source3");
+            div.innerHTML = "";
+
             var width_scale_factor = 0.80;
             var height_scale_factor = 0.90;
             var margin = {right:10, left:10, top:10, bottom:10};
@@ -101,6 +107,7 @@ var map;
                 zoom = 1;
                 if (base_width >= min_width_plot_map) {
                     map = plot_map("india_water_map", center, zoom);
+                    document.getElementById('india_water_map').className = 'india_water_map';
                 }
             } else {
                 if (base_width >= min_width_plot_map) {
@@ -115,6 +122,8 @@ var map;
                 }
             }
 
+            div = document.getElementById("data_source4");
+            div.innerHTML = '<a href="https://water.org/our-impact/india/"><span class="data_source_link">https://water.org/our-impact/india/</span></a>';
         } else if (data_step_id==3) {
             var width_scale_factor = 0.80;
             var height_scale_factor = 0.90;
@@ -128,7 +137,6 @@ var map;
 
             //div = document.getElementById("india_title");
             //div.innerHTML = "Clean water and sanitation";
-            console.log(base_width);
 
             percent = 40;
             plot_pie_transition(idname, percent, base_width, base_height);
@@ -150,6 +158,8 @@ var map;
                 document.getElementById('india_water_map').className = 'india_water_map';
             }
 
+            div = document.getElementById("data_source4");
+            div.innerHTML = '<a href="https://water.org/our-impact/india/"><span class="data_source_link">https://water.org/our-impact/india/</span></a>';
         }
     }
 
@@ -215,7 +225,7 @@ var map;
         var background = g.append("path")
             .datum({endAngle: tau})
             //.style("fill", "#bdbdbd")
-            .style("fill", "white")
+            .style("fill", "#a9a9a9")
             .style("stroke", "black")
             .attr("d", arc);
 

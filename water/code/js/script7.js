@@ -65,6 +65,16 @@
         if (data_step_id==1) {
             idname = "#circle_zoom_out";
             d3.select(idname).select("svg").remove();
+            idname = "#country_water_agriculture";
+            d3.select(idname).select("svg").remove();
+
+            div = document.getElementById("data_source5");
+            div.innerHTML = "";
+            div = document.getElementById("farmer_fact");
+            if (div!==null) {
+              console.log(div);
+              div.innerHTML = "";
+            }
 
             var width_scale_factor = 1.0;
             var height_scale_factor = 0.70;
@@ -83,6 +93,10 @@
                 elem.parentNode.removeChild(elem);
             }
             plot_bar(idname, file, base_width, base_height);
+
+            div = document.getElementById("data_source7");
+            div.innerHTML = '<a href="https://planetsave.com/2009/03/20/10-simple-ways-to-conserve-water/"><span class="data_source_link">10 simple ways to conserve water</span></a>';
+
         } else if (data_step_id==2) {
 
             width_scale_factor = 0.80;
@@ -105,6 +119,11 @@
                                      'one year of water used by an American family.'+
                                 '</div>'+
                             '</div>';
+
+            document.getElementById('time_to_act').setAttribute("style","height:550px");
+            div = document.getElementById("data_source7");
+            div.innerHTML = '<a href="https://www.npr.org/templates/story/story.php?storyId=91363837"><span class="data_source_link">Water-Thirsty Golf Courses Need to Go Green</span></a>';
+
         } else if (data_step_id==3) {
             var elem = document.getElementById('lifestyle');
             if (elem!==null) {
@@ -119,6 +138,10 @@
             div.innerHTML = '<div id="shower_fact" class="row shower_fact text-center">'+
                              '<div class="col-lg-12">An average shower head would have used '+ water_since_page_load_litres +
             ' litres (' + water_since_page_load_gallons + ' gallons) of water.</div></div>';
+
+            //document.getElementById('time_to_act').setAttribute("style","height:550px");
+            div = document.getElementById("data_source7");
+            div.innerHTML = "";
 
         } else if (data_step_id==4) {
             var elem = document.getElementById('shower_fact');

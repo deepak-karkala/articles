@@ -50,10 +50,12 @@ function plot_country_water_scarcity(idname, file, width, height) {
         .domain([1, 2, 3, 4, 5])
         .range(colorScheme);
 
+    console.log(height);
+
     // Legend
     var g = svg.append("g")
         .attr("class", "legendThreshold")
-        .attr("transform", "translate(20,20)");
+        .attr("transform", "translate(20,"+20+")");
     g.append("text")
         .attr("class", "caption")
         .attr("x", 0)
@@ -69,6 +71,8 @@ function plot_country_water_scarcity(idname, file, width, height) {
         .scale(colorScale);
     svg.select(".legendThreshold")
         .call(legend);
+        //.attr("x", 0)
+        //.attr("y", 300);
 
     // Load external data and boot
     d3.queue()

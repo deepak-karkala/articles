@@ -104,20 +104,14 @@
 	}
 	function handleProgressTransition(data_step_id, progress) {
 
-		//var div = document.getElementById("test_progress");
-		//div.innerHTML = data_step_id + "--" + progress;
-
 		if (data_step_id==1) {
 
 
 		} else if (data_step_id == 2) {
-			if (1) {  // (Math.abs(progress-prev_progress_water_opacity) >= min_change_water_opacity) {
+			if (1) {
 				let water_opacity = Math.max(0.20, 1.0-progress);
 
 				d3.select("#circle_pack_water").selectAll("circle")
-				//.attr("opacity", 1)
-				//.transition()
-					//.duration(100)
 					.attr("opacity", function(d,i) {
 						if (d.type=="sea") {
 							return water_opacity;
@@ -126,16 +120,12 @@
 						}
 					});
 			}
-			//prev_progress_water_opacity = parseInt(data_step_id)+parseFloat(progress));
 
 		} else if (data_step_id == 3) {
-			if (1) {  // (Math.abs(progress-prev_progress_water_opacity) >= min_change_water_opacity) {
+			if (1) { 
 				water_opacity = Math.max(0.60, 1.0-progress);
 
 				d3.select("#circle_pack_water").selectAll("circle")
-				//.attr("opacity", 1)
-				//.transition()
-					//.duration(100)
 					.attr("opacity", function(d,i) {
 						if (d.type=="fresh_nonaccessible") {
 							return water_opacity;
@@ -147,23 +137,6 @@
 					});
 			}
 			prev_progress_water_opacity = progress;
-/*		
-		} else if (data_step_id == 6) {
-
-
-			for (var i=0; i<10850; i++) {
-				setTimeout(function(){
-					div = document.getElementById("year_title");
-					div.innerHTML = data_step_id + "--" + i;
-				},i*1000);
-			}
-
-			d3.select("#circle_pack_population").selectAll("circle")
-				.transition()
-					.duration(function(d, i) { return i; })
-					.attr('opacity', function(d, i) { return 1; } );
-
-*/
 		} else if ((data_step_id >= 7) && (data_step_id <= 10)) {
 
 			year_values = [-8000, -6500, -5000, -4000, -3000, -2000, -1000,  -500,     1,
@@ -258,6 +231,11 @@
 						return 0;
 					}
 				});
+		} else if (data_step_id == 13) {
+			idname = "#circle_pack_water";
+            d3.select(idname).select("svg").remove();
+            idname = "#circle_pack_population";
+            d3.select(idname).select("svg").remove();
 		}
 
 

@@ -73,25 +73,35 @@
         idname = "#population_matrix";
         var bb = d3.select(idname).node().offsetWidth;
         base_width = bb*width_scale_factor - margin.left - margin.right;
-        base_height = 700;
         var scale_range = d3.scaleLinear().domain([90, 740]).range([15e6, 3e6]);
         var scale = scale_range(base_width); //3e6; //1e7/3;
 
 
         if (data_step_id == 1) {
+            
+
             plot_population_matrix(scale);
+        } else if (data_step_id == 2 ) {
+            div = document.getElementById("data_source2");
+            div.innerHTML = '<a href="http://www.un.org/en/sections/issues-depth/water/"><span class="data_source_link">http://www.un.org/en/sections/issues-depth/water/</span></a></br>(WHO/UNICEF 2015)';
         } else if (data_step_id == 3 ) {
             var population_thresh1 = 892e6 / scale;
             delay_factor = 4;
             plot_population_focus(population_thresh1, delay_factor);
+            div = document.getElementById("data_source2");
+            div.innerHTML = '<a href="http://www.unwater.org/publication_categories/sdg-6-synthesis-report-2018-on-water-and-sanitation/"><span class="data_source_link">http://www.unwater.org/publication_categories/sdg-6-synthesis-report-2018-on-water-and-sanitation/</span></a></br>';
         } else if (data_step_id == 4 ) {
             var population_thresh2 = 2.1e9 / scale;
             delay_factor = 2;
             plot_population_focus(population_thresh2, delay_factor);
+            div = document.getElementById("data_source2");
+            div.innerHTML = '<a href="http://www.un.org/en/sections/issues-depth/water/"><span class="data_source_link">http://www.un.org/en/sections/issues-depth/water/</span></a></br>(WHO/UNICEF 2017)';
         } else if (data_step_id == 5 ) {
             var population_thresh3 = 4.5e9 / scale;
             delay_factor = 1;
             plot_population_focus(population_thresh3, delay_factor);
+            div = document.getElementById("data_source2");
+            div.innerHTML = '<a href="http://www.un.org/en/sections/issues-depth/water/"><span class="data_source_link">http://www.un.org/en/sections/issues-depth/water/</span></a></br>(WHO/UNICEF 2017)';
         }
     }
     function plot_population_focus(thresh, delay_factor) {
@@ -119,7 +129,9 @@
         
         var bb = d3.select(idname).node().offsetWidth;
         base_width = bb*width_scale_factor - margin.left - margin.right;
-        base_height = 700; //bb*height_scale_factor - margin.top - margin.bottom;
+        //base_height = 700; //bb*height_scale_factor - margin.top - margin.bottom;
+        var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        base_height = viewport_height*0.90;
 
         var num_circles_per_row = d3.scaleLinear().domain([90, 740]).range([8, 50]);
         var scale_range = d3.scaleLinear().domain([90, 740]).range([18e6, 3e6]);

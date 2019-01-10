@@ -62,15 +62,26 @@
 
 	}
 	function handleStepTransition(data_step_id) {
-		if (data_step_id==2) {
+		if (data_step_id==1) {
+			idname = "#population_matrix";
+			d3.select(idname).select("svg").remove();
+			div = document.getElementById("data_source2");
+            div.innerHTML = "";
+
+		} else if (data_step_id==2) {
 			var width_scale_factor = 0.80;
-			var height_scale_factor = 0.70;
-			var margin = {right:10, left:10, top:10, bottom:10};
+			var height_scale_factor = 1.20;
+			var margin = {right:10, left:10, top:100, bottom:10};
 
 			idname = "#country_water_scarcity";
 			var bb = d3.select(idname).node().offsetWidth;
-			base_width = Math.max(200, bb*width_scale_factor - margin.left - margin.right);
-			base_height = 500; //bb*height_scale_factor - margin.top - margin.bottom;
+
+			//base_width = bb*width_scale_factor - margin.left - margin.right;
+			//base_height = bb*height_scale_factor - margin.top - margin.bottom;
+			var viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			base_width = viewport_width*width_scale_factor - margin.left - margin.right;
+			var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+			base_height = viewport_height*height_scale_factor - margin.top - margin.bottom;
 			file = "data/water_scarcity_score.csv";
 
 			d3.select(idname).select("svg").remove();
@@ -78,25 +89,11 @@
 			//plot_country_water_scarcity_mapbox("country_water_scarcity");
 
 		} else if (data_step_id==2) {
-			/*
-			width_scale_factor = 0.80;
-			height_scale_factor = 0.70;
-			margin = {right:10, left:10, top:10, bottom:10};
-			idname = "#country_water_scarcity";
-			var bb = d3.select(idname).node().offsetWidth;
-			base_width = bb*width_scale_factor - margin.left - margin.right;
-			base_height = bb*height_scale_factor - margin.top - margin.bottom;
 
-			var p0 = [base_width/2, base_height/2, 500],
-				//p1 = [160, 200, 120];
-				p1 = [base_width/2, base_height/2, 300];
-
-			//var p0 = [base_width/2, base_height/2],
-			//	p1 = [base_width/2 + 100, base_height/2-100];
-
-			d3.select(idname).select("svg") //.select(".countries")
-				.call(transition, p0, p1, base_width, base_height);
-			*/
+		}
+		if (data_step_id > 1) {
+			div = document.getElementById("data_source3");
+			div.innerHTML = '<a href="https://www.wri.org/blog/2015/08/ranking-world-s-most-water-stressed-countries-2040"><span class="data_source_link">Ranking the World’s Most Water-Stressed Countries in 2040</span></a>';
 		}
 	}
 

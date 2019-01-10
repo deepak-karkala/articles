@@ -94,10 +94,31 @@
             idname = "#country_water_agriculture";
             d3.select(idname).select("svg").remove();
 
-            idname = "#country_water_agriculture_gauge";
+            div = document.getElementById("india_water_stat");
+            div.innerHTML = "";
+            div = document.getElementById("india_water_text");
+            div.innerHTML = "";
+            div = document.getElementById("data_source4");
+            div.innerHTML = "";
+            document.getElementById('india_water_map').classList.remove('india_water_map');
+
+            idname = "#india_water_plot";
+            d3.select(idname).select("svg").remove();
+            idname = "#india_water_plot";
+            if (map!==undefined) {
+                map.remove();
+            }
+
+            //idname = "#country_water_agriculture_gauge";
+            //var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            //base_height = Math.max(500, viewport_height*0.85);
+            //document.getElementById('time_to_act').setAttribute("style","height:"+base_height+"px");
+
             if (!d3.select(idname).empty()) {
                 plot_water_gauge(idname);
             }
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="https://www.orfonline.org/expert-speak/if-80-water-consumption-in-india-is-for-agriculture-why-is-it-unregulated-and-inefficient/"><span class="data_source_link">If 80% water consumption in India is for agriculture, why is it unregulated and inefficient?</span></a>';
 
         } else if (data_step_id==2) {
             remove_id_text("country_water_agriculture");
@@ -116,7 +137,10 @@
             idname = "#country_water_agriculture";
             var bb = d3.select(idname).node().offsetWidth;
             base_width = bb*width_scale_factor - margin.left - margin.right;
-            base_height = bb*height_scale_factor - margin.top - margin.bottom;
+
+            //base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            base_height = viewport_height*0.85;
 
             d3.select(idname).select("svg").remove();
             file = "data/india_population_circlepacking.csv";
@@ -127,6 +151,9 @@
             var india_population_radius_factor = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([4, 6]);
             draw_india_circles_pack(idname, file, base_width, base_height, fill_color, stroke_color, india_population_radius_factor, init_opacity, duration);
             
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="https://scroll.in/article/840655/farm-crisis-why-should-bharat-have-to-feed-india-at-its-cost"><span class="data_source_link">Farm crisis: Why should Bharat have to feed India at its cost?</span></a>';
+
         } else if (data_step_id==3) {
             remove_id_text("country_water_agriculture");
             var width_scale_factor = 1.0;
@@ -136,7 +163,10 @@
             idname = "#country_water_agriculture";
             var bb = d3.select(idname).node().offsetWidth;
             base_width = bb*width_scale_factor - margin.left - margin.right;
-            base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            
+            //base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            base_height = viewport_height*0.85;
 
             //d3.select(idname).select("svg").remove();
             file = "data/india_gdp_circlepacking.csv";
@@ -147,6 +177,9 @@
             india_population_radius_factor = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([4, 6]);
             draw_india_circles_pack(idname, file, base_width, base_height, fill_color, stroke_color, india_population_radius_factor, init_opacity, duration);
             
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="https://scroll.in/article/840655/farm-crisis-why-should-bharat-have-to-feed-india-at-its-cost"><span class="data_source_link">Farm crisis: Why should Bharat have to feed India at its cost?</span></a>';
+
         } else if (data_step_id==4) {
             remove_id_text("country_water_agriculture");
             var width_scale_factor = 1.0;
@@ -156,13 +189,19 @@
             idname = "#country_water_agriculture";
             var bb = d3.select(idname).node().offsetWidth;
             base_width = bb*width_scale_factor - margin.left - margin.right;
-            base_height = bb*height_scale_factor - margin.top - margin.bottom;
+
+            //base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            base_height = viewport_height*0.80;
 
             d3.select(idname).select("svg").remove();
 
             if (base_width >= 200) {
                 hexbin(idname, base_width, base_height);
             }
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="https://scroll.in/article/840655/farm-crisis-why-should-bharat-have-to-feed-india-at-its-cost"><span class="data_source_link">Farm crisis: Why should Bharat have to feed India at its cost?</span></a>';
+
         } else if (data_step_id==5) {
             //remove_id_text("country_water_agriculture");
             var width_scale_factor = 1.0;
@@ -171,7 +210,10 @@
             idname = "#country_water_agriculture";
             var bb = d3.select(idname).node().offsetWidth;
             base_width = bb*width_scale_factor - margin.left - margin.right;
-            base_height = bb*height_scale_factor - margin.top - margin.bottom;
+
+            //base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            base_height = viewport_height*0.80;
 
             if (base_width >= 200) {
                 d3.select(idname).select(".hexagon").selectAll("path")
@@ -184,14 +226,23 @@
                             }
                         });
             }
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="http://www.scind.org/286/Social-Issues/farmers-suicide-an-indian-perspective.html"><span class="data_source_link">Farmers Suicide: An Indian Perspective</span></a>';
+
 
         } else if (data_step_id==6) {
             idname = "#country_water_agriculture";
             d3.select(idname).select("svg").remove();
 
+            document.getElementById('country_water_agriculture').setAttribute("style","height:550px");
+
             div = document.getElementById("country_water_agriculture");
             //div.innerHTML = "Around 15,000 farmers commit suicide every year accounting for around 10% of all suicides in India";
             div.innerHTML = '<div id="farmer_fact" class="row farmer_fact text-center"><div class="col-lg-12"><h3>Around 15,000 farmers commit suicide every year accounting for about 10% of all suicides in India</h3></div></div>';
+
+            div = document.getElementById("data_source5");
+            div.innerHTML = '<a href="http://www.ipsnews.net/2018/03/water-scarcity-indias-silent-crisis/"><span class="data_source_link">Water Scarcity: India’s Silent Crisis</span></a>';
+
         }
     }
 
