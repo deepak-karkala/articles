@@ -109,7 +109,7 @@
                 map.remove();
             }
 
-            //idname = "#country_water_agriculture_gauge";
+            idname = "#country_water_agriculture_gauge";
             //var viewport_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             //base_height = Math.max(500, viewport_height*0.85);
             //document.getElementById('time_to_act').setAttribute("style","height:"+base_height+"px");

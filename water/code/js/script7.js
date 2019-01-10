@@ -62,20 +62,7 @@
 
     }
     function handleStepTransition(data_step_id) {
-        if (data_step_id==1) {
-            idname = "#circle_zoom_out";
-            d3.select(idname).select("svg").remove();
-            idname = "#country_water_agriculture";
-            d3.select(idname).select("svg").remove();
-
-            div = document.getElementById("data_source5");
-            div.innerHTML = "";
-            div = document.getElementById("farmer_fact");
-            if (div!==null) {
-              console.log(div);
-              div.innerHTML = "";
-            }
-
+        if (data_step_id==2) {
             var width_scale_factor = 1.0;
             var height_scale_factor = 0.70;
             var margin = {right:40, left:40, top:40, bottom:40};
@@ -97,7 +84,20 @@
             div = document.getElementById("data_source7");
             div.innerHTML = '<a href="https://planetsave.com/2009/03/20/10-simple-ways-to-conserve-water/"><span class="data_source_link">10 simple ways to conserve water</span></a>';
 
-        } else if (data_step_id==2) {
+        } else if (data_step_id==1) {
+
+            idname = "#circle_zoom_out";
+            d3.select(idname).select("svg").remove();
+            idname = "#country_water_agriculture";
+            d3.select(idname).select("svg").remove();
+
+            div = document.getElementById("data_source5");
+            div.innerHTML = "";
+            div = document.getElementById("farmer_fact");
+            if (div!==null) {
+              console.log(div);
+              div.innerHTML = "";
+            }
 
             width_scale_factor = 0.80;
             height_scale_factor = 0.70;
@@ -164,7 +164,7 @@
             step: '.scroll__text7 .step7',
             progress: 'true',
             debug: false,
-            offset: 0.50,
+            offset: 0.70,
         })
             .onStepEnter(handleStepEnter)
             .onContainerEnter(handleContainerEnter)
