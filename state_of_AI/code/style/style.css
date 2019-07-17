@@ -401,3 +401,83 @@ p {
   color: #f58231;
   text-align: center;
 }
+
+/* Tooltip */
+
+.tooltip1 {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 1vh;
+  position: absolute;           
+  text-align: center;           
+  /*width: 320px;
+  height: 360px;*/                
+  padding: 10px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 0px;      
+  border-radius: 2px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);     
+}
+
+.profile_name {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.profile_position {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.profile_view {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.profile_source {
+  font-size: 0.75rem;
+}
+.expert_views {
+  background-color: black;
+}
+
+.profile_image img {
+    height: auto;
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    margin: 0.05em 0;
+    padding: 0.05em 5px;
+    line-height: 1.45;
+    position: relative;
+    color: black; /*#383838;*/
+}
+
+blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 40px;
+    position: absolute;
+    left: -15px;
+    top: -20px;
+    color: #7a7a7a;
+}
+
