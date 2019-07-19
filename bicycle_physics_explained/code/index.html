@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scrollama: Sticky Side Example</title>
+	<meta name="description" content="Scrollama: Sticky Side Example">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='style/style.css'>
+	<link rel="stylesheet" href="style/rangeslider.css">
+    <link rel="stylesheet" href="style/lj-slider.css">
+    <link rel="stylesheet" href="style/jquery-ui.css">
+    <link rel="stylesheet" href="style/jquery-ui.structure.css">
+    <link rel="stylesheet" href="style/jquery-ui.theme.css">
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<!-- Navigation -->
+    <!--<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container">
+        <a class="nav-link js-scroll-trigger" href="#page-top">HOME</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <!--<i class="fa fa-bars"></i>-->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+          	<!--
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+       -->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="http://deepak-karkala-portfolio.herokuapp.com/">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <!--
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 col-sm-10 col-12 mx-auto">
+              <h1 class="brand-heading">Bicycling Physics Explained</h1>
+              <p class="intro-text text-center">An explanation of how the seemingly impossible superman position on the bike without pedalling can beat the rest of the competitors pedalling hard.
+                <br></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <section class="description" id="introduction">
+		<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 col-sm-10 col-12 mx-auto text-center">
+          	<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales elit consequat massa sagittis, sit amet lobortis elit vestibulum. Aenean non erat elementum, blandit neque ac, maximus enim. Duis mattis mattis eros.
+            </p>
+			<video class="video-demo" preload="auto" autoplay="autoplay" loop="loop" >
+			    <source src="images/superman_demo.mp4" type="video/mp4"></source>
+			</video>
+            <p>
+            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales elit consequat massa sagittis, sit amet lobortis elit vestibulum. Aenean non erat elementum, blandit neque ac, maximus enim. Duis mattis mattis eros. Suspendisse potenti. Nulla sit amet lacus non ipsum feugiat egestas. Fusce vehicula rutrum est. Donec non nulla accumsan, sagittis libero molestie, porta neque. Aenean ac euismod mi, bibendum facilisis enim.
+            </p>
+          </div>
+        </div>
+      </div>
+	</section>
+-->
+
+	<main>
+		<!--
+		<section id='intro'>
+			<h1 class='intro__hed'>Sticky Side Example</h1>
+			<p class='intro__dek'>
+				Start scrolling to see how it works.
+			</p>
+		</section>
+		-->
+
+		<section id='scrolly'>
+			
+			<article>
+				<div class='step' data-step='0'>
+					<p></p>
+				</div>
+				<div class='step' data-step='1'>
+					<p>Power from legs -> Work done to overcome forces -> Moves bicycle</p>
+				</div>
+				<div class='step' data-step='2'>
+					<p>Three forces acting against cycling</p>
+				</div>
+				<div class='step' data-step='3'>
+					<p>Rolling Resistance</p>
+					<p>Alter weight to see how it affects rolling resistance</p>
+				</div>
+				<div class='step' data-step='4'>
+					<p>Gravity</p>
+					<p>Alter Slope to see how it affects gravitational force</p>
+				</div>
+				<div class='step' data-step='5'>
+					<p>Aerodynamic drag</p>
+					<p>Alter riding position to see how it affects drag</p>
+				</div>
+				<div class='step' data-step='6'>
+					<p>All forces</p>
+				</div>
+				<div class='step' data-step='7'>
+					<p></p>
+				</div>
+			</article>
+
+			<figure>
+				<div class="container graphic_container">
+					<div class="row">
+						<div class="col-lg-12 text-center slider_text" id="slider_text"></div>
+					</div>
+					<div class="row slider_div">
+						<div class="col-lg-6 text-center mx-auto">
+							<div class="row">
+								<div class="col-lg-12 slider_tag" id="slider_tag"></div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8 text-center mx-auto slider" id="slider"></div>
+							</div>
+							<!--
+							<div class="row">
+								<div class="col-lg-6 text-center mx-auto">
+									<div class="row">
+										<div class="col-lg-12 slider_tag" id="slider_tag"></div>
+										<div class="col-lg-12 slider" id="slider"></div>
+									</div>
+								</div>
+							</div>
+							-->
+							<!--
+							<div class="row">
+								<div class="col-lg-6 slider_tag" id="slider_tag"></div>
+								<div class="col-lg-2 slider_value" id="slider_value"></div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4 text-center mx-auto" id="slider"></div>
+							</div>
+							-->
+						</div>
+					</div>
+					<div class="row graphic_div">
+						<div class="col-lg-12" id="graphic"></div>
+					</div>
+				</div>
+			</figure>
+		</section>
+
+		<section id='outro'></section>
+	</main>
+	
+	<!-- <div class='debug'></div> -->
+	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
+	<script src='scripts/stickyfill.min.js'></script>
+	<script src='scripts/scrollama.min.js'></script>
+	
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://d3js.org/d3-color.v1.min.js"></script>
+	<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src='scripts/rangeslider.js'></script>
+	<script src="scripts/lj-slider.js"></script>
+
+	<script src='scripts/script1.js'></script>
+
+</body>
+
+</html>
