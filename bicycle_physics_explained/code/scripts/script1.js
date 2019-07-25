@@ -85,7 +85,7 @@
         div_slider_tag = document.getElementById("slider_tag");
         div_slider_tag.innerHTML = '';
 
-	    if (data_step_id == 3) {
+	    if (data_step_id == 2) {
 	    	div_slider_text.innerHTML = "Use the slider to see how the rider's weight affects the speed of the bike";
 			div_slider.innerHTML = `<div id="slider-range-min"></div>`;
 
@@ -109,21 +109,93 @@
 	    	div_slider_text.innerHTML = "Use the slider to see how the slope affects the speed of the bike";
 			div_slider.innerHTML = `<div id="slider-range-min"></div>`;
 
-	    	initial_value = 60;
+	    	initial_value = 10;
 			var output = document.getElementById("slider_tag");
-        	output.innerHTML = `Slope: <span class="slider_value">`+initial_value+` kg</span>`;
+        	output.innerHTML = `Slope: <span class="slider_value">`+initial_value+` degrees</span>`;
            	set_range_slider_gravity();
 
            	file = "data/bicycle_position_gravity.csv";
            	idname = "#graphic";
 			transition_duration = [0, 0];
-			end_x = 5;
-			start_y_arr = [200, 150];
-			end_y_arr = [200, 150];
-			max_y = 250;
+			end_x = 10;
+			start_y_arr = [80, 30];
+			G1 = Math.tan(20*Math.PI/180);
+	      	G2 = Math.tan(10*Math.PI/180);
+			end_y_arr = [start_y_arr[0]+70*G1, start_y_arr[1]+70*G2];
+			max_y = 140;
 			user_value = initial_value + ' degrees';
 			type = "gravity";
            	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
+	    
+	    } else if (data_step_id == 6) {
+	    	div_slider_text.innerHTML = "Notice how the seating position affects the drag and thereby speed of the bike";
+
+	    	/*
+	    	div_slider_tag.innerHTML = `<div class="row">
+	    									<div class="col-lg-4">
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_position">Relaxed</span>
+			    									</div>
+		    									</div>
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<img class="drag_image" src="images/casual.jpg">
+			    									</div>
+		    									</div>
+		    									<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_value">C<sub>d</sub>.A = 5.4</span>
+			    									</div>
+		    									</div>
+	    									</div>
+	    									<div class="col-lg-4">
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_position">Aerodynamic</span>
+			    									</div>
+		    									</div>
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<img class="drag_image" src="images/aero.jpg">
+			    									</div>
+		    									</div>
+		    									<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_value">C<sub>d</sub>.A = 3.2</span>
+			    									</div>
+		    									</div>
+	    									</div>
+	    									<div class="col-lg-4">
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_position">Superman</span>
+			    									</div>
+		    									</div>
+	    										<div class="row">
+	    											<div class="col-lg-12">
+			    										<img class="drag_image" src="images/superman.jpeg">
+			    									</div>
+		    									</div>
+		    									<div class="row">
+	    											<div class="col-lg-12">
+			    										<span class="drag_value">C<sub>d</sub>.A = 0.5</span>
+			    									</div>
+		    									</div>
+	    									</div>
+	    								</div>`;
+			*/
+	    	file = "data/bicycle_position_drag.csv";
+           	idname = "#graphic";
+			transition_duration = [0, 0, 0];
+			end_x = 10;
+			start_y_arr = [80, 50, 20];
+			end_y_arr = start_y_arr;
+			max_y = 100;
+			user_value = "";
+			type = "drag";
+           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
+
 	    }
 	}
 
@@ -138,7 +210,9 @@
 		if (type=="rolling") {
 			var height_scale_factor = 0.5;
 		} else if (type=="gravity") {
-			var height_scale_factor = 0.3;
+			var height_scale_factor = 0.5;
+		} else if (type=="drag") {
+			var height_scale_factor = 0.5;
 		}
 		base_height = bb*height_scale_factor - margin.top - margin.bottom;
 		
@@ -149,13 +223,17 @@
 	function plot_bicycle_comparison(id, file, width, height, margin, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type) {
 
 		if (type == "rolling") {
-			line_start_y_arr = [45, 5];
-			line_end_y_arr = [45, 5];
+			line_start_y_arr = [55, 15];
+			line_end_y_arr = [55, 15];
+			max_x = 100;
 		} else if (type =="gravity") {
-			console.log(start_y_arr);
-			console.log(end_y_arr);
-			line_start_y_arr = [45, 5];
-			line_end_y_arr = [45 + end_y_arr[0]-start_y_arr[0], 5 + end_y_arr[1]-start_y_arr[1]];
+			line_start_y_arr = [80, 20];
+			line_end_y_arr = [line_start_y_arr[0] + end_y_arr[0]-start_y_arr[0], line_start_y_arr[1] + end_y_arr[1]-start_y_arr[1]];
+			max_x = 100;
+		} else if (type =="drag") {
+			line_start_y_arr = [65, 35, 5];
+			line_end_y_arr = line_start_y_arr;
+			max_x = 100;
 		}
 
 		var x = d3.scaleLinear()
@@ -180,7 +258,7 @@
 		   		d.start_x = +d.start_x;
 		    });
 
-		    x.domain([0, 100]);
+		    x.domain([0, max_x]);
 		    y.domain([0, max_y]);
 
 		    svg.selectAll(".line")
@@ -189,7 +267,7 @@
 			    .append("line")
 		    	.style("stroke", "black")
 		    	.attr("x1", function(d) {return x(d.start_x);})
-		    	.attr("x2", function(d) {return x(end_x);})
+		    	.attr("x2", function(d) {return x(max_x);})
 		    	.attr("y1", function(d, i) {return y(line_start_y_arr[i]); })
 		    	.attr("y2", function(d, i) {return y(line_end_y_arr[i]); });
 
@@ -201,8 +279,8 @@
 			images.attr("xlink:href", function(d) {return d.url; })
 			  .attr("x", function(d) {return x(d.start_x); })
 			  .attr("y", function(d, i) {return y(start_y_arr[i]); })
-			  .attr("width", 80)
-			  .attr("height", 80)
+			  .attr("width", 60)
+			  .attr("height", 60)
 			  .transition()
 		      	.ease(d3.easeLinear)
 		      	.duration(function(d, i) { return transition_duration[i]; })
@@ -222,12 +300,16 @@
 		      				.duration(function(d, i) { return transition_duration[i]; })
                             .attr("x", function(d) { return x(end_x); })
 		     			 	.attr("y", function(d, i) { return y(end_y_arr[i]); })
-                            .text(function(d,i) { 
-                            	if (i==0) {
-                            		return d.name;
-                            	} else {
-                            		return d.name + ' [' + user_value + ']'; 
-                            	}
+                            .text(function(d,i) {
+                            	if ((type == "rolling") || (type=="gravity")) {
+	                            	if (i==0) {
+	                            		return d.name;
+	                            	} else {
+	                            		return d.name + ' [' + user_value + ']'; 
+	                            	}
+	                            } else if (type == "drag") {
+	                            	return d.name;
+	                            }
                             })
                             .style("fill", "black");
 
@@ -258,7 +340,8 @@
 			start_y_arr = [70, 30];
 			end_y_arr = [70, 30];
 			user_value = W2 + ' kg';
-           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value);
+			type = "rolling";
+           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
 	      },
           range: "min",
 	      max: 120,
@@ -283,22 +366,24 @@
 	      change: function(event, ui) {
            	file = "data/bicycle_position_gravity.csv";
 	      	idname = "#graphic";
-	      	G1 = Math.tan(45); t1 = 2000;
-	      	G2 = Math.tan(ui.value);
+	      	console.log(ui.value);
+	      	G1 = Math.tan(20*Math.PI/180); t1 = 2000;
+	      	G2 = Math.tan(ui.value*Math.PI/180);
 	      	t2 = t1 * Math.sin(Math.atan(G2)) / Math.sin(Math.atan(G1));
 			transition_duration = [t1, t2];
 			end_x = 80;
-			max_y = 250;
-			start_y_arr = [150, 100];
+			max_y = 140;
+			start_y_arr = [80, 30];
 			end_y_arr = [start_y_arr[0]+70*G1, start_y_arr[1]+70*G2];
-			user_value = G2 + ' degrees';
-           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value);
+			user_value = ui.value + ' degrees';
+			type = "gravity";
+           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
 	      },
           range: "min",
-	      max: 70,
-	      min: 10,
+	      max: 40,
+	      min: 0,
 	      step: 5,
-	      value: 60,
+	      value: 10,
 	    });
 	}
 
