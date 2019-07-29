@@ -85,7 +85,7 @@
         div_slider_tag = document.getElementById("slider_tag");
         div_slider_tag.innerHTML = '';
 
-	    if (data_step_id == 2) {
+	    if (data_step_id == 1) {
 	    	div_slider_text.innerHTML = "Use the slider to see how the rider's weight affects the speed of the bike";
 			div_slider.innerHTML = `<div id="slider-range-min"></div>`;
 
@@ -105,7 +105,7 @@
 			type = "rolling";
            	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
 
-	    } else if (data_step_id == 4) {
+	    } else if (data_step_id == 3) {
 	    	div_slider_text.innerHTML = "Use the slider to see how the slope affects the speed of the bike";
 			div_slider.innerHTML = `<div id="slider-range-min"></div>`;
 
@@ -127,7 +127,7 @@
 			type = "gravity";
            	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
 	    
-	    } else if (data_step_id == 6) {
+	    } else if (data_step_id == 5) {
 	    	div_slider_text.innerHTML = "Notice how the seating position affects the drag and thereby speed of the bike";
 
 	    	/*
@@ -195,7 +195,7 @@
 			user_value = "";
 			type = "drag";
            	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
-
+           	set_button_drag();
 	    }
 	}
 
@@ -233,7 +233,7 @@
 		} else if (type =="drag") {
 			line_start_y_arr = [65, 35, 5];
 			line_end_y_arr = line_start_y_arr;
-			max_x = 100;
+			max_x = 90;
 		}
 
 		var x = d3.scaleLinear()
@@ -258,7 +258,7 @@
 		   		d.start_x = +d.start_x;
 		    });
 
-		    x.domain([0, max_x]);
+		    x.domain([0, 100]);
 		    y.domain([0, max_y]);
 
 		    svg.selectAll(".line")
@@ -314,6 +314,26 @@
                             .style("fill", "black");
 
 		});
+	}
+
+	function set_button_drag() {
+		var output = document.getElementById("slider_tag");
+        output.innerHTML = `<button class="ui-button ui-widget ui-corner-all">Play animation</button>`;
+	    $( "button" ).click( function( event ) {
+	    	file = "data/bicycle_position_drag.csv";
+           	idname = "#graphic";
+           	t1 = 3000; cda1 = 5.4;
+           	cda2 = 3.2; t2 = t1 * cda2 / cda1;
+           	cda3 = 0.91; t3 = t1 * cda3 / cda1;
+			transition_duration = [t1, t2, t3];
+			end_x = 70;
+			start_y_arr = [80, 50, 20];
+			end_y_arr = start_y_arr;
+			max_y = 100;
+			user_value = "";
+			type = "drag";
+           	plot_bicycle_comparison_top(file, idname, transition_duration, end_x, start_y_arr, end_y_arr, max_y, user_value, type);
+	    });
 	}
 
 	function set_range_slider_rolling() {
