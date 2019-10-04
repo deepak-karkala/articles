@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="expires" content="0">
+
+    <title>Evolution of Cooperation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/grayscale_light.css" rel="stylesheet">
+    <!--<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">HOME</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <!--
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            -->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="http://deepak-karkala-portfolio.herokuapp.com/">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 col-sm-10 col-12 mx-auto">
+              <h1 class="brand-heading">Evolution of Cooperation</h1>
+              <p class="intro-text">What a game of Prisoner's Dilemma teaches us about cooperation in human behaviour
+                <br></p>
+              <a href="#about" class="btn btn-circle js-scroll-trigger" style="color:white; border: 1px solid white; font-size: 26px;">
+                <i class="fa fa-angle-double-down animated"><span ></span></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2>About Grayscale</h2>
+            <p>Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
+              <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.
+              This theme features stock photos by
+              <a href="http://gratisography.com/">Gratisography</a>
+              along with a custom Google Maps skin courtesy of
+              <a href="http://snazzymaps.com/">Snazzy Maps</a>.
+            Grayscale includes full HTML, CSS, and custom JavaScript files along with SASS and LESS files for easy customization!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="listings_city_text" class="content-section listings_city_text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="content-section">
+      <div class="container viz_play_single_game">
+
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div id="game_play_instruction_text">
+              Choose an opponent strategy and play a game of Prisoner's Dilemma
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-12 opponent_type_dropdown text-center" id="opponent_type_dropdown" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="dropdown">
+              Select opponent strategy
+              <select class="dropdown_menu" id="select_opponent">
+                <option value="Cooperator">Cooperator</option>
+                <option value="Grudger">Grudger</option>
+                <option value="Tit For Tat">Tit For Tat</option>
+                <option value="Defector">Defector</option>
+                <option value="Random">Random</option>
+              </select>
+            </div>
+            <!--
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose opponent type
+              </button>
+              <span class="opponent_strategy_name" id="opponent_strategy_name"></span>
+              <div class="dropdown-menu" id="dropdown-opponent-type">
+                <a class="dropdown-item">Cooperator</a>
+                <a class="dropdown-item">Grudger</a>
+                <a class="dropdown-item">Tit For Tat</a>
+                <a class="dropdown-item">Defector</a>
+                <a class="dropdown-item">Random</a>
+              </div>
+            </div>
+            -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 col-md-10 col-12 mx-auto">
+            <div class="row">
+
+              <div class="col-lg-5 col-5 user_card">
+                <div class="row" style="padding: 20px 0 20px 0;">
+                  <div class="col-lg-4 col-8 text-center mx-auto user_avatar">
+                      <i style="font-size: 3rem; color: black;" class="fas fa-user"></i>
+                      <br/>
+                      <span>You</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 col-12 text-center">
+                    <span id="user_move_text">Click button to make your move</span>
+                  </div>
+                </div>
+                <div class="row" style="padding: 0 0 20px 0;">
+                  <div class="col-lg-12 col-12 text-center">
+                    <!--
+                    <form action="" method="post" id="get_player_move">
+                      <div class="btn-group-horizontal" role="group" aria-label="...">-->
+                        <button type="button" onclick="user_play_button_clicked(this.id)" id="betray" class="btn btn-sm btn-danger">Betray</button>
+                        <button type="button" onclick="user_play_button_clicked(this.id)" id="cooperate" class="btn btn-sm btn-success">Cooperate</button>
+                      <!--
+                      </div>
+                    </form>-->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-2 col-1 text-center">
+                <span>Vs</span>
+              </div>
+
+              <div class="col-lg-5 col-5 user_card">
+                <div class="row" style="padding: 20px 0 20px 0;">
+                  <div class="col-lg-6 col-8 text-center mx-auto user_avatar">
+                      <i style="font-size: 3rem; color: black;" class="fas fa-laptop"></i>
+                      <br/>
+                      <span id="opponent-name">Random</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 col-12 text-center">
+                    <span id="opponent_move_text">Opponent's move</span>
+                  </div>
+                </div>
+                <div class="row" style="padding: 0 0 20px 0;">
+                  <div class="col-lg-12 col-12 text-center">
+                    <!--
+                    <form action="" method="post" id="get_player_move">
+                      <div class="btn-group-horizontal" role="group" aria-label="..." style="opacity: 0.4;">-->
+                        <button type="button" class="btn btn-sm btn-danger" id="opponent_betray">Betray</button>
+                        <button type="button" class="btn btn-sm btn-success" id="opponent_cooperate">Cooperate</button>
+                    <!--
+                      </div>
+                    </form>-->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-12 mx-auto justify-content-center text-center">
+            <div id="match_result"></div>
+          </div> 
+        </div>
+      
+        <div class="row">
+          <div class="col-lg-12 col-12 mx-auto justify-content-center text-center">
+            <div id="match_verdict"></div>
+          </div> 
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-12 mx-auto justify-content-center text-center" id="replay_button_div">
+          </div> 
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section id="histogram_text" class="content-section histogram_text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plot_pd_results" class="content-section">
+      <div class="container plot_pd_results">
+        <div class="row">
+          <div class="col-lg-12 text-center payoff_score_title">
+              Payoff scores for different strategies
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 col-10 mx-auto justify-content-center text-center" id="plot_payoff_matrix">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-8 mx-auto justify-content-center text-center" id="plot_payoff_legend">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commercial_fraction_text" class="content-section commercial_fraction_text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plot_ipd_results" class="content-section">
+      <div class="container plot_ipd_results">
+        <div class="row">
+          <div class="col-lg-12 text-center eco_results_title">
+              Population evolution of different strategies 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 col-10 mx-auto justify-content-center text-center">
+            <div id="plot_eco_results"></div>
+          </div>
+        </div>
+        <!--
+        <div class="row">
+          <div class="col-lg-6 col-6 mx-auto justify-content-center text-center">
+            <div id="plot_eco_results_legend"></div>
+          </div>
+        </div>
+        -->
+        <div class="row">
+          <div class="col-lg-8 col-12 mx-auto text-center">
+            <div class="plot_eco_results_legend" id="plot_eco_results_legend">
+              <svg height="10" width="20"><rect width="55" height="15" stroke="black"  fill="#9B59B6" /></svg>
+              Cooperator
+              &nbsp &nbsp
+              <svg height="10" width="20"><rect width="55" height="15" stroke="black"  fill="#E74C3C" /></svg>
+              Defector
+              &nbsp &nbsp
+              <svg height="10" width="20"><rect width="55" height="15" stroke="black"  fill="#F1C40F" /></svg>
+              Tit For Tat
+              &nbsp &nbsp
+              <svg height="10" width="20"><rect width="55" height="15" stroke="black"  fill="#2ECC71" /></svg>
+              Grudger
+              &nbsp &nbsp
+              <svg height="10" width="20"><rect width="55" height="15" stroke="black"  fill="#3498DB" /></svg>
+              Random
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commercial_fraction_text" class="content-section commercial_fraction_text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" name="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 col-12 mx-auto">
+            <p>
+              All the code for this project can be found on <a href="https://github.com/deepak-karkala/articles/tree/master/cricket_sabermetrics">Github</a>.
+            </p>
+            <p>
+              The data for this research article was obtained from this <a href="https://www.kaggle.com/manasgarg/ipl">dataset</a> on Kaggle and also from <a href="https://www.cricbuzz.com/cricket-series/2676/indian-premier-league-2018/matches">Cricbuzz</a> website.
+            </p>
+            <p>
+              Mathematical equations are avoided in this article. Contact the author for more details regarding  mathematical models and the underlying algorithms. Reach out at <a href="https://twitter.com/deepak_karkala">@deepak_karkala</a>.
+            </p>
+            <p>
+              This work wouldn't be possible without the help of various data analysis and visualisation tools such as <a href="https://jupyter.org/">jupyter</a>, <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://d3js.org/">d3js</a>. The template for this html page was adapted from <a href="https://startbootstrap.com/template-overviews/grayscale/">Start Bootstrap</a>. The banner image was obtained from <a href="https://www.flickr.com/photos/74576085@N00/5460870340/sizes/l">here</a> courtesy <a href="https://www.flickr.com/photos/74576085@N00/">slalit</a>.
+            </p>
+            <h5 class="text-center" style="padding-top:8vh;">For all queries, contact <a href="https://twitter.com/deepak_karkala">@deepak_karkala</a></h5>
+            <p class="text-center">Copyright &copy; Deepak Karkala 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>-->
+
+    <!-- D3js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/grayscale.js"></script>
+
+    <script src="js/get_player_move.js"></script>
+    <script src="js/plot_payoff_matrix.js"></script>
+    <script src="js/plot_eco_results.js"></script>
+</html>
