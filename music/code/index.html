@@ -1,16 +1,31 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Let's Save Water</title>
+	<title>Rhythm similarity in songs</title>
 	<meta name="description" content="Scrollama Demo: Fixed JS">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-    <link rel="stylesheet" href="vendor/jquery-ui-1.12.1/jquery-ui.min.css">
+    <!--<link rel="stylesheet" href="vendor/jquery-ui-1.12.1/jquery-ui.min.css">-->
+	
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<link href="css/select2.css" rel="stylesheet"/>
 	<link href="css/style.css" rel="stylesheet"></style>
+	<script src="js/select2.js"></script>
+    <script>
+		$(document).ready(function() {
+		    //$('.js-example-basic-single').select2();
+		    $('#combobox').select2();
+		    $('#viz_combobox').select2();
+		    $('#artist_combobox').select2();
+		});
+    </script>
+
     <link href="vendor/toggle-switch/toggle-switch.css" rel="stylesheet">
     <link href="vendor/toggle-switch/toggle-switch-px.css" rel="stylesheet">
     <link href="vendor/toggle-switch/toggle-switch-rem.css" rel="stylesheet">
@@ -146,15 +161,44 @@
 			</div>
 			<div class="row">
 	         	<div class="col-lg-12 text-center">
+	         		<!--
 	        		<div class="ui-widget">
 						<label>Select a song: </label>
-						<select id="viz_combobox">
+						<select id="viz_combobox" class="viz_combobox">
 						</select>
 					</div>
+					-->
+					<!--
+					<div class="control-group">
+						<label for="viz_combobox">Search for a song:</label>
+						<select id="viz_combobox" class="demo-default" placeholder="Search for a song...">
+							<option value="">Select a song...</option>
+							<option value="4">Thomas Edison</option>
+							<option value="1">Nikola</option>
+							<option value="3">Nikola Tesla</option>
+							<option value="5">Arnold Schwarzenegger</option>
+						</select>
+					</div>
+					-->
+					<!--
+					<div class="control-group">
+						<label for="viz_combobox">Search for a song:</label>
+						<select id="viz_combobox" class="demo-default" placeholder="Search for a song...">
+						    <option value="">Search for a song...</option>
+							<option value="AF">Afghanistan</option>
+						    <option value="AX">&Aring;land Islands</option>
+						</select>
+					</div>
+					-->
+					<div class="control-group">
+						<select id="viz_combobox" class="select2_select">
+							<option value="">Search for a song...</option>
+						</select> 
+					</div> 
 	          	</div>
 	        </div>
 			<div class="row">
-				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center">
+				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center plot_song_artist_rhythm_visualisation">
 					<div id="plot_song_artist_rhythm_visualisation"></div>
 				</div>
 			</div>
@@ -242,11 +286,18 @@
 			</div>
 			<div class="row">
 	         	<div class="col-lg-12 text-center">
+	         		<!--
 	        		<div class="ui-widget">
 						<label>Select a song: </label>
 						<select id="combobox">
 						</select>
 					</div>
+					-->
+					<div class="control-group">
+						<select id="combobox" class="select2_select">
+							<option value="">Search for a song...</option>
+						</select> 
+					</div> 
 	          	</div>
 	        </div>
 	        <div class="row">
@@ -450,11 +501,18 @@
 			</div>
 			<div class="row">
 	         	<div class="col-lg-12 text-center">
+	         		<!--
 	        		<div class="ui-widget">
 						<label>Select an artist: </label>
 						<select id="artist_combobox">
 						</select>
 					</div>
+					-->
+					<div class="control-group">
+						<select id="artist_combobox" class="select2_select">
+							<option value="">Search for an artist...</option>
+						</select> 
+					</div> 
 	          	</div>
 	        </div>
 	        <div class="row">
@@ -551,15 +609,24 @@
 -->
 
 	<!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!--<script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>-->
     
     <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <!--<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>-->
+
+	<!--
+	<script src="js/jquery.min.js"></script>
+	<script src="js/selectize.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/set_selectize_option.js"></script>
+	-->
+
+
 
 	<script src='d3.v4.min.js'></script>
 	<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
@@ -568,16 +635,17 @@
 	<script src='scrollama.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 
-	<script src='js/script1.js'></script>
 	
+
+	<script src='js/script1.js'></script>
 	<script src='js/plot_song_similarity_score.js'></script>
-	<script src='js/autocomplete2.js'></script>
+	<!--<script src='js/autocomplete2.js'></script>-->
 	<script src='js/plot_song_discography.js'></script>
 	<script src='js/plot_decade_similarity.js'></script>
 	<script src='js/plot_most_similar_songs.js'></script>
 	<script src='js/plot_artists_similarity_score.js'></script>
 	<script src='js/plot_artist_discography.js'></script>
 	<script src="js/plot_rhythm_visualisation.js"></script>
-	
+
 </body>
 

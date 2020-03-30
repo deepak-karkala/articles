@@ -1,6 +1,7 @@
 set_artist_discography_combobox();
 
 function set_artist_discography_combobox() {
+    /*
 	song_info_file = "data/song_similarity/song_similarity_score.csv";
 	d3.csv(song_info_file, function (data) {
 		var artist_list = []
@@ -17,20 +18,39 @@ function set_artist_discography_combobox() {
 		}
 		$('#artist_combobox').append(song_list);
 	});
+    */
+    artist_info_file = "data/rhythm_viz/all_songs_artist_list.csv";
+    d3.csv(artist_info_file, function(data) {
+        //var song_list = ''; //<option value="">Search for a song...</option>';
+        var artist_list = []
+        data.forEach(function(d,i) {
+            //d["id"] = +d.id;
+            //d["artist_song"] = d.artist_song;
+            //d["artist_song_folder"] = d.artist_song_folder;
+            //d["artist"] = toTitleCase(d.artist);
+            if (!artist_list.includes(d.artist)) {
+                artist_list.push(d.artist);
+            }
+        })
+        artist_list.sort();
+        var option_list = '';
+        for (var i=0; i<artist_list.length; i++) {
+            option_list += `<option value="`+artist_list[i]+`">`+artist_list[i]+`</option>`;
+        }
+        $('#artist_combobox').append(option_list);
+    })
 }
 
 
 $("#artist_combobox").change(function() {
     var artist = this.value;
 	//plot_artist_discography(artist);
-
     var is_score = document.getElementById("artist_viz_score_toggle").checked;
     if (is_score==true) {
-        plot_artist_discography(artist);
+        plot_artist_discography(toTitleCase(artist));
     } else {
         var viz_plot = document.getElementById("plot_artist_discography");
-        //viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist+`.jpg">`;
-        viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/taylor_swift.jpg">`;
+        viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist.replace(/\s+/g,'_').toLowerCase()+`__All_songs.jpg">`;
         var viz_legend = document.getElementById("artist_discography_legend");
         viz_legend.innerHTML = "";
     }
@@ -62,7 +82,10 @@ function plot_artist_discography(artist) {
     		//.ease(d3.easeElastic)
     		.duration(1000)
     		.attr("opacity", function(d) {
+                console.log(toTitleCase(d.artist));
+                console.log(artist);
 				if (toTitleCase(d.artist) == artist) {
+                //if ((d.artist) == artist) {
             		return 1;
             	} else {
             		return 0;
@@ -75,6 +98,7 @@ function plot_artist_discography(artist) {
             .duration(1000)
             .attr("opacity", function(d) {
                 if (toTitleCase(d.artist) == artist) {
+                //if ((d.artist) == artist) {
                     return 1;
                 } else {
                     return 0;
@@ -281,13 +305,10 @@ function artist_viz_score_button_click(id) {
     var is_score = document.getElementById("artist_viz_score_toggle").checked;
     var artist = document.getElementById("artist_combobox").value;
     if (is_score==true) {
-        //plot_artist_discography(artist);
-        plot_artist_discography_initial(artist);
+        plot_artist_discography_initial(toTitleCase(artist));
     } else {
-        //plot_artist_all_songs_viz(artist);
         var viz_plot = document.getElementById("plot_artist_discography");
-        //viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist+`.jpg">`;
-        viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/taylor_swift.jpg">`;
+        viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist.replace(/\s+/g,'_').toLowerCase()+`__All_songs.jpg">`;
         var viz_legend = document.getElementById("artist_discography_legend");
         viz_legend.innerHTML = "";
 

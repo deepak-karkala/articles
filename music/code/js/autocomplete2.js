@@ -114,10 +114,11 @@
              $( "#artist_combobox" ).toggle();
          });
      });
-
+/*
      $(function() {
          $( "#viz_combobox" ).combobox({ change: function() { alert("changed"); }});
          $( "#toggle" ).click(function() {
              $( "#viz_combobox" ).toggle();
          });
      });
+*/

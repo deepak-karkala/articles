@@ -319,3 +319,9 @@ figure p {
 	width: 100%;
 	height: auto;
 }
+
+.select2_select {
+	width: 30vw;
+	margin-bottom: 20px;
+}
+

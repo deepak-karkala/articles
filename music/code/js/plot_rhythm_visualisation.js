@@ -8,7 +8,7 @@ function plot_rhythm_visualisation_initial() {
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
     //csv_processed_file = "data/rhythm_viz/viz_csv/Shape_of_you.csv";
-    csv_processed_file = "data/rhythm_viz/viz_csv/Back_in_black.csv";
+    csv_processed_file = "data/rhythm_viz/viz_csv/beatles__Let_it_be.csv";
     plot_rhythm_visualisation(idname, csv_processed_file, base_width, base_height);
 }
 plot_rhythm_visualisation_initial();
@@ -25,13 +25,11 @@ function plot_rhythm_visualisation(idname, csv_processed_file, width, height) {
         //var colorScale = ["#0444bf", "#ff0000", "#f3cd05"]; //Blue alternative: 0444bf
         //var colorScale = ["#4363d8", "#e6194B", "#ffe119"]; //d3.scale.category20()
         //var pitchScale = d3.scaleLinear().domain([10, 110]).range([0, 1]);
-        var pitchScale = d3.scaleLinear().domain([35, 80]).range([0, 1]);
+        var pitchScale = d3.scaleLinear().domain([30, 80]).range([0, 1]);
         var radiusScale = d3.scaleLinear().domain([0, 1]).range([0, width]);
         var margin = {right:10, left:10, top:10, bottom:10};
         var c_tones = [36, 48, 60, 72,];
         
-
-
         data.forEach(function(d) {
             d.pitch = +d.pitch;
             d.theta = +d.theta;
@@ -39,6 +37,7 @@ function plot_rhythm_visualisation(idname, csv_processed_file, width, height) {
             d.cy = pitchScale(d.pitch) * Math.cos(d.theta);
             //d.cx = +d.cx;
             //d.cy = +d.cy;
+            d.note = +d.note;
             d.note_duration_secs = +d.note_duration_secs;
             d.note_start_secs = +d.note_start_secs;
         });
@@ -95,6 +94,14 @@ function plot_rhythm_visualisation(idname, csv_processed_file, width, height) {
                     .style("opacity", 0.5);
         }
 
+/*
+        d3.select(idname)
+            .selectAll(".dot")
+            .transition()
+                .duration(2000)
+                .delay(function(d,i) { return i*10; })
+                .style("opacity", 1);
+*/
     });
 }
 
@@ -124,30 +131,44 @@ function set_song_viz_combobox() {
     */
 
     artist_info_file = "data/rhythm_viz/all_songs_artist_list.csv";
-    var song_list = '';
     d3.csv(artist_info_file, function(data) {
+        var song_list = ''; //<option value="">Search for a song...</option>';
         data.forEach(function(d,i) {
             d["id"] = +d.id;
-            d["song"] = +d.song;
-            song_list += `<option value="`+d["id"]+`">`+d["song"]+`</option>`;
+            d["artist_song"] = d.artist_song;
+            d["artist_song_folder"] = d.artist_song_folder;
+            song_list += `<option value="`+d["artist_song_folder"]+`">`+d["artist_song"]+`</option>`;
         })
+        console.log(song_list);
+        $('#viz_combobox').append(song_list);
     })
-    $('#viz_combobox').append(song_list);
+
 }
 set_song_viz_combobox();
 
 $("#viz_combobox").change(function() {
     //alert(this.value);
-    song_id = this.value;
+    artist_song_folder = this.value;
+    artist_folder = artist_song_folder.split("__")[0];
+    song_folder = artist_song_folder.split("__")[1];
 
     idname = "#plot_song_artist_rhythm_visualisation";
     d3.select(idname).select("svg").remove();
-    var bb = d3.select(idname).node().offsetWidth;
-    width_scale_factor = 0.4;
-    height_scale_factor = 0.4;
-    var margin = {right:10, left:10, top:30, bottom:10};
-    base_width = bb*width_scale_factor - margin.left - margin.right;
-    base_height = bb*height_scale_factor - margin.top - margin.bottom;
-    csv_processed_file = "data/rhythm_viz/viz_csv/Shape_of_you.csv";
-    plot_rhythm_visualisation(idname, csv_processed_file, base_width, base_height);
+    var el = document.getElementById("plot_song_artist_rhythm_visualisation");
+    el.innerHTML = ``;
+
+    if (song_folder=="All_songs") {
+        var el = document.getElementById("plot_song_artist_rhythm_visualisation");
+        el.innerHTML = `<img src="data/rhythm_viz/viz/`+artist_song_folder+`.jpg">`;
+    } else {
+        var bb = d3.select(idname).node().offsetWidth;
+        width_scale_factor = 0.4;
+        height_scale_factor = 0.4;
+        var margin = {right:10, left:10, top:30, bottom:10};
+        base_width = bb*width_scale_factor - margin.left - margin.right;
+        base_height = bb*height_scale_factor - margin.top - margin.bottom;
+        csv_processed_file = "data/rhythm_viz/viz_csv/"+artist_song_folder+".csv";
+        plot_rhythm_visualisation(idname, csv_processed_file, base_width, base_height);
+    }
 });
+

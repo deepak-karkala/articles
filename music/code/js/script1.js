@@ -153,25 +153,25 @@ function handleStepTransition(data_step_id) {
         div.innerHTML = get_rhythm_viz_frame_examples();
 
         idname = "#graphic1_viz_frame_example1";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Shape_of_you.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Shape_of_you.csv";
         button_id_arr = [6];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([6], idname);
 
         idname = "#graphic1_viz_frame_example2";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Attention.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Attention.csv";
         button_id_arr = [7];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([7], idname);
 
         idname = "#graphic1_viz_frame_example3";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Wake_me_up.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Wake_me_up.csv";
         button_id_arr = [8];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([8], idname);
 
         idname = "#graphic1_viz_frame_example4";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Cheap_Thrills.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Cheap_Thrills.csv";
         button_id_arr = [9];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([9], idname);
@@ -190,25 +190,25 @@ function handleStepTransition(data_step_id) {
         div.innerHTML = get_rhythm_viz_frame_examples();
 
         idname = "#graphic1_viz_frame_example1";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Shape_of_you.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Shape_of_you.csv";
         button_id_arr = [6];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([6], idname);
 
         idname = "#graphic1_viz_frame_example2";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Attention.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Attention.csv";
         button_id_arr = [7];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([7], idname);
 
         idname = "#graphic1_viz_frame_example3";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Wake_me_up.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Wake_me_up.csv";
         button_id_arr = [8];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([8], idname);
 
         idname = "#graphic1_viz_frame_example4";
-        csv_processed_file = "data/rhythm_viz/viz_csv/Cheap_Thrills.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/Cheap_Thrills.csv";
         button_id_arr = [9];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([9], idname);
@@ -262,13 +262,13 @@ function handleStepTransition(data_step_id) {
         div.innerHTML = get_rhythm_viz_frame_mashup_examples();
 
         idname = "#graphic1_viz_frame_mashup_example1";
-        csv_processed_file = "data/rhythm_viz/viz_csv/rhythm_ShapeOfYou_tune_CheapThrills.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/rhythm_ShapeOfYou_tune_CheapThrills.csv";
         button_id_arr = [10];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([10], idname);
 
         idname = "#graphic1_viz_frame_mashup_example2";
-        csv_processed_file = "data/rhythm_viz/viz_csv/rhythm_ShapeOfYou_tune_Halo.csv";
+        csv_processed_file = "data/rhythm_viz/viz_csv_sample/rhythm_ShapeOfYou_tune_Halo.csv";
         button_id_arr = [11];
         plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr);
         //rhythm_viz_transition_onclick([11], idname);
