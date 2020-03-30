@@ -29,11 +29,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-          	<!--
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-       -->
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="http://deepak-karkala-portfolio.herokuapp.com/">Portfolio</a>
             </li>
@@ -60,7 +55,6 @@
         </div>
       </div>
     </header>
-
 
     <section class="description" id="introduction">
 		<div class="container">
@@ -108,42 +102,35 @@
       </div>
 	</section>
 
-
 	<main>
-		<!--
-		<section id='intro'>
-			<h1 class='intro__hed'>Sticky Side Example</h1>
-			<p class='intro__dek'>
-				Start scrolling to see how it works.
-			</p>
-		</section>
-		-->
-
 		<section id='scrolly'>
-			
 			<article>
 				<div class='step' data-step='1'>
+					<p>Forces acting on a bicycle</p>
+					<p></p>
+				</div>
+				<div class='step' data-step='2'>
 					<p>Rolling Resistance</p>
 					<p>This refers to the friction between the tyres and the road surface. It includes the resistance created by the rolling elements of the bike such as gears, tyres, bearings. Bumpier road, lower quality tubes, tyres and heavy bike all leads to higher friction and therefore more resistance while biking.</p>
 				</div>
-				<div class='step' data-step='2'>
+				<div class='step' data-step='3'>
 					<p>One of the important factors determining the rolling resistance is the weight of the biker and the bike itself. Heavier the bike and the biker, higher is the friction. Alter the weight to see how you fare against a reference cyclist whose total weight with the bike is 80kg. Observe the realtive difference in the time taken to cover a distance assuming equal power is provided by both the cyclists.</p>
 				</div>
-				<div class='step' data-step='3'>
+				<div class='step' data-step='4'>
 					<p>Gravity</p>
 					<p>This refers to the force exterted by the earth towards the ground. If you are cycling uphill, you are fighting against gravity, but if you are cycling downhill, gravity works for you. Also heavier the bike and the rider, higher is the gravitational pull.</p>
 				</div>
-				<div class='step' data-step='4'>
+				<div class='step' data-step='5'>
 					<p>The slope of the path largely determines the extent to which the force of gravity works on a bike. Larger the slope, higher is the force to be overcome by the cyclist. Alter the slope to see how it affects gravitational force. Observe the realtive difference in the time taken to cover a distance assuming equal power is provided by both the cyclists.</p>
 				</div>
-				<div class='step' data-step='5'>
+				<div class='step' data-step='6'>
 					<p>Aerodynamic drag</p>
 					<p>This refers to the force exerted by the air against the cyclist while riding as both the bike and the rider need to push the air aside in order to move forward. At high speeds, this accounts for the majority of the force acting against the cyclist. The faster you ride, denser the air larger is the drag against the rider.</p>
 				</div>
-				<div class='step' data-step='6'>
+				<div class='step' data-step='7'>
 					<p>Both the cyclist and the bike present a certain frontal area to the air. The larger this frontal area, more air needs to be displaced, and larger the force air pushes against cyclist. At high speeds, reducing this frontal area has a significant impact in reducing the overall force acting against the bicycle. Observe how the time taken to cover a given distance varies with different seating positions of the cyclists assuming they all provide equal powers to the wheels.</p>
 				</div>
-				<div class='step' data-step='7'>
+				<div class='step' data-step='8'>
 					<p>The total force resisting the cyclist is the sum of these three forces.</p>
 					<ul>
 						<li>F<sub>rolling</sub>: Rolling resistance</li>
@@ -152,49 +139,32 @@
 					</ul>
 					<p>F<sub>total</sub> = F<sub>rolling</sub> + F<sub>gravity</sub> + F<sub>drag</sub></p>
 				</div>
-				<div class='step' data-step='8'>
+				<div class='step' data-step='9'>
 					<p>In order to overcome all these forces and move forward, the cyclist must spend energy. To move forward at velocity V (meters per second), energy must be supplied at a rate that is sufficient to do the work. This rate of energy expenditure is called power (P<sub>wheel</sub>) measured in watts and is given by</p>
 					<p>P<sub>wheel</sub> = F<sub>total</sub> . V</p>
 				</div>
 			</article>
 
 			<figure>
-				<div class="container graphic_container">
-					<div class="row">
-						<div class="col-lg-12 text-center slider_text" id="slider_text"></div>
-					</div>
-					<div class="row slider_div">
-						<div class="col-lg-6 text-center mx-auto">
-							<div class="row">
-								<div class="col-lg-12 slider_tag" id="slider_tag"></div>
-							</div>
-							<div class="row">
-								<div class="col-lg-8 text-center mx-auto slider" id="slider"></div>
-							</div>
-							<!--
-							<div class="row">
-								<div class="col-lg-6 text-center mx-auto">
-									<div class="row">
-										<div class="col-lg-12 slider_tag" id="slider_tag"></div>
-										<div class="col-lg-12 slider" id="slider"></div>
-									</div>
+				<div class="container graphic_container" id="graphic_container">
+					<span class="graphic_container_span">
+						<div class="row">
+							<div class="col-lg-12 text-center slider_text" id="slider_text"></div>
+						</div>
+						<div class="row slider_div">
+							<div class="col-lg-6 text-center mx-auto">
+								<div class="row">
+									<div class="col-lg-12 slider_tag" id="slider_tag"></div>
+								</div>
+								<div class="row">
+									<div class="col-lg-8 text-center mx-auto slider" id="slider"></div>
 								</div>
 							</div>
-							-->
-							<!--
-							<div class="row">
-								<div class="col-lg-6 slider_tag" id="slider_tag"></div>
-								<div class="col-lg-2 slider_value" id="slider_value"></div>
-							</div>
-							<div class="row">
-								<div class="col-lg-4 text-center mx-auto" id="slider"></div>
-							</div>
-							-->
 						</div>
-					</div>
-					<div class="row graphic_div">
-						<div class="col-lg-12" id="graphic"></div>
-					</div>
+						<div class="row graphic_div">
+							<div class="col-lg-12" id="graphic"></div>
+						</div>
+					</span>
 				</div>
 			</figure>
 		</section>
@@ -242,6 +212,10 @@
       </div>
 	</section>
 
+
+<!--
+Bicycle icon: <a href="https://iconscout.com/icon/person-biking-riding-travel-bike" target="_blank">Person, Biking, Riding, Travel, Bike Emoji Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
+-->
 	<!-- <div class='debug'></div> -->
 	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
