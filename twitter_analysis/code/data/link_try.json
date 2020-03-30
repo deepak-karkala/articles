@@ -1,0 +1,247 @@
+[
+  {
+    "name": "flare.SrBachchan",
+    "size": 4,
+    "imports": [
+      "flare.BillGates",
+      "flare.narendramodi"
+    ]
+  },
+  {
+    "name": "flare.BillGates",
+    "size": 1,
+    "imports": [
+      "flare.narendramodi"
+    ]
+  },
+  {
+    "name": "flare.narendramodi",
+    "size": 1,
+    "imports": [
+      "flare.YouTube"
+    ]
+  },
+  {
+    "name": "flare.Harry_Styles",
+    "size": 1,
+    "imports": []
+  },
+  {
+    "name": "flare.selenagomez",
+    "size": 1,
+    "imports": []
+  },
+  {
+    "name": "flare.taylorswift13",
+    "size": 1,
+    "imports": []
+  },
+  {
+    "name": "flare.Cristiano",
+    "size": 82,
+    "imports": []
+  },
+  {
+    "name": "flare.shakira",
+    "size": 82,
+    "imports": []
+  },
+  {
+    "name": "flare.katyperry",
+    "size": 82,
+    "imports": []
+  },
+  {
+    "name": "flare.onedirection",
+    "size": 82,
+    "imports": []
+  },
+  {
+    "name": "flare.aliciakeys",
+    "size": 4,
+    "imports": []
+  },
+  {
+    "name": "flare.cnnbrk",
+    "size": 4,
+    "imports": []
+  },
+  {
+    "name": "flare.BarackObama",
+    "size": 6,
+    "imports": []
+  },
+  {
+    "name": "flare.LilTunechi",
+    "size": 23,
+    "imports": []
+  },
+  {
+    "name": "flare.rihanna",
+    "size": 2,
+    "imports": []
+  },
+  {
+    "name": "flare.akshaykumar",
+    "size": 2,
+    "imports": []
+  },
+  {
+    "name": "flare.Drake",
+    "size": 1,
+    "imports": []
+  },
+  {
+    "name": "flare.NASA",
+    "size": 5,
+    "imports": []
+  },
+  {
+    "name": "flare.KingJames",
+    "size": 5,
+    "imports": []
+  },
+  {
+    "name": "flare.YouTube",
+    "size": 2,
+    "imports": [
+      "flare.jimmyfallon",
+      "flare.NASA",
+      "flare.ArianaGrande",
+      "flare.BarackObama",
+      "flare.KingJames",
+      "flare.KevinHart4real"
+    ]
+  },
+  {
+    "name": "flare.jimmyfallon",
+    "size": 11,
+    "imports": [
+      "flare.ArianaGrande",
+      "flare.JLo",
+      "flare.wizkhalifa",
+      "flare.rihanna",
+      "flare.Harry_Styles",
+      "flare.Oprah",
+      "flare.MileyCyrus",
+      "flare.KevinHart4real"
+    ]
+  },
+  {
+    "name": "flare.ArianaGrande",
+    "size": 2,
+    "imports": [
+      "flare.jimmyfallon",
+      "flare.YouTube",
+      "flare.KimKardashian",
+      "flare.KevinHart4real",
+      "flare.TheEllenShow",
+      "flare.MileyCyrus"
+    ]
+  },
+  {
+    "name": "flare.KevinHart4real",
+    "size": 2,
+    "imports": [
+      "flare.jimmyfallon",
+      "flare.KingJames",
+      "flare.Drake",
+      "flare.KevinHart4real"
+    ]
+  },
+  {
+    "name": "flare.JLo",
+    "size": 1,
+    "imports": [
+      "flare.YouTube",
+      "flare.ArianaGrande",
+      "flare.ladygaga",
+      "flare.TheEllenShow"
+    ]
+  },
+  {
+    "name": "flare.wizkhalifa",
+    "size": 1,
+    "imports": [
+      "flare.YouTube"
+    ]
+  },
+  {
+    "name": "flare.Oprah",
+    "size": 1,
+    "imports": [
+      "flare.TheEllenShow"
+    ]
+  },
+  {
+    "name": "flare.MileyCyrus",
+    "size": 1,
+    "imports": [
+      "flare.jimmyfallon",
+      "flare.wizkhalifa",
+      "flare.ArianaGrande",
+      "flare.aliciakeys",
+      "flare.katyperry",
+      "flare.TheEllenShow"
+    ]
+  },
+  {
+    "name": "flare.KimKardashian",
+    "size": 2,
+    "imports": [
+      "flare.YouTube",
+      "flare.ArianaGrande",
+      "flare.TheEllenShow",
+      "flare.realDonaldTrump"
+    ]
+  },
+  {
+    "name": "flare.TheEllenShow",
+    "size": 9,
+    "imports": [
+      "flare.Oprah",
+      "flare.YouTube",
+      "flare.KimKardashian",
+      "flare.KingJames",
+      "flare.Drake",
+      "flare.JLo",
+      "flare.BarackObama",
+      "flare.MileyCyrus",
+      "flare.KevinHart4real",
+      "flare.jimmyfallon",
+      "flare.ArianaGrande",
+      "flare.BillGates",
+      "flare.Pink",
+
+    ]
+  },
+  {
+    "name": "flare.ladygaga",
+    "size": 1,
+    "imports": [
+      "flare.realDonaldTrump"
+    ]
+  },
+  {
+    "name": "flare.realDonaldTrump",
+    "size": 1,
+    "imports": [
+      "flare.NASA",
+      "flare.KimKardashian"
+    ]
+  },
+  {
+    "name": "flare.Pink",
+    "size": 1,
+    "imports": [
+      "flare.Pink"
+    ]
+  },
+  {
+    "name": "flare.instagram",
+    "size": 1,
+    "imports": [
+      "flare.KimKardashian"
+    ]
+  }
+]

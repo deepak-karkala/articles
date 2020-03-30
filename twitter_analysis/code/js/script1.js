@@ -147,10 +147,10 @@
 			debug: false,
 			offset: 0.80,
 		})
-			.onStepEnter(handleStepEnter)
-			.onContainerEnter(handleContainerEnter)
-			.onContainerExit(handleContainerExit)
-			.onStepProgress(handleStepProgress);
+		.onStepEnter(handleStepEnter)
+		.onContainerEnter(handleContainerEnter)
+		.onContainerExit(handleContainerExit)
+		.onStepProgress(handleStepProgress);
 		// setup resize event
 		window.addEventListener('resize', handleResize);
 	}

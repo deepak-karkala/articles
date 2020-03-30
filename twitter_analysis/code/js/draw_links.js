@@ -42,7 +42,7 @@ function draw_links(idname, width, height) {
         node = svg.append("g").selectAll(".node");
         circle = svg.append("g").selectAll(".circle");
 
-    d3.json("data/link.json", function(error, classes) {
+    d3.json("data/link_new.json", function(error, classes) {
       if (error) throw error;
 
       var root = packageHierarchy(classes)
@@ -204,6 +204,8 @@ function packageImports(nodes) {
   // For each import, construct a link from the source to target node.
   nodes.forEach(function(d) {
     if (d.data.imports) d.data.imports.forEach(function(i) {
+      console.log(map[d.data.name]);
+      console.log(map[i]);
       imports.push(map[d.data.name].path(map[i]));
     });
   });

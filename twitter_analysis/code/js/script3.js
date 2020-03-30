@@ -130,7 +130,7 @@
             div = document.getElementById("dropdown_cloud");
             div.innerHTML = '';
 
-            account = "nytimes";  // "BBCBreaking";
+            account = "cnnbrk";  // "BBCBreaking";
             div = document.getElementById("word_cloud");
             div.innerHTML = '<span class="word_cloud_image"><img src="data/word_cloud/'+account+'.png"></img></span>';
 
