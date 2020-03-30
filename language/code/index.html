@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scrollama: Sticky Overlay Example</title>
+	<meta name="description" content="Scrollama: Sticky Overlay Example">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet"></style>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		  crossorigin=""/>
+	<link rel="stylesheet" href="https://leaflet.github.io/Leaflet.draw/src/leaflet.draw.css"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+</head>
+
+<body style="background-color:black; color:#f1e0d6;">
+		
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+            	<h1 class="text-center">A Brief History of Us</h2>
+			</div>
+		</div>
+	</div>
+
+	<section class="description" id="introduction">
+		<div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-10 col-sm-10 col-12 mx-auto">
+            <p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales elit consequat massa sagittis, sit amet lobortis elit vestibulum. Aenean non erat elementum, blandit neque ac, maximus enim. Duis mattis mattis eros. Suspendisse potenti. Nulla sit amet lacus non ipsum feugiat egestas. Fusce vehicula rutrum est. Donec non nulla accumsan, sagittis libero molestie, porta neque. Aenean ac euismod mi, bibendum facilisis enim. 
+            </p>
+            <p class="text-center">Keep scrolling to learn more.</p>
+          </div>
+        </div>
+      </div>
+	</section>
+
+	<div class="transition" id="transition1">How to measure similarities in rhythm ?</div>
+
+	<main>
+		<section id='scrolly'>
+
+			<figure>
+				<span class="current_year"></span>
+				<div id="migration-map"></div>
+			</figure>
+
+			<article>
+				<div class='step' data-step='1'>
+					<p>STEP 1</p>
+				</div>
+				<div class='step' data-step='2'>
+					<p>STEP 2</p>
+				</div>
+				<div class='step' data-step='3'>
+					<p>STEP 3</p>
+				</div>
+				<div class='step' data-step='4'>
+					<p>STEP 4</p>
+				</div>
+				<div class='step' data-step='5'>
+					<p>STEP 5</p>
+				</div>
+			</article>
+			
+		</section>
+
+		<section id='outro'></section>
+	</main>
+	
+
+	<div class="transition" id="transition2">Explore rhythmically similar songs</div>
+
+	<section class="conclusion" id="conclusion">
+		<div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-10 col-sm-10 col-12 mx-auto">
+            <p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales elit consequat massa sagittis, sit amet lobortis elit vestibulum. Aenean non erat elementum, blandit neque ac, maximus enim. Duis mattis mattis eros. Suspendisse potenti. Nulla sit amet lacus non ipsum feugiat egestas. Fusce vehicula rutrum est. Donec non nulla accumsan, sagittis libero molestie, porta neque. Aenean ac euismod mi, bibendum facilisis enim. 
+            </p>
+            <p>
+            	The next time you listen to a song, observe closely, you may have heard that rhythm before !
+            </p>
+          </div>
+        </div>
+      </div>
+	</section>
+
+
+	<!-- Footer -->
+    <footer class="footer" name="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 col-12 mx-auto">
+            <p>
+              All the code for this project can be found on <a href="https://github.com/deepak-karkala/articles/tree/master/water">Github</a>.
+            </p>
+            <p>
+              This work wouldn't be possible without the help of various data analysis and visualisation tools such as <a href="https://jupyter.org/">jupyter</a>, <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://d3js.org/">d3js</a>. The template for this html page was adapted from <a href="https://github.com/russellgoldenberg/scrollama">scrollama.js</a>, a very handy Javascript library for scrollytelling by <a href="https://twitter.com/codenberg?lang=en">Russell Goldenberg</a>.
+            </p>
+            <h5 class="text-center" style="padding-top:8vh;">For all queries, contact <a href="https://twitter.com/deepak_karkala">@deepak_karkala</a></h5>
+            <p class="text-center">Copyright &copy; Deepak Karkala 2019</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+	
+	<!-- <div class='debug'></div> -->
+	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
+	<script src='stickyfill.min.js'></script>
+	<script src='scrollama.min.js'></script>
+
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<script src='d3.v4.min.js'></script>
+	<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
+
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet-src.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+
+	<script src="vendor/leaflet/leaflet.motion.min.js"></script>
+	<script src='js/script1.js'></script>
+	<script>
+		var map = L.map("migration-map", {"scrollWheelZoom":false} ).setView([-4.538027, 29.376260], 2.25);
+    </script>
+</body>
+
+</html>
