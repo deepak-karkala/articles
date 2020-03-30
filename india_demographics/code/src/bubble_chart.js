@@ -1087,13 +1087,11 @@ function bubbleChart() {
   /*
    * Shows title displays.
    */
-  console.log(height);
   if (width >= 700) {
     var two_title_y = height/2 - 140;
   } else {
     var two_title_y = height/2 - 100;
   }
-  console.log(two_title_y);
 
   function showGenderTitles() {
     // Another way to do this would be to create
