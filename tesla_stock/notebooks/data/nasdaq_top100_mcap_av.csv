@@ -1,0 +1,104 @@
+id,symbol,name,mcap,av
+0,ATVI,"Activision Blizzard, Inc. Common Stock",46699438722,0.3181
+1,ADBE,Adobe Inc. Common Stock,160628689302,0.2662
+2,AMD,"Advanced Micro Devices, Inc. Common Stock",53079240504,0.5842
+3,ALXN,"Alexion Pharmaceuticals, Inc. Common Stock",19669253468,0.3802
+4,ALGN,"Align Technology, Inc. Common Stock",17968321214,0.3882
+5,GOOG,Alphabet Inc. Class C Capital Stock,879994236775,0.236
+6,GOOGL,Alphabet Inc. Class A Common Stock,876406603385,0.2344
+7,AMZN,"Amazon.com, Inc. Common Stock",941767754168,0.2942
+8,AAL,American Airlines Group Inc. Common Stock,7242998648,0.439
+9,AMGN,Amgen Inc. Common Stock,121972050169,0.2467
+10,ADI,"Analog Devices, Inc. Common Stock",37720466122,0.2574
+11,ANSS,"ANSYS, Inc. Common Stock",19684701600,0.2314
+12,AAPL,Apple Inc. Common Stock,1248499463200,0.2535
+13,AMAT,"Applied Materials, Inc. Common Stock",51581198253,0.3141
+14,ASML,ASML Holding N.V. New York Registry Shares,119082558791,0.2782
+15,ADSK,"Autodesk, Inc. Common Stock",36191028169,0.32
+16,ADP,"Automatic Data Processing, Inc. Common Stock",66671491594,0.1989
+17,BIDU,"Baidu, Inc. ADS",38701695413,0.36
+18,BIIB,Biogen Inc. Common Stock,53199183682,0.3862
+19,BMRN,BioMarin Pharmaceutical Inc. Common Stock,16070954771,0.3641
+20,BKNG,Booking Holdings Inc. Common Stock,64015368026,0.2649
+21,AVGO,Broadcom Inc. Common Stock,105017662259,0.3249
+22,CDNS,"Cadence Design Systems, Inc. Common Stock",17628170560,0.2477
+23,CDW,CDW Corporation Common Stock,14861089495,0.2491
+24,CERN,Cerner Corporation Common Stock,21567372025,0.2372
+25,CHTR,"Charter Communications, Inc. Class A Common Stock New",100108140597,0.2657
+26,CHKP,Check Point Software Technologies Ltd. Ordinary Shares,14118691972,0.2084
+27,CTAS,Cintas Corporation Common Stock,27848789199,0.1987
+28,CSCO,"Cisco Systems, Inc. Common Stock",169974476853,0.2295
+29,CTXS,"Citrix Systems, Inc. Common Stock",14044270293,0.2457
+30,CTSH,Cognizant Technology Solutions Corporation Class A Common Stock,30602977773,0.2567
+31,CMCSA,Comcast Corporation Class A Common Stock,178023654620,0.212
+32,CPRT,"Copart, Inc. (DE) Common Stock",18472081139,0.2252
+33,CSGP,"CoStar Group, Inc. Common Stock",25431811843,0.279
+34,COST,Costco Wholesale Corporation Common Stock,136637846800,0.1853
+35,CSX,CSX Corporation Common Stock,48658151527,0.2581
+36,DLTR,Dollar Tree Inc. Common Stock,20840482666,0.2724
+37,EBAY,eBay Inc. Common Stock,28690752969,0.2613
+38,EA,Electronic Arts Inc. Common Stock,29946529237,0.3179
+39,EXC,Exelon Corporation Common Stock,42012659643,0.2048
+40,EXPE,"Expedia Group, Inc. Common Stock",12029265511,0.3715
+41,FB,"Facebook, Inc. Class A Common Stock",507921802927,0.32
+42,FAST,Fastenal Company Common Stock,19299712790,0.2554
+43,FISV,"Fiserv, Inc. Common Stock",72683942744,0.1885
+44,FOX,Fox Corporation Class B Common Stock,17452520733,0.2736
+45,FOXA,Fox Corporation Class A Common Stock,17664912327,0.2885
+46,GILD,"Gilead Sciences, Inc. Common Stock",91411475695,0.2797
+47,IDXX,"IDEXX Laboratories, Inc. Common Stock",21789777381,0.2641
+48,ILMN,"Illumina, Inc. Common Stock",39418050000,0.391
+49,INCY,Incyte Corp. Common Stock,16108589932,0.4449
+50,INTC,Intel Corporation Common Stock,230872460000,0.255
+51,INTU,Intuit Inc. Common Stock,70243588593,0.2322
+52,ISRG,"Intuitive Surgical, Inc. Common Stock",62329825246,0.2841
+53,JD,"JD.com, Inc. American Depositary Shares",61118183500,0.4126
+54,KLAC,KLA Corporation Common Stock,24232278645,0.3004
+55,LRCX,Lam Research Corporation Common Stock,41855373518,0.3158
+56,LBTYA,Liberty Global plc Class A Ordinary Shares,11507068743,0.2906
+57,LBTYK,Liberty Global plc Class C Ordinary Shares,10963029209,0.277
+58,LULU,lululemon athletica inc. Common Stock,26595796417,0.3865
+59,MAR,Marriott International Class A Common Stock,35657115659,0.2337
+60,MXIM,"Maxim Integrated Products, Inc. Common Stock",14272503868,0.2649
+61,MELI,"MercadoLibre, Inc. Common Stock",29779742742,0.4124
+62,MCHP,Microchip Technology Incorporated Common Stock,19517562432,0.2853
+63,MU,"Micron Technology, Inc. Common Stock",53166408294,0.4467
+64,MSFT,Microsoft Corporation Common Stock,1223965084849,0.2401
+65,MDLZ,"Mondelez International, Inc. Class A Common Stock",78682900459,0.2028
+66,MNST,Monster Beverage Corporation,35504941870,0.2937
+67,NTAP,"NetApp, Inc. Common Stock",9618988991,0.3087
+68,NTES,"NetEase, Inc. American Depositary Shares",1038753266612,0.3725
+69,NFLX,"Netflix, Inc. Common Stock",159782665100,0.4193
+70,NVDA,NVIDIA Corporation Common Stock,159780960000,0.3872
+71,NXPI,NXP Semiconductors N.V. Common Stock,29891357914,0.3538
+72,ORLY,"O'Reilly Automotive, Inc. Common Stock",29473498922,0.2451
+73,PCAR,PACCAR Inc. Common Stock,22391742591,0.2337
+74,PAYX,"Paychex, Inc. Common Stock",27491826881,0.1758
+75,PYPL,"PayPal Holdings, Inc. Common Stock",128720134924,0.2916
+76,PEP,"PepsiCo, Inc. Common Stock",186393515059,0.1476
+77,QCOM,QUALCOMM Incorporated Common Stock,90174646965,0.2951
+78,REGN,"Regeneron Pharmaceuticals, Inc. Common Stock",52261609671,0.3469
+79,ROST,"Ross Stores, Inc. Common Stock",36552166533,0.2352
+80,SGEN,"Seattle Genetics, Inc. Common Stock",18507576259,0.4312
+81,SIRI,Sirius XM Holdings Inc. Common Stock,27940268527,0.2224
+82,SWKS,"Skyworks Solutions, Inc. Common Stock",16299164788,0.3525
+83,SPLK,Splunk Inc. Common Stock,20631634613,0.4376
+84,SBUX,Starbucks Corporation Common Stock,87874919000,0.2079
+85,SNPS,"Synopsys, Inc. Common Stock",20309207057,0.2095
+86,TMUS,"T-Mobile US, Inc. Common Stock",72822153168,0.3192
+87,TTWO,"Take-Two Interactive Software, Inc. Common Stock",13469138356,0.336
+88,TSLA,"Tesla, Inc. Common Stock",118991808868,0.5103
+89,TXN,Texas Instruments Incorporated Common Stock,104717346402,0.2432
+90,KHC,The Kraft Heinz Company Common Stock,29924288951,0.2996
+91,TCOM,Trip.com Group Limited American Depositary Shares,17081759444,0.4261
+92,ULTA,"Ulta Beauty, Inc. Common Stock",13664990419,0.3599
+93,UAL,"United Airlines Holdings, Inc. Common Stock",13032310657,0.3637
+94,VRSN,"VeriSign, Inc. Common Stock",21660684332,0.2264
+95,VRSK,"Verisk Analytics, Inc. Common Stock",25560523933,0.1898
+96,VRTX,Vertex Pharmaceuticals Incorporated Common Stock,59764003372,0.4047
+97,WBA,"Walgreens Boots Alliance, Inc. Common Stock",43548957436,0.2572
+98,WDC,Western Digital Corporation Common Stock,14931630223,0.3925
+99,WLTW,Willis Towers Watson Public Limited Company Ordinary Shares,24156655132,0.188
+100,WDAY,"Workday, Inc. Class A Common Stock",34871920000,0.3737
+101,XEL,Xcel Energy Inc. Common Stock,35934581454,0.163
+102,XLNX,"Xilinx, Inc. Common Stock",19312205499,0.3003
