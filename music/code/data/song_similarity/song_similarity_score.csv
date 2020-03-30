@@ -1,0 +1,34 @@
+id,song_name,year,artist,decade,similarity_score
+0,scream,2012,usher,2000,0.79
+1,if i were a boy,2008,beyonce,2000,0.79
+2,heaven,2013,beyonce,2000,0.82
+3,sandcastles,2016,beyonce,2000,0.86
+4,i was here,2011,beyonce,2000,0.79
+5,halo,2008,beyonce,2000,0.82
+6,rise,2016,katy perry,2010,0.82
+7,i kissed a girl,2008,katy perry,2010,0.82
+8,firework,2010,katy perry,2010,0.76
+9,365,2019,katy perry,2010,0.8
+10,never really over,2019,katy perry,2010,0.67
+11,count on me,2010,bruno mars,2010,0.81
+12,young girls,2012,bruno mars,2010,0.82
+13,grenade,2010,bruno mars,2010,0.39
+14,the lazy song,2010,bruno mars,2010,0.82
+15,uptown funk,2014,bruno mars,2010,0.8
+16,somewhere in brooklyn,2010,bruno mars,2010,0.82
+17,runaway baby,2011,bruno mars,2010,0.71
+18,talking to the moon,2010,bruno mars,2010,0.87
+19,it will rain,2011,bruno mars,2010,0.72
+20,when i was your man,2012,bruno mars,2010,0.87
+21,locked out of heaven,2012,bruno mars,2010,0.87
+22,work,2016,rihanna,2010,0.74
+23,disturbia,2008,rihanna,2010,0.82
+24,sledgehammer,2016,rihanna,2010,0.69
+25,james joint,2015,rihanna,2010,0.67
+26,take a bow,2008,rihanna,2010,0.43
+27,we found love,2011,rihanna,2010,0.83
+28,love the way you lie,2010,rihanna,2010,0.71
+29,russian roulette,2009,rihanna,2010,0.78
+30,stay,2012,rihanna,2010,0.82
+31,needed me,2016,rihanna,2010,0.79
+32,love on the brain,2016,rihanna,2010,0.79
