@@ -1,0 +1,116 @@
+symbol,name,market_cap,close,IPOyear,Sector,Industry,trading_on
+ATVI,Activision Blizzard,46699438722,60.71,,Technology,Computer Software: Prepackaged Software,NASDAQ
+ADBE,Adobe,160628689302,332.38,1986.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+AMD,Advanced Micro Devices,53079240504,45.38,,Technology,Semiconductors,NASDAQ
+ALXN,Alexion Pharmaceuticals,19669253468,88.84,1996.0,Health Care,Major Pharmaceuticals,NASDAQ
+ALGN,Align Technology,17968321214,228.16,2001.0,Health Care,Industrial Specialties,NASDAQ
+GOOG,Alphabet,879994236775,1280.39,2004.0,Technology,"Computer Software: Programming, Data Processing",NASDAQ
+GOOGL,Alphabet,876406603385,1275.17,,Technology,"Computer Software: Programming, Data Processing",NASDAQ
+AMZN,Amazon.com,941767754168,1891.82,1997.0,Consumer Services,Catalog/Specialty Distribution,NASDAQ
+AAL,American Airlines Group,7242998648,17.0,,Transportation,Air Freight/Delivery Services,NASDAQ
+AMGN,Amgen,121972050169,206.8,1983.0,Health Care,Biotechnology: Biological Products (No Diagnostic Substances),NASDAQ
+ADI,Analog Devices,37720466122,102.44,,Technology,Semiconductors,NASDAQ
+ANSS,ANSYS,19684701600,229.12,1996.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+AAPL,Apple,1248499463200,285.34,1980.0,Technology,Computer Manufacturing,NASDAQ
+AMAT,Applied Materials,51581198253,56.17,1972.0,Technology,Semiconductors,NASDAQ
+ASML,ASML Holding N.V.,119082558791,279.76,1995.0,Technology,Industrial Machinery/Components,NASDAQ
+ADSK,Autodesk,36191028169,164.48,,Technology,Computer Software: Prepackaged Software,NASDAQ
+ADP,Automatic Data Processing,66671491594,154.42,,Technology,EDP Services,NASDAQ
+BIDU,"Baidu, Inc. ADS",38701695413,111.91,2005.0,Technology,"Computer Software: Programming, Data Processing",NASDAQ
+BIIB,Biogen,53199183682,305.63,,Health Care,Biotechnology: Biological Products (No Diagnostic Substances),NASDAQ
+BMRN,BioMarin Pharmaceutical,16070954771,89.32,1999.0,Health Care,Major Pharmaceuticals,NASDAQ
+BKNG,Booking Holdings,64015368026,1559.0,,Miscellaneous,Business Services,NASDAQ
+AVGO,Broadcom,105017662259,262.9,2009.0,Technology,Semiconductors,NASDAQ
+CDNS,Cadence Design Systems,17628170560,62.92,,Technology,Computer Software: Prepackaged Software,NASDAQ
+CDW,CDW Corporation,14861089495,104.09,2013.0,Consumer Services,Catalog/Specialty Distribution,NASDAQ
+CERN,Cerner Corporation,21567372025,69.14,1986.0,Technology,EDP Services,NASDAQ
+CHTR,"Charter Communications, New",100108140597,476.76,,Consumer Services,Television Services,NASDAQ
+CHKP,Check Point Software Technologies Ltd.,14118691972,92.74,1996.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+CTAS,Cintas Corporation,27848789199,268.42,1983.0,Consumer Non-Durables,Apparel,NASDAQ
+CSCO,Cisco Systems,169974476853,40.08,1990.0,Technology,Computer Communications Equipment,NASDAQ
+CTXS,Citrix Systems,14044270293,114.78,1995.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+CTSH,Cognizant Technology Solutions Corporation,30602977773,55.78,1998.0,Technology,EDP Services,NASDAQ
+CMCSA,Comcast Corporation,178023654620,39.1,,Consumer Services,Television Services,NASDAQ
+CPRT,"Copart, Inc. (DE)",18472081139,79.04,1994.0,Consumer Durables,Automotive Aftermarket,NASDAQ
+CSGP,CoStar Group,25431811843,694.01,1998.0,Miscellaneous,Business Services,NASDAQ
+COST,Costco Wholesale Corporation,136637846800,309.4,,Consumer Services,Department/Specialty Retail Stores,NASDAQ
+CSX,CSX Corporation,48658151527,62.88,,Transportation,Railroads,NASDAQ
+DLTR,Dollar Tree,20840482666,88.06,1995.0,Consumer Services,Department/Specialty Retail Stores,NASDAQ
+EBAY,eBay,28690752969,36.04,1998.0,Miscellaneous,Business Services,NASDAQ
+EA,Electronic Arts,29946529237,103.38,,Technology,Computer Software: Prepackaged Software,NASDAQ
+EXC,Exelon Corporation,42012659643,43.12,,,,NASDAQ
+EXPE,Expedia Group,12029265511,85.93,,Consumer Services,Transportation Services,NASDAQ
+FB,"Facebook,",507921802927,178.19,2012.0,Technology,"Computer Software: Programming, Data Processing",NASDAQ
+FAST,Fastenal Company,19299712790,33.6,1987.0,Consumer Services,RETAIL: Building Materials,NASDAQ
+FISV,Fiserv,72683942744,107.03,1986.0,Technology,EDP Services,NASDAQ
+FOX,Fox Corporation,17452520733,28.76,,Consumer Services,Broadcasting,NASDAQ
+FOXA,Fox Corporation,17664912327,29.11,,Consumer Services,Broadcasting,NASDAQ
+GILD,Gilead Sciences,91411475695,72.34,1992.0,Health Care,Biotechnology: Biological Products (No Diagnostic Substances),NASDAQ
+IDXX,IDEXX Laboratories,21789777381,255.36,1991.0,Health Care,Biotechnology: In Vitro & In Vivo Diagnostic Substances,NASDAQ
+ILMN,Illumina,39418050000,268.15,2000.0,Capital Goods,Biotechnology: Laboratory Analytical Instruments,NASDAQ
+INCY,Incyte Corp.,16108589932,74.31,,Health Care,Biotechnology: Commercial Physical & Biological Resarch,NASDAQ
+INTC,Intel Corporation,230872460000,53.98,,Technology,Semiconductors,NASDAQ
+INTU,Intuit,70243588593,269.66,1993.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+ISRG,Intuitive Surgical,62329825246,537.4,2000.0,Health Care,Industrial Specialties,NASDAQ
+JD,"JD.com, Inc. American Depositary Shares",61118183500,41.8,2014.0,Consumer Services,Other Specialty Stores,NASDAQ
+KLAC,KLA Corporation,24232278645,154.57,1980.0,Capital Goods,Electronic Components,NASDAQ
+LRCX,Lam Research Corporation,41855373518,287.57,1984.0,Technology,Industrial Machinery/Components,NASDAQ
+LBTYA,Liberty Global plc,11507068743,18.19,,Consumer Services,Television Services,NASDAQ
+LBTYK,Liberty Global plc,10963029209,17.33,,Consumer Services,Television Services,NASDAQ
+LULU,lululemon athletica inc.,26595796417,204.12,2007.0,Consumer Non-Durables,Apparel,NASDAQ
+MAR,Marriott International,35657115659,109.98,,Consumer Services,Hotels/Resorts,NASDAQ
+MXIM,Maxim Integrated Products,14272503868,52.98,1988.0,Technology,Semiconductors,NASDAQ
+MELI,MercadoLibre,29779742742,599.07,2007.0,Miscellaneous,Business Services,NASDAQ
+MCHP,Microchip Technology Incorporated,19517562432,81.48,1993.0,Technology,Semiconductors,NASDAQ
+MU,Micron Technology,53166408294,47.86,,Technology,Semiconductors,NASDAQ
+MSFT,Microsoft Corporation,1223965084849,160.92,1986.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+MDLZ,"Mondelez International,",78682900459,54.91,,Consumer Non-Durables,Packaged Foods,NASDAQ
+MNST,Monster Beverage Corporation,35504941870,66.13,,Consumer Non-Durables,Beverages (Production/Distribution),NASDAQ
+NTAP,NetApp,9618988991,43.49,1995.0,Technology,Electronic Components,NASDAQ
+NTES,"NetEase, Inc. American Depositary Shares",1038753266612,324.71,,Miscellaneous,Business Services,NASDAQ
+NFLX,Netflix,159782665100,364.13,2002.0,Consumer Services,Consumer Electronics/Video Chains,NASDAQ
+NVDA,NVIDIA Corporation,159780960000,261.08,1999.0,Technology,Semiconductors,NASDAQ
+NXPI,NXP Semiconductors N.V.,29891357914,106.85,2010.0,Technology,Semiconductors,NASDAQ
+ORLY,O'Reilly Automotive,29473498922,393.52,1993.0,Consumer Services,Other Specialty Stores,NASDAQ
+PCAR,PACCAR,22391742591,64.65,,Capital Goods,Auto Manufacturing,NASDAQ
+PAYX,Paychex,27491826881,76.71,1983.0,Consumer Services,Diversified Commercial Services,NASDAQ
+PYPL,PayPal Holdings,128720134924,109.74,,Miscellaneous,Business Services,NASDAQ
+PEP,PepsiCo,186393515059,134.14,,Consumer Non-Durables,Beverages (Production/Distribution),NASDAQ
+QCOM,QUALCOMM Incorporated,90174646965,78.89,1991.0,Technology,Radio And Television Broadcasting And Communications Equipment,NASDAQ
+REGN,Regeneron Pharmaceuticals,52261609671,475.02,1991.0,Health Care,Major Pharmaceuticals,NASDAQ
+ROST,Ross Stores,36552166533,101.85,1985.0,Consumer Services,Clothing/Shoe/Accessory Stores,NASDAQ
+SGEN,Seattle Genetics,18507576259,107.44,2001.0,Health Care,Biotechnology: Biological Products (No Diagnostic Substances),NASDAQ
+SIRI,Sirius XM Holdings,27940268527,6.33,,Consumer Services,Broadcasting,NASDAQ
+SWKS,Skyworks Solutions,16299164788,95.79,,Technology,Semiconductors,NASDAQ
+SPLK,Splunk,20631634613,132.28,2012.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+SBUX,Starbucks Corporation,87874919000,74.87,1992.0,Consumer Services,Restaurants,NASDAQ
+SNPS,Synopsys,20309207057,135.19,1992.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+TMUS,T-Mobile US,72822153168,84.98,,Public Utilities,Telecommunications Equipment,NASDAQ
+TTWO,Take-Two Interactive Software,13469138356,118.75,1997.0,Technology,Computer Software: Prepackaged Software,NASDAQ
+TSLA,Tesla,118991808868,645.33,2010.0,Capital Goods,Auto Manufacturing,NASDAQ
+TXN,Texas Instruments Incorporated,104717346402,112.12,,Technology,Semiconductors,NASDAQ
+KHC,The Kraft Heinz Company,29924288951,24.5,,Consumer Non-Durables,Packaged Foods,NASDAQ
+TCOM,Trip.com Group Limited American Depositary Shares,17081759444,29.03,,,,NASDAQ
+ULTA,Ulta Beauty,13664990419,239.06,2007.0,Consumer Services,Other Specialty Stores,NASDAQ
+UAL,United Airlines Holdings,13032310657,52.56,,Transportation,Air Freight/Delivery Services,NASDAQ
+VRSN,VeriSign,21660684332,186.06,1998.0,Technology,EDP Services,NASDAQ
+VRSK,Verisk Analytics,25560523933,156.74,2009.0,Technology,EDP Services,NASDAQ
+VRTX,Vertex Pharmaceuticals Incorporated,59764003372,230.51,1991.0,Health Care,Major Pharmaceuticals,NASDAQ
+WBA,Walgreens Boots Alliance,43548957436,49.16,,Health Care,Medical/Nursing Services,NASDAQ
+WDC,Western Digital Corporation,14931630223,49.95,,Technology,Electronic Components,NASDAQ
+WLTW,Willis Towers Watson Public Limited Company,24156655132,187.67,,Finance,Specialty Insurers,NASDAQ
+WDAY,"Workday,",34871920000,150.31,,Technology,EDP Services,NASDAQ
+XEL,Xcel Energy,35934581454,68.49,,Public Utilities,Power Generation,NASDAQ
+XLNX,Xilinx,19312205499,77.61,1990.0,Technology,Semiconductors,NASDAQ
+F,Ford Motor Company,20000000000,-1.0,1956.0,Capital Goods,Auto Manufacturing,NYSE
+GM,General Motors Com...,30000000000,-1.0,2010.0,Capital Goods,Auto Manufacturing,NYSE
+HOG,Harley-Davidson In...,2000000000,-1.0,1986.0,Capital Goods,Auto Manufacturing,NYSE
+HMC,Honda Motor Co Ltd...,42000000000,-1.0,1978.0,Capital Goods,Auto Manufacturing,NYSE
+SPAR,Spartan Motors Inc,433000000,-1.0,1984.0,Capital Goods,Auto Manufacturing,NASDAQ
+TM,Toyota Motor Corp ...,205000000000,-1.0,1999.0,Capital Goods,Auto Manufacturing,NYSE
+DDAIF,Daimler AG,32000000000,-1.0,1993.0,Capital Goods,Auto Manufacturing,NYSE
+NSANY,Nissan Motor Co Lt...,15000000000,-1.0,1980.0,Capital Goods,Auto Manufacturing,NASDAQ
+TTM,Tata Motors Limite...,3000000000,-1.0,2004.0,Capital Goods,Auto Manufacturing,NYSE
+FCAU,Fiat Chrysler Automobiles,14000000000,-1.0,2014.0,Capital Goods,Auto Manufacturing,NYSE
+VOW3,Volkswagen,55000000000,-1.0,1998.0,Capital Goods,Auto Manufacturing,Other
+HYMTF,Hyundai,18000000000,-1.0,2009.0,Capital Goods,Auto Manufacturing,Other
