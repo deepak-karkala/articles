@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="expires" content="0">
+
+    <title>Coronavirus in India: Daily Tracker, Insights and More</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/brands.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/solid.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.0/mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+
+    <!--
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v1.0.3/mapbox.css" rel='stylesheet' />
+    -->
+
+    <!-- Select2 -->
+    <script src="vendor/jquery3.3.1/jquery.min.js"></script>
+    <link href="css/select2.css" rel="stylesheet"/>
+    <script src="js/select2.js"></script>
+        <script>
+        $(document).ready(function() {
+            //$('.js-example-basic-single').select2();
+            $('#viz_combobox').select2();
+        });
+    </script>
+
+    <!-- Table with sorting, pagination -->
+    <!-- Font Awesome -->
+    <!-- Google Fonts -->
+    <!-- Material Design Bootstrap -->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">-->
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">-->
+    <script src="vendor/bootstrap4.1.1/js/bootstrap.bundle.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>-->
+    <script src="vendor/mdb/js/popper.min.js"></script>
+    <script src="vendor/mdb/js/mdb.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="vendor/mdb/css/addons/datatables2.min.css" rel="stylesheet">
+    <!-- DataTables JS -->
+    <script src="vendor/mdb/js/addons/datatables2.min.js" type="text/javascript"></script>
+    <!-- DataTables Select CSS -->
+    <link href="vendor/mdb/css/addons/datatables-select2.min.css" rel="stylesheet">
+    <!-- DataTables Select JS -->
+    <script src="vendor/mdb/js/addons/datatables-select2.min.js" type="text/javascript"></script>
+
+    <link href="css/grayscale.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="nav-link js-scroll-trigger" href="../../../../index.html">Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="../about/index.html">About this project</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="../../../../index.html#projects_portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="../../../../index.html#about_me">About me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="../../../../index.html#contact_me">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <!--
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <h1 class="brand-heading">Coronavirus in India: Daily Tracker, Insights, Visualisations and More</h1>-->
+              <!--<p class="intro-text">Tracking, visualising and useful insights about the outbreak in India</p>-->
+              <!--
+              <p class="article_author">Deepak Karkala</p>
+              <p class="article_date">April 2020</p>
+              <p class="article_subtitle">Last updated at </p>-->
+              <!--
+              <a href="#intro_text" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a>
+              -->
+              <!--
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    -->
+    <div class="heading">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <h1 class="brand-heading">Coronavirus in India: Daily Tracker, Insights, Visualisations and More</h1>
+            <!--<p class="intro-text">Tracking, visualising and useful insights about the outbreak in India</p>-->
+            <p>By <span class="article_author">Deepak Karkala</span></p>
+            <!--<p class="article_date">April 2020</p>-->
+            <p class="article_subtitle">Last updated at </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container title_buttons">
+      <div class="row mx-auto text-center justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="header_text text-center">Click on the below buttons to explore more</div>
+          <div id="toolbar" class="btn-toolbar">
+            <a href="#" id="all" class="button active">Maps</a>
+            <a href="#daily_cases_deaths" id="gender" class="button">Daily Cases and Deaths</a>
+            <a href="#" id="agegroup" class="button">Where are the cases rising fast?</a>
+            <a href="#" id="ruralurban" class="button">Case growth rate</a>
+            <a href="#" id="religion" class="button">Are we flattening the curve ?</a>
+            <a href="#" id="state" class="button">Clusters</a>
+            <a href="#" id="language" class="button">Hotspots</a>
+            <a href="#" id="literacy" class="button">Fatality rate</a>
+            <a href="#" id="employment" class="button">Age distribution</a>
+            <a href="#" id="sanitation" class="button">Travel history</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    <section id="intro_text" class="content-section intro_text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!--
+    <section id="basic_maps" class="content-section basic_maps">
+      <h3 class="section_title">District and State wise Cases, Deaths</h3>
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                  <h5 class="section_subtitle">State wise confirmed cases</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                  <div id="india_cases_map" style="height: 75vh;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                  <h5 class="section_subtitle">State wise deaths</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                  <div id="india_deaths_map" style="height: 75vh;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <section id="basic_maps" class="content-section basic_maps">
+      <h3 class="section_title">District and State wise Cases, Deaths</h3>
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12 col-md-12 col-12 mx-auto ">
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12">
+                <div class="btn-group btn-group-sm map_option_buttons" role="group" id="map_option_buttons">
+                  <button type="button" class="btn map_option_button active" id="district_cases">District cases</button>
+                  <button type="button" class="btn map_option_button" id="district_deaths">District deaths</button>
+                  <button type="button" class="btn map_option_button" id="state_cases">State cases</button>
+                  <button type="button" class="btn map_option_button" id="state_deaths">State deaths</button>
+                  <button type="button" class="btn map_option_button" id="animate_time">Animate over time</button>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-lg-12">
+                  <h5 class="section_subtitle">State wise confirmed cases</h5>
+              </div>
+            </div>
+            -->
+            <div class="row div_fig_background">
+              <div class="col-lg-12" id="basic_map_container">
+                  <div id="india_cases_map" style="height: 125vh;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="daily_cases_deaths" class="content-section daily_cases_deaths">
+      <div class="container">
+        <h3 class="section_title">Daily and Total Cases and Deaths</h3>
+        
+
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="section_subtitle">Total confirmed cases</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12" id="total_confirmed_cases">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="section_subtitle">New cases by day</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12" id="new_cases_day">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="section_subtitle">Total deaths</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12" id="total_confirmed_deaths">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 col-6 mx-auto div_fig_background">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="section_subtitle">New deaths by day</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12" id="new_deaths_day">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+
+
+
+    <section id="hotspots" class="content-section hotspots">
+      <h3 class="section_title">Hotspots: Where are the cases rising fast ?</h3>
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12 col-md-12 col-12 mx-auto ">
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12">
+                <div class="btn-group btn-group-sm hotspots_buttons" role="group" id="hotspots_buttons">
+                  <button type="button" class="btn map_option_button active" id="button_hotspot_map">Hotspot Map</button>
+                  <button type="button" class="btn map_option_button" id="button_flattening_curve">Flattening the curve</button>
+                  <button type="button" class="btn map_option_button" id="button_top_hotspots">Top Hotspots</button>
+                  <button type="button" class="btn map_option_button" id="button_growth_rates">Growth Rates</button>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-lg-12">
+                  <h5 class="section_subtitle">State wise confirmed cases</h5>
+              </div>
+            </div>
+            -->
+            <h3 class="section_title">Hotspots Map</h3>
+            <div class="row div_fig_background">
+              <div class="col-lg-12" id="hotspot_map_container">
+                  <div id="hotspot_map" style="height: 125vh;"></div>
+              </div>
+            </div>
+
+            <h3 class="section_title">Which States are Flattening the Curve ?</h3>
+
+            <div class="container div_fig_background">
+                <div class="row text-center justify-content-center">
+                    <div class="col-lg-4 col-12">
+                      <div class="row">
+                        <div class="col-lg-10">
+                            <div class="control-group">
+                              <select id="viz_combobox" class="select2_select">
+                                <option value="">Search for a state</option>
+                                <option value="all">Show all states</option>
+                                <!--<option></option>-->
+                              </select> 
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-secondary btn-sm show_all_button" id="show_all_states_flattening_curve">Show All</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="row text-center justify-content-center">
+                  <div class="col-lg-8 what_to_look_for_container">
+                    <div id="what_to_look_for_container">
+                      <span class="what_to_look_for_title">Watch out for</span>: Flatter the curves, slower is the growth rate of cases. States like Kerala, Telangana have flattened the curves significantly over the past weeks.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row text-center justify-content-center">
+                  <div class="col-lg-4">
+                      <div class="row">
+                        <div class="col-lg-8 legend_text">
+                            Current doubling time (in days)
+                        </div>
+                        <div class="col-lg-4">
+                            <div id="flattening_curve_legend"></div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12" id="flattening_curve">
+                  </div>
+                </div>
+
+            </div>
+
+
+            <h3 class="section_title">Top hotspots</h3>
+            
+            <div class="row div_table_background text-center justify-content-center">
+              <div class="col-lg-8" id="top_hotspots">
+
+                <div class="row text-center justify-content-center">
+                  <div class="col-lg-8 what_to_look_for_container">
+                    <div>
+                      <span>Hover over table headers to sort the table by cases, deaths.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <table id="top_hotspots_table" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                  <thead>
+                    <tr class="table-primary">
+                      <th class="th-sm">District</th>
+                      <th class="th-sm">State</th>
+                      <th class="th-sm">Cases</th>
+                      <th class="th-sm">Deaths</th>
+                    </tr>
+                  </thead>
+                  <tbody id="top_hotspots_table_body">
+                  </tbody>
+                  <!--
+                  <tfoot>
+                    <tr>
+                      <th>District</th>
+                      <th>State</th>
+                      <th>Cases</th>
+                      <th>Deaths</th>
+                    </tr>
+                  </tfoot>
+                  -->
+                </table>
+              </div>
+            </div>
+            
+
+            <h3 class="section_title">Growth Rates</h3>
+            
+            <div class="row div_fig_background">
+              <div class="col-lg-12" id="growth_rates">
+              </div>
+            </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 col-12 mx-auto">
+            <p>
+              All the code for this project can be found on <a href="https://github.com/deepak-karkala/portfolio/tree/master/docs/articles/airbnb/code">Github</a>.
+            </p>
+            
+            <p>
+              This work wouldn't be possible without the help of various data analysis and visualisation tools such as <a href="https://jupyter.org/">jupyter</a>, <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://d3js.org/">d3js</a>. The template for this html page was adapted from <a href="https://startbootstrap.com/template-overviews/grayscale/">Start Bootstrap</a>.
+            </p>
+            <p><a href="../about/index.html">Click here</a> to view more about the design, methodology of this project.</p>
+            <p class="text-center" style="padding-top:8vh;">For all queries, contact <a href="https://twitter.com/deepak_karkala">@deepak_karkala</a> or send me an email at <a href="mailto:dkarkala01@gmail.com" target="_top"><span class="contact_link">dkarkala01@gmail.com</span></a></p>
+            <!--<p class="text-center">Copyright &copy; Deepak Karkala 2020</p>-->
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="vendor/bootstrap4.1.1/js/bootstrap.bundle.min.js"></script>-->
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing1.4.1/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>-->
+
+    <!-- D3js -->
+    <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+    <script src="vendor/d3.v4.min.js"></script>
+    <!--<script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>-->
+
+    <!-- Custom scripts for this template -->
+    <!--
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v1.0.3/mapbox.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+    -->
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.0/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>-->
+
+
+    <!--<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+
+
+    <script src="js/grayscale.js"></script>
+    <script src="js/script.js"></script>
+    <!--<script src="js/draw_maps.js"></script>
+    <script src="js/draw_daily_cases_deaths.js"></script>
+    <script src="js/draw_total_cases_deaths.js"></script>-->
+
+    <!--<script src="js/hotspot_flattening_curve.js"></script>-->
+    <script src="js/top_hotspots_table.js"></script>
+
+
+  </body>
+
+</html>
