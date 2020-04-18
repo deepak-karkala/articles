@@ -532,8 +532,14 @@ select.classic {
   font-size: 1rem;
 }
 
-.what_to_look_for_title {
+.what_to_look_for_title, .takeaway_title {
   font-weight: bold;
+}
+
+.takeaway_container {
+  margin: 10px 0;
+  background-color: #FFA07A;
+  font-size: 1rem;
 }
 
 #flattening_curve_legend {
@@ -577,7 +583,9 @@ bottom: .5em;
     opacity: 1;
 }
 
-
+.label_histogram {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+}
 
 
 
