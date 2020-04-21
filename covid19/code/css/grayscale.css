@@ -587,17 +587,82 @@ bottom: .5em;
   font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
 }
 
+/* Table */
+.table-header {
+  font-size: 0.75rem;
+}
+
+.top_hotspots_table {
+  font-size: 0.75rem;
+}
 
 
+/* Case density */
+.case_density_curve {
+  position: relative;
+}
+
+.tooltip_case_density {
+  position: absolute;           
+  text-align: center;           
+  width: 200px;                  
+  height: 60px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
+
+/* Emerging hotspots map */
+#slider_cases_handle, #slider_growth_handle, #slider_density_handle {
+    width: 2.5em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    font-size: 1.0rem;
+    background-color: white;
+    color: #000;
+    border: 1px solid #33acdd;
+  }
 
 
+#slider_cases, #slider_growth, #slider_density {
+  border: 1px solid #33acdd;
+}
 
+.slider_top {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
 
+.css-icon {
 
+  }
 
-
-
-
+  .gps_ring { 
+    border: 3px solid #999;
+     -webkit-border-radius: 30px;
+     height: 18px;
+     width: 18px;   
+      -webkit-animation: pulsate 1s ease-out;
+      -webkit-animation-iteration-count: infinite; 
+      /*opacity: 0.0*/
+  }
+  
+  @-webkit-keyframes pulsate {
+        0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+        50% {opacity: 1.0;}
+        100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  }
 
 
 

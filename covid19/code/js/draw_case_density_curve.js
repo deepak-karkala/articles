@@ -1,7 +1,7 @@
 // District wise growth rate
-idname = "#district_growth_rates"
+idname = "#district_case_density"
 d3.select(idname).select("svg").remove();
-filename = "data/districtwise_growth_rate.csv";
+filename = "data/districtwise_latest_cases_per_population.csv";
 //type = "cases";
 width_scale_factor = 0.95;
 height_scale_factor = 0.35;
@@ -9,26 +9,28 @@ var bb = d3.select(idname).node().offsetWidth;
 var margin = {right:80, left:30, top:20, bottom:60};
 base_width = bb*width_scale_factor - margin.left - margin.right;
 base_height = bb*height_scale_factor - margin.top - margin.bottom;
-plot_district_growth_rate(idname, filename, base_width, base_height);
+plot_district_case_density_curve(idname, filename, base_width, base_height);
 
-min_case_count_to_plot_growth_rate = 50;
-var district_growth_rate_state_color_mapping = d3.scaleOrdinal()
+
+var district_case_density_state_color_mapping = d3.scaleOrdinal()
 			.domain([0, 36])
 			.range(state_colors_list);
 
 
-var district_growth_rate_highlight_list = ["Bhopal_MP", "Banswara_RJ", "Tiruppur_TN", "Ahmadabad_GJ", "Kasaragod_KL",
-										 "Delhi_DL", "Vadodara_GJ", "Jaipur_RJ"]; //"SPS-Nellore_AP"
+var district_case_density_highlight_list = ["Mumbai_MH", "Bhopal_MP",
+			"Indore_MP", "Delhi_DL", "Kasaragod_KL"]; //"SPS-Nellore_AP"
 
-var default_background_color_district_growth_rate = "#c0c0c0";
+var default_background_color_district_case_density = "#c0c0c0";
 
-function plot_district_growth_rate(idname, filename, width, height) {
+var min_case_count_to_plot_case_density = 25;
 
-	var growth_rate_district_list = [];
+function plot_district_case_density_curve(idname, filename, width, height) {
+
+	var case_density_district_list = [];
 
 	var tooltip = d3.select("body")
         .append("div")
-        .attr("class", "tooltip_flattening_curve")
+        .attr("class", "tooltip_case_density")
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden");
@@ -56,10 +58,10 @@ function plot_district_growth_rate(idname, filename, width, height) {
     // get the data
     var date_data = [];
     var dates = [];
-    var district_growth_rate = [];
-    var growth_rate_50 = [];
-    var growth_rate_100 = [];
-    var growth_rate_150 = [];
+    var district_case_density = [];
+    var case_density_2 = [];
+    var case_density_4 = [];
+    var case_density_6 = [];
 
     d3.csv(filename, function(error, data_csv) {
 		if (error) throw error;
@@ -70,17 +72,17 @@ function plot_district_growth_rate(idname, filename, width, height) {
 			date_data[idx] = [];
 			date_data[idx].date = parseTime(dates[i]);
 
-			growth_rate_50[idx] = [];
-			growth_rate_50[idx].date = date_data[idx].date;
-			growth_rate_50[idx].rate = 50;
+			case_density_2[idx] = [];
+			case_density_2[idx].date = date_data[idx].date;
+			case_density_2[idx].rate = 2;
 
-			growth_rate_100[idx] = [];
-			growth_rate_100[idx].date = date_data[idx].date;
-			growth_rate_100[idx].rate = 100;
+			case_density_4[idx] = [];
+			case_density_4[idx].date = date_data[idx].date;
+			case_density_4[idx].rate = 4;
 
-			growth_rate_150[idx] = [];
-			growth_rate_150[idx].date = date_data[idx].date;
-			growth_rate_150[idx].rate = 150;
+			case_density_6[idx] = [];
+			case_density_6[idx].date = date_data[idx].date;
+			case_density_6[idx].rate = 6;
 			idx += 1
 		}
 
@@ -88,45 +90,50 @@ function plot_district_growth_rate(idname, filename, width, height) {
 			//console.log(d.date);
 			return d.date;
 		}));
-	    y.domain([0, 150]);
+	    y.domain([0, 5]);
 
-	    var district_latest_growth_rate = [];
+	    var district_latest_case_density = [];
 		for (var j=0; j<data_csv.length; j++) {
 		//for (var j=2; j<=2; j++) {
 
-			district_growth_rate = data_csv[j]; //.slice(1, data_csv.length-1));
-			district_name = district_growth_rate[dates[0]].replace(/\./g,"").replace(", ","_").split(" ").join("-");
+			district_case_density = data_csv[j]; //.slice(1, data_csv.length-1));
+			district_name = district_case_density[dates[0]].replace(/\./g,"").replace(", ","_").split(" ").join("-");
 			state_code = district_name.split("_")[1];
-			//state_color = district_growth_rate_color_scale(state_color_mapping(state_code_mapping[state_code]));
-			state_color = district_growth_rate_state_color_mapping(state_code_mapping[state_code]);
-			district_total_case_count = parseInt(district_growth_rate[dates[1]]);
+			//state_color = district_case_density_color_scale(state_color_mapping(state_code_mapping[state_code]));
+			state_color = district_case_density_state_color_mapping(state_code_mapping[state_code]);
 
-			//console.log(min_case_count_to_plot_growth_rate);
+			district_total_case_count = parseInt(district_case_density[dates[1]]);
+
+			//console.log(dates[1]);
+			//console.log(district_case_density[dates[1]]);			
+			//console.log(district_name);
 			//console.log(district_total_case_count);
 
-			if (district_total_case_count >= min_case_count_to_plot_growth_rate) {
-				//console.log(district_name);
-				growth_rate_district_list.push(district_name);
+
+			if (district_total_case_count >= min_case_count_to_plot_case_density) {
+				case_density_district_list.push(district_name);
 
 				var didx = 0;
 				var first_nonzero = 0;
 				var data = []
 				for (var i=2; i<dates.length-1; i++) {
 					
-					if (parseFloat(district_growth_rate[dates[i]])>0) {
+					//console.log((district_case_density[dates[i]])==="");
+
+					if (parseFloat(district_case_density[dates[i]])>0) {
 						first_nonzero = 1
 					}
 
-					if ((first_nonzero==1) && (district_growth_rate[dates[i]]!=="")) {
+					//console.log(district_case_density[dates[i]]);
+
+					if ((first_nonzero==1) && (district_case_density[dates[i]]!=="")) {
 						data[didx] = [];
 						data[didx].date = parseTime(dates[i]);
-						data[didx].rate = parseFloat(district_growth_rate[dates[i]]);
+						data[didx].rate = parseFloat(district_case_density[dates[i]]);
 						didx += 1;
 					}
 		    	}
-		    	district_latest_growth_rate[district_name] = data[didx-1].rate;
-
-		    	//console.log(data);
+		    	district_latest_case_density[district_name] = data[didx-1].rate.toFixed(2);
 
 		        // define the line
 				var valueline = d3.line()
@@ -142,38 +149,39 @@ function plot_district_growth_rate(idname, filename, width, height) {
 				// Add the valueline path.
 				path = svg.append("path")
 		                .data([data])
-		                .attr("class", district_name+"_growth_rate_curve growth_rate_curve")
+		                .attr("class", district_name+"_case_density_curve case_density_curve")
 		                .attr("d", valueline)
 		                .attr("fill", "none")
 		                .attr("stroke-width", "1.5px")
+		                .style("z-index", 0)
 		                .attr("stroke", function() {
-				      		if (district_growth_rate_highlight_list.includes(district_name)) {
+				      		if (district_case_density_highlight_list.includes(district_name)) {
 				      			return state_color;
 		                	} else {
-		                		return default_background_color_district_growth_rate; 
+		                		return default_background_color_district_case_density; 
 		                	}
 		                })
 		                .attr("opacity", function() {
-				      		if (district_growth_rate_highlight_list.includes(district_name)) {
+				      		if (district_case_density_highlight_list.includes(district_name)) {
 				      			return 1;
 				      		} else {
 				      			return 0.5;
 				      		}
 			      		})
 		                .on("mouseover", function(d,i) {
-	                    	dname_with_state_code = this.getAttribute("class").split("_growth_rate_curve")[0];
-							show_selected_district_growth_rate(dname_with_state_code);
+	                    	dname_with_state_code = this.getAttribute("class").split("_case_density_curve")[0];
+							show_selected_district_case_density(dname_with_state_code);
 
 	                    	return tooltip.html(`<div class='well'>`+
 	                                                  `<span class="state_name text-center">`+dname_with_state_code.replace("_",", ")+`</span></br>` +
-	                                                ` Current daily growth rate of <span class="case_count_info">`+ Math.round(district_latest_growth_rate[dname_with_state_code],0) +`</span> %</div>` )
+	                                                ` Currently <span class="case_count_info">`+ district_latest_case_density[dname_with_state_code] +`</span> daily cases per 100,000 people.</div>` )
 	                                          .style("visibility", "visible");
 		                })
 		                .on("mousemove", function(){
 	                        return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
 	                    })
 		                .on("mouseout", function(d,i) {
-							show_all_districts_growth_rate_button_click_handler();
+							show_all_districts_case_density_button_click_handler();
 	                        return tooltip.style("visibility", "hidden");
 		                })
 
@@ -187,7 +195,7 @@ function plot_district_growth_rate(idname, filename, width, height) {
 		        	.style("font-weight", "bold")
 		        	.style("fill", state_color)
 		        	.attr("opacity", function() {
-		      			if (district_growth_rate_highlight_list.includes(district_name)) {
+		      			if (district_case_density_highlight_list.includes(district_name)) {
 		      				return 1;
 		      			} else {
 		      				return 0;
@@ -200,14 +208,14 @@ function plot_district_growth_rate(idname, filename, width, height) {
 	              .enter().append("circle")
 		      		.attr("class", function(d) {
 		      			//console.log(district_name+"_circles");
-		      			return district_name+"_growth_rate_circles growth_rate_circles"
+		      			return district_name+"_case_density_circles case_density_circles"
 		      		})
 		      		.attr("cx", function(d,i) { return x(d.date); })
 		      		.attr("cy", function(d,i) { return y(d.rate); })
 		      		.attr("r", "0.15rem")
 		      		.style("fill", state_color)
 		      		.attr("opacity", function(d) {
-		      			if (district_growth_rate_highlight_list.includes(district_name)) {
+		      			if (district_case_density_highlight_list.includes(district_name)) {
 		      				return 1;
 		      			} else {
 		      				return 0;
@@ -216,12 +224,12 @@ function plot_district_growth_rate(idname, filename, width, height) {
 		    }
 
         }
-		set_select_district_growth_rate(growth_rate_district_list);
+		set_select_district_case_density(case_density_district_list);
 
 		var xAxis = d3.axisBottom()
                     .scale(x)
                     .tickFormat(d3.timeFormat("%B %e"))
-                    .tickValues(x.domain().filter(function(d,i){ return !(i%7)}));
+                    .tickValues(x.domain().filter(function(d,i){ return !(i%4)}));
 
 		// add the x Axis
 		svg.append("g")
@@ -238,7 +246,7 @@ function plot_district_growth_rate(idname, filename, width, height) {
 		  .style("font-size", "0.75rem");
 
 
-		horizontal_grid_lines_data = [growth_rate_50, growth_rate_100, growth_rate_150];
+		horizontal_grid_lines_data = [case_density_2, case_density_4, case_density_6];
 		for (var hg=0; hg<3; hg++) {
 			svg.append("path")
 	            .data([horizontal_grid_lines_data[hg]])
@@ -262,7 +270,7 @@ function plot_district_growth_rate(idname, filename, width, height) {
 		  .attr("y", -10)
 		  .style("text-anchor", "end")
 		  .text(function(){
-		      return "Daily growth rate (%)";
+		      return "Daily Cases per 100,000 people";
 		  })
 		  .style("fill", "black")
 		  .style("font-weight", "bold")
@@ -273,7 +281,7 @@ function plot_district_growth_rate(idname, filename, width, height) {
 			.attr("class", "label_histogram")
 			.attr("x", width)
 			.attr("y", height+50)
-			.text("Districts with min 50 cases, Growth rate averaged over previous week")
+			.text("Districts with min "+min_case_count_to_plot_case_density+" cases, Case density averaged over previous week")
 			.style("text-anchor", "end")
 			.style("fill", "#808080")
 			.style("font-size", "0.75rem");
@@ -284,65 +292,67 @@ function plot_district_growth_rate(idname, filename, width, height) {
 }
 
 
-$("#select_district_growth_rate").change(function() {
+$("#select_district_case_density").change(function() {
 
     district_name = this.value;
 
 	if (district_name=="") {
-		show_all_districts_growth_rate_button_click_handler();
+		show_all_districts_case_density_button_click_handler();
 	} else {
-		show_selected_district_growth_rate(district_name);
+		show_selected_district_case_density(district_name);
 	}
 
 });
 
 
 
-function show_selected_district_growth_rate(district_name) {
+function show_selected_district_case_density(district_name) {
 	state_code = district_name.split("_")[1];
-	state_color = district_growth_rate_state_color_mapping(state_code_mapping[state_code]);
+	state_color = district_case_density_state_color_mapping(state_code_mapping[state_code]);
 
-	d3.selectAll(".growth_rate_curve").attr("stroke", default_background_color_district_growth_rate).attr("opacity", 0.25).attr("stroke-width", "2px");
+	d3.selectAll(".case_density_curve").attr("stroke", default_background_color_district_case_density).attr("opacity", 0.25).attr("stroke-width", "2px");
 	d3.selectAll(".label").attr("opacity", 0);
-	d3.selectAll(".growth_rate_circles").attr("opacity", 0);
+	d3.selectAll(".case_density_circles").attr("opacity", 0);
 	
-	d3.select("."+district_name+"_growth_rate_curve").attr('stroke-width', "2px").attr("stroke", state_color).attr("opacity", 1.0);
+	d3.select("."+district_name+"_case_density_curve").attr('stroke-width', "2px").attr("stroke", state_color).attr("opacity", 1.0);
 	d3.select("."+district_name+"_label").attr("opacity", 1);
-	d3.selectAll("."+district_name+"_growth_rate_circles").attr("opacity", 1);
+	d3.selectAll("."+district_name+"_case_density_circles").attr("opacity", 1);
 }
 
 
 
-$("#show_all_districts_growth_rate").click(function() {
-    show_all_districts_growth_rate_button_click_handler();
-    $('#select_district_growth_rate').val("").trigger('change');
+$("#show_all_districts_case_density").click(function() {
+    show_all_districts_case_density_button_click_handler();
+    $('#select_district_case_density').val("").trigger('change');
 });
 
-function show_highlight_districts_growth_rate() {
-	for (var h=0; h<district_growth_rate_highlight_list.length; h++) {
-		highlight_state_name = district_growth_rate_highlight_list[h];
+function show_highlight_districts_case_density() {
+	for (var h=0; h<district_case_density_highlight_list.length; h++) {
+		highlight_state_name = district_case_density_highlight_list[h];
 		state_code = highlight_state_name.split("_")[1];
-		state_color = district_growth_rate_state_color_mapping(state_code_mapping[state_code]);
+		state_color = district_case_density_state_color_mapping(state_code_mapping[state_code]);
 
-		d3.select("."+highlight_state_name+"_growth_rate_curve").attr('stroke-width', "2px").attr("stroke", state_color).attr("opacity", 1.0);
+		d3.select("."+highlight_state_name+"_case_density_curve").attr('stroke-width', "2px").attr("stroke", state_color).attr("opacity", 1.0);
 		d3.select("."+highlight_state_name+"_label").attr("opacity", 1);
-		d3.selectAll("."+highlight_state_name+"_growth_rate_circles").attr("opacity", 1);
+		d3.selectAll("."+highlight_state_name+"_case_density_circles").attr("opacity", 1);
 	}
 }
 
-function set_select_district_growth_rate(growth_rate_district_list) {
+function set_select_district_case_density(case_density_district_list) {
     var district_list = '';
-    for (var i=0; i<growth_rate_district_list.length; i++) {
-    	district_name = growth_rate_district_list[i].replace("_",", ").replace("-", " ")
-        district_list += `<option value="`+growth_rate_district_list[i]+`">`+district_name+`</option>`;
+    for (var i=0; i<case_density_district_list.length; i++) {
+    	district_name = case_density_district_list[i].replace("_",", ").replace("-", " ")
+        district_list += `<option value="`+case_density_district_list[i]+`">`+district_name+`</option>`;
     }
-    $('#select_district_growth_rate').append(district_list);
+    $('#select_district_case_density').append(district_list);
 }
 
-function show_all_districts_growth_rate_button_click_handler() {
-	d3.selectAll(".growth_rate_curve").attr("stroke", default_background_color_district_growth_rate).attr("opacity", 0.5).attr("stroke-width", "1.5px");
+function show_all_districts_case_density_button_click_handler() {
+	d3.selectAll(".case_density_curve").attr("stroke", default_background_color_district_case_density).attr("opacity", 0.5).attr("stroke-width", "1.5px");
 	d3.selectAll(".label").attr("opacity", 0);
-	d3.selectAll(".growth_rate_circles").attr("opacity", 0);
+	d3.selectAll(".case_density_circles").attr("opacity", 0);
 
-	show_highlight_districts_growth_rate();
+	show_highlight_districts_case_density();
 }
+
+
