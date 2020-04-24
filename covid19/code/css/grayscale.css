@@ -513,7 +513,7 @@ select.classic {
 }
 
 .state_name {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: bold;
 }
 
@@ -664,9 +664,34 @@ bottom: .5em;
         100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
   }
 
+/* State fatality */
+.tick line{
+  visibility:hidden;
+}
 
+.tooltip_state_fatality_rate {
+  position: absolute;           
+  text-align: center;           
+  width: 180px;                  
+  height: 120px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
 
+.state_fatality_text {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+}
 
-
-
+.state_fatality_label {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+}
 

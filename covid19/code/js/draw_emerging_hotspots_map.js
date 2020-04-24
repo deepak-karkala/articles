@@ -8,6 +8,23 @@ var slider_density_value = 7;
 var slider_growth_value = 60;
 var topoLayer_hotspots;
 
+
+/*
+Enable/Disable slider based on checkbox input
+https://stackoverflow.com/questions/44692276/checkbox-is-checked-disable-the-range-slider
+$(document).on('change','#checkbox6b',function()
+{
+    if($("input[name='responsive']:checked"))
+    {
+      $('#YOUR-SLIDER-ID').slider('disable');
+    }
+    else
+    {
+      $('#YOUR-SLIDER-ID').slider('enable');
+    }
+});
+*/
+
 function draw_emerging_hotspots_map(map_container) {
 	L.TopoJSON = L.GeoJSON.extend(
 	    {
