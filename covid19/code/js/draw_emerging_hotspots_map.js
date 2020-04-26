@@ -168,7 +168,8 @@ function update_markers_at_hotspots() {
 	for (var i=0; i<markers_hotspots.length; i++) {
 		map_emerging_hotspots.removeLayer(markers_hotspots[i]);
 	}
-	
+	markers_hotspots = [];
+		
 	/*
 	// Add new markers
 	// Load state topodata and add as layers

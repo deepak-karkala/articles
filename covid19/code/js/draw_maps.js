@@ -231,6 +231,7 @@ function draw_leaflet_topojson_district_confirmed_map(map_container) {
 	            geojson = topojson.feature( jsonData, 
 	                    jsonData.objects[key]);
 	            L.GeoJSON.prototype.addData.call(this, geojson);
+	            console.log(geojson);
 	          }
 	        }    
 	        else 
