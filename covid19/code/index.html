@@ -578,7 +578,22 @@
           </div>
         </div>
       </div>
+
+      <div class="container div_fig_background">
+      <h1 class="section_title">State wise Case Count</h1>
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12">
+
+            <div class="row" id="district_daily_case_count">
+            </div>
+
+          </div>
+        </div>
+      </div>      
     </section>
+
+
+
 
 
     <section id="outbreak_free_districts_top" class="content-section outbreak_free_districts_top">
@@ -673,6 +688,75 @@
 
 
 
+    <section id="cluster_top" class="content-section cluster_top">
+      <h1 class="section_title">Clusters</h1>
+
+      <h3 class="section_title">Cluster network map</h3>
+      <div class="container div_fig_background" style="background-color: white;">
+
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12">
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12 what_to_look_for_container">
+                <div id="what_to_look_for_container">
+                  <span class="what_to_look_for_title">Watch out for</span>: We track how the pandemic spread across India for around 2000 cases which have been mapped (<a href="https://github.com/covid19india/api">https://github.com/covid19india/api</a>) to known sources. We drawn a link between the source where the patient contracted the virus to the destination where the patient was diagnosed. Pan and zoom the map to explore in more detail.
+                </div>
+              </div>
+            </div>
+
+            <div class="row text-center justify-content-center legend_text">
+              <div class="col-lg-10" id="cluster_map_legend">
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#f58231" /></svg>
+                  Travel History
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#3cb44b" /></svg>
+                  Italian tourists in Rajasthan
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#911eb4" /></svg>
+                  Iran evacuees
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#ff0000" /></svg>
+                  Family member
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#4363d8" /></svg>
+                  Delhi Religious conference
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#f032e6" /></svg>
+                  Mysuru Pharma company
+                  &nbsp &nbsp
+              </div>
+            </div>
+
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12" id="cluster_map">
+              </div>
+            </div>
+            
+
+            <div class="row justify-content-center">
+              <div class="col-lg-10 takeaway_container">
+                <div id="takeaway_container_cluster_map">
+                  We observe how the pandemic spread in India.
+                  <ul>
+                    <li>The initial cases were almost exclusively tied to international travel history, the striking connection between Middle East and Kerala is also why the state was India's epicenter in the beginning.</li>
+                    <li>Cases related to Delhi's religious conference can be seen around early April, Tamil Nadu in particular being affected the most.</li>
+                    <li>In the recent weeks, we see more and more cases being contracted from family members or other close contacts.</li>
+                    <li>This graphic just shows around 2000 cases which have been mapped to known sources, but what it does illustrate is the effect of strict lockdown enforced in the country, without which with people moving freely across the country, we could have expected the entire country filled with criss crossed lines.</li>
+                    <li>The Italian tourist group, evacuees from Iran, Mysuru Pharma company, are the other noticeable cluster groups.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
 
 
 
@@ -725,7 +809,12 @@
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
     -->
+    <script src="//d3js.org/d3-geo-projection.v1.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
     <script src='https://api.mapbox.com/mapbox.js/v3.3.0/mapbox.js'></script>
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
@@ -748,7 +837,7 @@
     <script src="js/grayscale.js"></script>
     <script src="js/script.js"></script>
     
-    <script src="js/draw_maps.js"></script>
+    <!--<script src="js/draw_maps.js"></script>-->
     <!--<script src="js/draw_daily_cases_deaths.js"></script>
     <script src="js/draw_total_cases_deaths.js"></script>-->
 
@@ -757,9 +846,11 @@
     <!--<script src="js/draw_district_growth_rate.js"></script>-->
     <!--<script src="js/draw_case_density_curve.js"></script>-->
     <!--<script src="js/draw_emerging_hotspots_map.js"></script>-->
-    <!--<script src="js/animate_state_fatality_rate.js"></script>-->
+    <script src="js/animate_state_fatality_rate.js"></script>
     <!--<script src="js/draw_outbreak_free_districts.js"></script>
     <script src="js/draw_state_recovery_rate.js"></script>-->
+    <!--<script src="js/draw_cluster_map.js"></script>-->
+    <!--<script src="js/draw_district_daily_case_count.js"></script>-->
 
   </body>
 
