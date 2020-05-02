@@ -91,7 +91,6 @@ function draw_district_daily_case_count(idname, filename, width, height) {
 		//for (var st=0; st<1; st++) {
 			data_csv = all_states_data;
 			state_name = state_list[st];
-			console.log(state_name);
 
 			idname = "#state_" + st;
 			d3.select(idname).select("svg").remove();

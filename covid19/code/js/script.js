@@ -3,6 +3,9 @@ var maxDeviceWidth = 1024;
 
 months_list = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"];
+
+var month_abbrv_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
 /*
  * Sets up the layout buttons to allow for toggling between view modes.
  */
@@ -43,6 +46,44 @@ var state_colors_list = ["#404040", "#FF0000", "#800000", "#F1C40F", "#808000", 
              "#000080", "#FF00FF", "#800080", "#F77210",
              "#404040", "#FF0000", "#800000", "#F1C40F", "#808000", "#00FF00", "#008000", "#0000FF",
              "#000080", "#FF00FF", "#800080", "#F77210"]
+
+var state_code_name_mapping = {'AP': 'Andhra Pradesh',
+                               'AR': 'Arunachal Pradesh',
+                               'AS': 'Assam',
+                               'BR': 'Bihar',
+                               'CT': 'Chhattisgarh',
+                               'GA': 'Goa',
+                               'GJ': 'Gujarat',
+                               'HR': 'Haryana',
+                               'HP': 'Himachal Pradesh',
+                               'JH': 'Jharkhand',
+                               'KA': 'Karnataka',
+                               'KL': 'Kerala',
+                               'MP': 'Madhya Pradesh',
+                               'MH': 'Maharashtra',
+                               'MN': 'Manipur',
+                               'ML': 'Meghalaya',
+                               'MZ': 'Mizoram',
+                               'NL': 'Nagaland',
+                               'OR': 'Odisha',
+                               'PB': 'Punjab',
+                               'RJ': 'Rajasthan',
+                               'SK': 'Sikkim',
+                               'TN': 'Tamil Nadu',
+                               'TG': 'Telangana',
+                               'TR': 'Tripura',
+                               'UT': 'Uttarakhand',
+                               'UP': 'Uttar Pradesh',
+                               'WB': 'West Bengal',
+                               'AN': 'Andaman and Nicobar Islands',
+                               'CH': 'Chandigarh',
+                               'DN': 'Dadra and Nagar Haveli',
+                               'DD': 'Daman and Diu',
+                               'DL': 'Delhi',
+                               'JK': 'Jammu and Kashmir',
+                               'LA': 'Ladakh',
+                               'LD': 'Lakshadweep',
+                               'PY': 'Puducherry'};
 
 /*
 district_name_mapping = {"Jagitial":"Jagtial", "Jangoan":"Jangaon", "Kumuram Bheem Asifabad":"Komaram Bheem Asifabad",
