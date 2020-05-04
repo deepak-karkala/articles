@@ -33,6 +33,9 @@ function setupButtons() {
 // setup the buttons.
 setupButtons();
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 var state_code_mapping = {'AP': 0, 'AR': 1, 'AS': 2, 'BR': 3,'CT': 4,'GA': 5, 'GJ': 6,'HR': 7,'HP': 8,
                 'JH': 9, 'KA': 10, 'KL': 11, 'MP': 12, 'MH': 13, 'MN': 14, 'ML': 15, 'MZ': 16,
@@ -84,6 +87,51 @@ var state_code_name_mapping = {'AP': 'Andhra Pradesh',
                                'LA': 'Ladakh',
                                'LD': 'Lakshadweep',
                                'PY': 'Puducherry'};
+
+
+var country_continent_mapping = {'United Arab Emirates': 'Asia',
+                                 'Austria': 'Europe',
+                                 'Belgium': 'Europe',
+                                 'Belarus': 'Europe',
+                                 'Brazil': 'Americas',
+                                 'Canada': 'Americas',
+                                 'Switzerland': 'Europe',
+                                 'Chile': 'Americas',
+                                 'China': 'Asia',
+                                 'Germany': 'Europe',
+                                 'Ecuador': 'Africa',
+                                 'Spain': 'Europe',
+                                 'France': 'Europe',
+                                 'United Kingdom': 'Europe',
+                                 'Indonesia': 'Asia',
+                                 'India': 'Others',
+                                 'Ireland': 'Europe',
+                                 'Iran': 'Asia',
+                                 'Israel': 'Asia',
+                                 'Italy': 'Europe',
+                                 'Japan': 'Asia',
+                                 'South Korea': 'Asia',
+                                 'Mexico': 'Americas',
+                                 'Netherlands': 'Europe',
+                                 'Pakistan': 'Asia',
+                                 'Peru': 'Americas',
+                                 'Poland': 'Europe',
+                                 'Portugal': 'Europe',
+                                 'Qatar': 'Asia',
+                                 'Romania': 'Europe',
+                                 'Russia': 'Europe',
+                                 'Saudi Arabia': 'Asia',
+                                 'Singapore': 'Asia',
+                                 'Sweden': 'Europe',
+                                 'Turkey': 'Europe',
+                                 'Ukraine': 'Europe',
+                                 'United States': 'Americas'}
+
+
+var continent_color_mapping = d3.scaleOrdinal()
+                                .domain(["Asia", "Europe", "Americas", "Africa", "Others"])
+                                .range(["#4363d8", "#f58231", "#e6194b", "#3cb44b", "#000000"]);
+
 
 /*
 district_name_mapping = {"Jagitial":"Jagtial", "Jangoan":"Jangaon", "Kumuram Bheem Asifabad":"Komaram Bheem Asifabad",

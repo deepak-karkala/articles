@@ -244,10 +244,5 @@ function draw_cluster_map(idname, filename, width, height) {
 		g.selectAll(".country_focus").style("stroke-width", d3.event.transform.k/10 + "px").style("stroke", "#000");
     }
 
-
-    function numberWithCommas(x) {
-    	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	}
-
 }
 

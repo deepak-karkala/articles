@@ -79,12 +79,6 @@ function draw_district_daily_case_count(idname, filename, width, height) {
 			case_count_1000[idx].rate = 1000;
 			idx += 1
 		}
-		//var dates = columns.slice(3)
-
-		const start_date = new Date(dates[3]);
-		const end_date = new Date(dates[dates.length-1]);
-		const diff_time = Math.abs(end_date - start_date);
-		const num_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24)); 
 
 		// State loop
 		for (var st=0; st<state_list.length; st++) {

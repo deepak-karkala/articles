@@ -12,16 +12,16 @@ base_height = bb*height_scale_factor - margin.top - margin.bottom;
 plot_flattening_curve(idname, filename, base_width, base_height, type)
 
 var state_name_list = ['Andaman-and-Nicobar-Islands', 'Andhra-Pradesh',
-                             'Arunachal-Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
-                             'Daman-and-Diu', 'Delhi', 'Dadra-and-Nagar-Haveli', 'Goa', 'Gujarat',
-                             'Himachal-Pradesh', 'Haryana', 'Jharkhand', 'Jammu-and-Kashmir',
-                             'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Maharashtra',
-                             'Meghalaya', 'Manipur', 'Madhya-Pradesh', 'Mizoram', 'Nagaland',
-                             'Odisha', 'Punjab', 'Puducherry', 'Rajasthan', 'Sikkim', 'Telangana',
-                             'Tamil-Nadu', 'Tripura', 'Uttar-Pradesh', 'Uttarakhand', 'West-Bengal'];
+                       'Arunachal-Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh',
+                       'Daman-and-Diu', 'Delhi', 'Dadra-and-Nagar-Haveli', 'Goa', 'Gujarat',
+                       'Himachal-Pradesh', 'Haryana', 'Jharkhand', 'Jammu-and-Kashmir',
+                       'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Maharashtra',
+                       'Meghalaya', 'Manipur', 'Madhya-Pradesh', 'Mizoram', 'Nagaland',
+                       'Odisha', 'Punjab', 'Puducherry', 'Rajasthan', 'Sikkim', 'Telangana',
+                       'Tamil-Nadu', 'Tripura', 'Uttar-Pradesh', 'Uttarakhand', 'West-Bengal'];
 
 var highlight_state_list = ["Delhi", "Maharashtra", "Kerala", "Rajasthan",
-                                  "Telangana", "Tamil-Nadu", "Madhya Pradesh"];
+                            "Telangana", "Tamil-Nadu", "Madhya Pradesh"];
 var growth_rate = [];
 var current_cases = [];
 

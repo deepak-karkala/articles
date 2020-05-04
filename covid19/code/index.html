@@ -51,6 +51,7 @@
             $('#select_state_doubling_time').select2();
             $('#select_district_growth_rate').select2();
             $('#select_district_case_density').select2();
+            $('#select_country_case_count').select2();
         });
     </script>
 
@@ -395,9 +396,9 @@
 
 
 
-            <h3 class="section_title">How fast are cases doubling in states ?</h3>
 
             <div class="container div_fig_background">
+              <h3 class="section_title">How fast are cases doubling in states ?</h3>
                 <div class="row text-center justify-content-center">
                     <div class="col-lg-4 col-12">
                       <div class="row">
@@ -420,7 +421,7 @@
                 <div class="row text-center justify-content-center">
                   <div class="col-lg-8 what_to_look_for_container">
                     <div id="what_to_look_for_container">
-                      <span class="what_to_look_for_title">Watch out for</span>: 
+                      <span class="what_to_look_for_title">Watch out for</span>: Shows the number of days it takes to double case count in major states. Root for these to go higher. States with curves pointing downwards are where cases are rising fast.
                     </div>
                   </div>
                 </div>
@@ -432,10 +433,15 @@
                 </div>
 
 
-                <div class="row text-center justify-content-center">
+                <div class="row justify-content-center">
                   <div class="col-lg-8 takeaway_container">
                     <div id="takeaway_container">
-                      <span class="takeaway_title">Key takeaways</span>: 
+                      <span class="takeaway_title" style="text-align: left;">Key takeaways</span>: 
+                      <ul>
+                        <li>Lot of states seemed to have increased doubling time significantly in mid-April but this positive trend is no longer continued towards end of April.</li>
+                        <li>States like West Bengal, Gujarat, Bihar, Andhra Pradesh are particularly showing very low doubling time.</li>
+                        <li>Maharashtra and Delhi in particular are the most concerning states with the doubling time not increasing even with very high number of cases already registered. This may suggest that these states are still quite far from reaching their peak.</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -861,10 +867,11 @@
     </section>
 
 
-    <section id="outbreak_spread_top" class="content-section outbreak_spread_top">
-      <h3 class="section_title">Spread of outbreak</h3>
-      <div class="container div_fig_background">
 
+
+    <section id="outbreak_spread_top" class="content-section outbreak_spread_top">
+      <div class="container div_fig_background">
+        <h3 class="section_title">Spread of outbreak</h3>
         <div class="row text-center justify-content-center">
           <div class="col-lg-12">
 
@@ -894,6 +901,129 @@
 
       </div>
     </section>
+
+
+
+
+    <section id="country_case_top" class="content-section country_case_top">
+      <div class="container div_fig_background">
+        <h3 class="section_title">How is India faring against other countries ?</h3>
+
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12">
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-10 what_to_look_for_container">
+                <div id="what_to_look_for_container">
+                  <span class="what_to_look_for_title">Watch out for</span>: The graph shows the number of cases in different countries over time. Watch out for the steepness of the curves, more flat the curve, slower is the growth rate of cases.<br/>
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#4363d8" /></svg>
+                  Asia
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#f58231" /></svg>
+                  Europe
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#e6194b" /></svg>
+                  Americas
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-4 col-12">
+                <div class="row">
+                  <div class="col-lg-10">
+                      <div class="control-group">
+                        <select id="select_country_case_count" class="select2_select">
+                          <option value="">Search for a country</option>
+                          <!--<option></option>-->
+                        </select> 
+                      </div>
+                  </div>
+                  <div class="col-lg-2">
+                      <button type="button" class="btn btn-secondary btn-sm show_all_button" id="show_all_countries_case_count">Show All</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12" id="country_case_count">
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-lg-10 takeaway_container">
+                <div id="takeaway_container_country_case_count">
+                  <span class="takeaway_title" style="text-align: left;">Key takeaways</span>
+                  <ul style="text-align: left;">
+                    <li>
+                      India's curve is nestled between those of Asian and European nations. Watch out for the steepness of the curve in the coming weeks as the lockdown is relaxed
+                    </li>
+                    <li>Countries like Austria, South Korea have flattened their curves significantly</li>
+                    <li>The cases of Japan and Singapore shows that this is going to be a long battle with the curves getting steeper after having flattened earlier.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section id="country_testing_rate_top" class="content-section country_testing_rate_top">
+      <div class="container div_fig_background">
+        <h3 class="section_title">Is India testing enough ?</h3>
+
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-12">
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-10 what_to_look_for_container">
+                <div id="what_to_look_for_container">
+                  <span class="what_to_look_for_title">Watch out for</span>: The graph shows the testing rate compared with the cases per million people in different countries. Ideally countries should lie lower more towards right side of this graph.<br/>
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#4363d8" /></svg>
+                  Asia
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#f58231" /></svg>
+                  Europe
+                  &nbsp &nbsp
+                  <svg height="20" width="20"><circle cx="10" cy="13" r="5" stroke="black" fill="#e6194b" /></svg>
+                  Americas
+                </div>
+              </div>
+            </div>
+
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-12" id="country_testing_rate">
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-lg-10 takeaway_container">
+                <div id="takeaway_container_country_testing_rate">
+                  <span class="takeaway_title" style="text-align: left;">Key takeaways</span>
+                  <ul style="text-align: left;">
+                    <li>India'a cases per million is very low but at the same time, its testing rate is abysmally low comparable to other high populous countries such as Indonesia, Pakistan, Mexico. Testing more may increase India'a case count significantly.</li>
+                    <li>Israel, Austria, Germany, Singapore, South Korea have contained the virus to large extent by deploying large number of tests.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
 
 
 
@@ -975,7 +1105,10 @@
     <!--<script src="js/draw_maps.js"></script>-->
     <!--<script src="js/draw_daily_cases_deaths.js"></script>
     <script src="js/draw_total_cases_deaths.js"></script>-->
+    
     <!--<script src="js/hotspot_flattening_curve.js"></script>-->
+    <!--<script src="js/draw_state_case_count.js"></script>-->
+
     <script src="js/draw_state_doubling_time.js"></script>
     <!--<script src="js/top_hotspots_table.js"></script>-->
     <!--<script src="js/draw_district_growth_rate.js"></script>-->
@@ -989,6 +1122,8 @@
     <!--<script src="js/draw_cluster_map.js"></script>-->
     <!--<script src="js/draw_district_daily_case_count.js"></script>-->
     <!--<script src="js/draw_outbreak_spread_map.js"></script>-->
+    <!--<script src="js/draw_country_case_count.js"></script>-->
+    <!--<script src="js/draw_country_testing_rate.js"></script>-->
 
   </body>
 
