@@ -412,6 +412,67 @@ select.classic {
   padding-top: 0px;
 }
 
+
+/* Scrolly */
+/* Sticky overlay */
+#scrolly {
+  position: relative;
+  background-color: black; /*#f3f3f3;*/
+  padding: 1rem;
+}
+article {
+  position: relative;
+  padding: 0;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+figure {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-color: black; /*#8a8a8a;*/
+}
+figure p {
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  top: 50%
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  font-weight: 900;
+  color: #fff;
+}
+.step {
+  margin: 0 auto 0.5rem auto;
+  color: #fff;
+  background-color: transparent; /*black; /*rgba(0,0,0,0.1)*/
+}
+.step:last-child {
+  margin-bottom: 0;
+}
+.step.is-active p {
+  background-color: transparent; /*black; /*goldenrod;*/
+  color: white; /*#3b3b3b;*/
+}
+.step p {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: transparent; /*black; /*#3b3b3b;*/
+}
+
+
+
+
+
 /* Daily cases and deaths */
 .tooltip_daily_cases_deaths {   
   position: absolute;           
@@ -867,4 +928,22 @@ bottom: .5em;
   padding: 5px;
 }
 
+/* State case count */
+.tooltip_state_case_count {
+  position: absolute;           
+  text-align: center;           
+  width: 180px;                  
+  height: 70px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
 

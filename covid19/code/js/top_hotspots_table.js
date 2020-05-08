@@ -1,6 +1,6 @@
 table_idname = "top_hotspots_table_body";
 //filename = "data/districtwise_top_hotspots.csv";
-filename = "data/districtwise_case_death_growth_density_withNamesMapped.csv";
+filename = "data/districtwise_case_death_growth_density_withDelhiCombined.csv";
 insert_district_rows(table_idname, filename);
 
 var min_case_count_to_show_in_table = 50;

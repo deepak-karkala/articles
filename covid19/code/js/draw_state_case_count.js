@@ -1,11 +1,12 @@
+
 // Daily cases
-idname = "#flattening_curve"
+idname = "#state_case_count"
 d3.select(idname).select("svg").remove();
 filename = "data/state_case_count.csv";
 width_scale_factor = 0.85;
-height_scale_factor = 0.35;
+height_scale_factor = 0.40;
 var bb = d3.select(idname).node().offsetWidth;
-var margin = {right:120, left:10, top:20, bottom:30};
+var margin = {right:50, left:50, top:20, bottom:50};
 base_width = bb*width_scale_factor - margin.left - margin.right;
 base_height = bb*height_scale_factor - margin.top - margin.bottom;
 draw_state_case_count(idname, filename, base_width, base_height);
@@ -15,6 +16,8 @@ var case_count_state_list = [];
 var state_case_count_highlight_list = [];
 var default_background_color_state_case_count = "#808080";
 var state_growth_rate = [];
+var state_case_count_highlight_list = ["Delhi", "Maharashtra", "Kerala", "Rajasthan",
+                            			"Andhra-Pradesh", "Jharkhand", "Bihar"];
 
 function draw_state_case_count(idname, filename, width, height) {
 
@@ -32,6 +35,13 @@ function draw_state_case_count(idname, filename, width, height) {
 
     var yAxis = d3.axisLeft()
                   .scale(y)
+                  .tickFormat( (d,i) => {
+	                  		if (d==1000000) {
+	                  			return numberWithCommas(d);
+			                }  else if ((d==100) || (d==1000) || (d==10000) || (d==100000) ) {
+		                    	return numberWithCommas(d);
+		                    }
+		                  })
                   .ticks(4);
 
     // parse the date / time
@@ -80,7 +90,7 @@ function draw_state_case_count(idname, filename, width, height) {
 		x.domain(date_data.map(function(d) {
 			return d.date;
 		}));
-	    y.domain([0, 12000]);
+	    y.domain([1, 12000]);
 
 	    var state_latest_case_count = [];
 		for (var j=0; j<data_csv.length; j++) {
@@ -112,7 +122,7 @@ function draw_state_case_count(idname, filename, width, height) {
 
 					//console.log(state_case_count[dates[i]]);
 
-					if ((first_nonzero==1) && (state_case_count[dates[i]]!=="")) {
+					if ( (state_case_count[dates[i]]!=="")) {
 						data[didx] = [];
 						data[didx].date = parseTime(dates[i]);
 						data[didx].rate = parseFloat(state_case_count[dates[i]]);
@@ -129,7 +139,11 @@ function draw_state_case_count(idname, filename, width, height) {
 					})
 					.y(function(d) {
 						//console.log(d.rate);
-						return y(d.rate);
+						if (d.rate==0) {
+							return height;
+						} else {
+							return y(d.rate);
+						}
 					});
 
 				// Add the valueline path.
@@ -158,11 +172,21 @@ function draw_state_case_count(idname, filename, width, height) {
 	                    	state_name = this.getAttribute("class").split("_state_case_count_curve")[0];
 							show_selected_state_case_count(state_name);
 
-	                    	return tooltip.html(`<div class='well'>`+
-	                                                  `<span class="state_name text-center">`+state_name.split("-").replace(" ")+`</span></br>` +
-	                                                ` Currently <span class="case_count_info">`+ state_latest_case_count[state_name] +`</span> cases`+
-	                                                `doubling every `+ state_growth_rate[state_name] + ` days.</div>` )
+							console.log(state_name);
+							console.log(state_growth_rate);
+							console.log(state_growth_rate[state_name]);
+							if (isNaN(state_growth_rate[state_name])) {
+								return tooltip.html(`<div class='well'>`+
+	                                                  `<span class="state_name text-center">`+state_name.split("-").join(" ")+`</span></br>` +
+	                                                `<span class="case_count_info">`+ state_latest_case_count[state_name] +`</span> cases</div>`)
 	                                          .style("visibility", "visible");
+							} else {
+	                    		return tooltip.html(`<div class='well'>`+
+	                                                  `<span class="state_name text-center">`+state_name.split("-").join(" ")+`</span></br>` +
+	                                                `<span class="case_count_info">`+ state_latest_case_count[state_name] +`</span> cases, `+
+	                                                `doubling every `+ state_growth_rate[state_name] + ` days</div>` )
+	                                          .style("visibility", "visible");
+	                        }
 		                })
 		                .on("mousemove", function(){
 	                        return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
@@ -175,8 +199,14 @@ function draw_state_case_count(idname, filename, width, height) {
 
 		        svg.append("text")
 		        	.attr("class", state_name+"_label label")
-		        	.attr("x", width-margin.right+50)
-		        	.attr("y", y(data[didx-1].rate))
+		        	.attr("x", width-margin.right)
+		        	.attr("y", function(d,i) {
+		        		if (data[didx-1].rate==0) {
+							return height;
+						} else {
+							return y(data[didx-1].rate);
+						}
+		        	})
 		        	.text(state_name.replace("_"," "))
 		        	.style("font-size", "0.75rem")
 		        	.style("font-weight", "bold")
@@ -198,7 +228,13 @@ function draw_state_case_count(idname, filename, width, height) {
 		      			return state_name+"_state_case_count_circles state_case_count_circles"
 		      		})
 		      		.attr("cx", function(d,i) { return x(d.date); })
-		      		.attr("cy", function(d,i) { return y(d.rate); })
+		      		.attr("cy", function(d,i) {
+		      			if (d.rate==0) {
+							return height;
+						} else {
+							return y(d.rate);
+						}
+		      		})
 		      		.attr("r", "0.15rem")
 		      		.style("fill", state_color)
 		      		.attr("opacity", function(d) {
@@ -216,7 +252,7 @@ function draw_state_case_count(idname, filename, width, height) {
 		var xAxis = d3.axisBottom()
                     .scale(x)
                     .tickFormat(d3.timeFormat("%B %e"))
-                    .tickValues(x.domain().filter(function(d,i){ return !(i%4)}));
+                    .tickValues(x.domain().filter(function(d,i){ return !(i%7)}));
 
 		// add the x Axis
 		svg.append("g")
@@ -254,14 +290,14 @@ function draw_state_case_count(idname, filename, width, height) {
 		  .attr("class", "label_histogram")
 		  .attr("transform", "rotate(-90)")
 		  .attr("x", 0)
-		  .attr("y", -10)
+		  .attr("y", 15)
 		  .style("text-anchor", "end")
 		  .text(function(){
 		      return "Total confirmed cases (log)";
 		  })
 		  .style("fill", "black")
 		  .style("font-weight", "bold")
-		  .style("font-size", "1.0rem");
+		  .style("font-size", "0.75rem");
 
 	    	
     });
@@ -314,12 +350,12 @@ function show_highlight_states_case_count() {
 }
 
 function set_select_state_case_count(case_count_state_list) {
-    var district_list = '';
+    var state_list = '';
     for (var i=0; i<case_count_state_list.length; i++) {
     	state_name = case_count_state_list[i].replace("_",", ").replace("-", " ")
-        district_list += `<option value="`+case_count_state_list[i]+`">`+state_name+`</option>`;
+        state_list += `<option value="`+case_count_state_list[i]+`">`+state_name+`</option>`;
     }
-    $('#select_state_case_count').append(district_list);
+    $('#select_state_case_count').append(state_list);
 }
 
 function show_all_states_case_count_button_click_handler() {
@@ -352,4 +388,32 @@ function get_growth_color_discrete(growth_rate) {
 	  growth_color = color_scale(0.9);
 	}
 	return growth_color;
+}
+
+plot_flattening_curve_legend("#state_case_count_legend");
+
+function plot_flattening_curve_legend(idname) {
+    var color_scale = d3.scaleSequential(d3.interpolatePlasma);
+
+    var linear = d3.scaleOrdinal()
+      .domain([2, 4, 6, 10, 14, 30])
+      .range([color_scale(0), color_scale(0.2), color_scale(0.4), color_scale(0.6), color_scale(0.8), color_scale(0.9)]);
+
+    var svg = d3.select(idname).append("svg")
+    				.attr("width", 300)
+      				.attr("height", 40);
+
+    svg.append("g")
+      .attr("class", "legendLinear")
+      .attr("transform", "translate(0,0)");
+
+    var legendLinear = d3.legendColor()
+      .shapeWidth(20)
+      .shapeHeight(10)
+      .cells([2, 4, 6, 10, 14, 30])
+      .orient('horizontal')
+      .scale(linear);
+
+    svg.select(".legendLinear")
+      .call(legendLinear);
 }
