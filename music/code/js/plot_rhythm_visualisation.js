@@ -8,8 +8,13 @@ function plot_rhythm_visualisation_initial() {
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
     //csv_processed_file = "data/rhythm_viz/viz_csv/Shape_of_you.csv";
-    csv_processed_file = "data/rhythm_viz/viz_csv/beatles__Let_it_be.csv";
+    csv_processed_file = "data/rhythm_viz/viz_csv/bruno_mars__Count_on_me.csv";
     plot_rhythm_visualisation(idname, csv_processed_file, base_width, base_height);
+    
+    artist = "Bruno Mars";
+    song = "Count on me";
+    document.getElementById("plot_song_artist_rhythm_visualisation_subtitle").innerHTML = `<span>`+artist+` - `+song+`</span>`;
+
 }
 plot_rhythm_visualisation_initial();
 
@@ -80,7 +85,11 @@ function plot_rhythm_visualisation(idname, csv_processed_file, width, height) {
             .attr('stroke','white')
             .attr('stroke-width',0.25)
             .attr('fill',function (d,i) { return colorScale[d.note]; })
-            .style("opacity", 1);
+            .style("opacity", 0)
+            .transition()
+                .duration(1000)
+                .delay(function(d,i){ return i*10; })
+                .style("opacity", 1);
 
         for(var i=0; i<c_tones.length; i++) {
             var c_circles = svg.append('circle')
@@ -130,7 +139,7 @@ function set_song_viz_combobox() {
     console.log(song_list);
     */
 
-    artist_info_file = "data/rhythm_viz/all_songs_artist_list.csv";
+    artist_info_file = "data/all_songs_artist_list.csv";
     d3.csv(artist_info_file, function(data) {
         var song_list = ''; //<option value="">Search for a song...</option>';
         data.forEach(function(d,i) {
@@ -169,6 +178,14 @@ $("#viz_combobox").change(function() {
         base_height = bb*height_scale_factor - margin.top - margin.bottom;
         csv_processed_file = "data/rhythm_viz/viz_csv/"+artist_song_folder+".csv";
         plot_rhythm_visualisation(idname, csv_processed_file, base_width, base_height);
+
+        artist = toTitleCase(artist_folder.split("_").join(" "));
+        song = toTitleCase(song_folder.split("_").join(" "));
+
+        document.getElementById("plot_song_artist_rhythm_visualisation_subtitle").innerHTML = `<span>`+artist+` - `+song+`</span>`;
+
     }
+
+
 });
 

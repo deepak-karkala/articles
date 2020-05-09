@@ -240,15 +240,15 @@ function handleStepTransition(data_step_id) {
 
         idname = "#text1";
         var width_scale_factor = 0.70;
-        var height_scale_factor = 0.50;
+        var height_scale_factor = 0.60;
 
         d3.select(idname).select("svg").remove();
         var bb = d3.select(idname).node().offsetWidth;
         base_width = bb*width_scale_factor; //- margin.left - margin.right;
         base_height = bb*height_scale_factor; //- margin.top - margin.bottom;
 
-        score_file = "data/similarity_score_example/similarity_score_example.csv";
-        song_file = "data/similarity_score_example/song_list.csv";
+        score_file = "data/similarity_score_example/similarity_score_example_all_songs.csv";
+        song_file = "data/similarity_score_example/song_list_all_songs.csv";
         plot_score_explainer(idname, score_file, song_file, base_width, base_height);
 
     } else if (data_step_id==11) {
@@ -718,7 +718,7 @@ function plot_rhythm_viz(idname, csv_processed_file, width, height, is_big_radiu
 }
 
 function plot_score_explainer(idname, score_file, song_file, width, height) {
-    var margin = {right:100, left:60, top:0, bottom:80};
+    var margin = {right:50, left:20, top:0, bottom:70};
 
     var song_list = [];
     d3.csv(song_file, function (data) {
@@ -734,7 +734,8 @@ function plot_score_explainer(idname, score_file, song_file, width, height) {
         var x = d3.scaleLinear().range([0, width]);
         var y = d3.scaleLinear().range([height, 0]);
 
-        var xScale = d3.scaleLinear().domain(d3.extent(data, function(d) {return d.score} )).range([0, width]);
+        //var xScale = d3.scaleLinear().domain(d3.extent(data, function(d) {return d.score} )).range([0, width]);
+        var xScale = d3.scaleLinear().domain([0.2, 1.2]).range([0, width]);
         var colorScale = d3.scaleSequential(d3.interpolateRdYlGn);
         //var yScale = d3.scaleLinear().domain([]).range([height, 0]);
         var xAxis = d3.axisBottom(xScale);
@@ -744,7 +745,7 @@ function plot_score_explainer(idname, score_file, song_file, width, height) {
             .force("y", d3.forceY(height / 2))
             //.force("center", d3.forceCenter( function(d) { return xScale(d.score), height/2; } ))
             //.force("center", d3.forceCenter( width/2, height/2 ))
-            .force("collide", d3.forceCollide(25))
+            .force("collide", d3.forceCollide(10))
             .stop();
     
         for (var i = 0; i < 120; ++i) simulation.tick();
@@ -757,7 +758,7 @@ function plot_score_explainer(idname, score_file, song_file, width, height) {
                         .attr('transform','translate(' + margin.left + ',' + margin.top + ')');
 
         var circles = svg.selectAll("circle")
-                        .data(data.filter(function(d,i) {return i!=0;} ))
+                        .data(data.filter(function(d,i) {return i!=198;} ))
                         .enter()
                         .append("circle")
                             .attr("class", "dot")
@@ -777,24 +778,30 @@ function plot_score_explainer(idname, score_file, song_file, width, height) {
                                 .duration(2000)
                                 .attr("cx", function(d) { return d.x; })
                                 .attr("cy", function(d) { return d.y; })
-                                .attr("r", function(d) { return 20; })
+                                .attr("r", function(d) { return "0.25rem"; })
                                 .style("fill", function(d) { return colorScale(d.score); });
 
         var text = svg.selectAll(".text")
                     .data(data.filter(function(d,i) {return i!=0;} ))
                     .enter()
                     .append("text")
-                    .attr("class", "song_name_labels")
-                    .attr("x", function(d) { return d.x-5; })
-                    .attr("y", function(d) { return d.y; })
+                    //.attr("class", "song_name_labels")
+                    .attr("x", function(d) { return d.x+5; })
+                    .attr("y", function(d) { return d.y-5; })
                     .text(function(d,i) { return "";} )
                         .transition()
                             .delay(1500)
-                            .attr("x", function(d) { return d.x-5; })
-                            .attr("y", function(d) { return d.y; })
+                            .attr("x", function(d) { return d.x+5; })
+                            .attr("y", function(d) { return d.y-5; })
                             .text(function(d,i) {
-                                return song_list[d.index].song;
+                                //if (d.index==223) {
+                                if ( ( (d.score < 0.3) || (d.score > 0.9)) && (d.index!=198)) {
+                                    return song_list[d.index].song.split("_").join(" ");
+                                } else {
+                                    return "";
+                                }
                             })
+                            .style("font-size", "0.75rem")
                             //.text(function(d,i) { return fit_text_in_circle(song_list[i].song); })
                             .style("fill", "white");
 

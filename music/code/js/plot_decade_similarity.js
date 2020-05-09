@@ -12,7 +12,7 @@ function plot_decade_similarity_top() {
   var margin = {right:20, left:60, top:20, bottom:40};
   base_width = bb*width_scale_factor - margin.left - margin.right;
   base_height = bb*height_scale_factor - margin.top - margin.bottom;
-  file = "data/song_similarity/decade_similarity.csv";
+  file = "data/decade_similarity.csv";
   plot_decade_similarity(idname, file, base_width, base_height, margin);
 }
 

@@ -1,7 +1,7 @@
 var minDeviceWidth = 375;
 var maxDeviceWidth = 1024;
 var colorScale = d3.scaleSequential(d3.interpolatePRGn);
-//var colorScale = d3.scaleLinear([0.4, 1]).range([d3.interpolatePRGn(0.25), d3.interpolatePRGn(0.75)]);
+//var colorScale = d3.scaleLinear([0, 0.5, 1]).range([d3.interpolatePRGn(0), d3.interpolatePRGn(0.5), d3.interpolatePRGn(1)]);
 //var colorScale = d3.scaleSequential(d3.interpolateRdYlGn);
 
 plot_all_songs_similarity_score_initial();
@@ -14,14 +14,14 @@ function plot_all_songs_similarity_score_initial() {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.30]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.50]);
     height_scale_factor = height_scale_factor_width(bb);
     var margin = {right:80, left:40, top:20, bottom:20};
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
-    file = "data/song_similarity/song_similarity_score.csv";
+    file = "data/song_similarity_score.csv";
 
-    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([10, 15]);
+    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([10, 10]);
     force_collide_factor = force_collide_factor_width(bb);
 
     plot_song_similarity_score(idname, file, base_width, base_height, margin, colorScale, force_collide_factor);
@@ -159,17 +159,20 @@ function plot_all_songs_similarity_score_initial() {
                                     .duration(2000)
                                     .attr("cx", function(d) { return d.x; })
                                     .attr("cy", function(d) { return d.y; })
-                                    .attr("r", function(d) { return "0.5rem"; }) //10
+                                    .attr("r", function(d) { return "0.25rem"; }) //10
                                     .style("fill", function(d) { return colorScale(d.similarity_score); });
 
             var text = svg.selectAll(".text")
-                        .data(data.filter(function(d,i) { return d.song_name == "count on me";} ))
+                        .data(data.filter(function(d,i) {
+                            return d.similarity_score < 0.5;
+                            //return d.song_name == "count on me";
+                        }))
                         .enter()
                         .append("text")
                         .attr("class", "text")
                         .attr("x", function(d) { return d.x-10; })
                         .attr("y", function(d) { return d.y-5; })
-                        .style("font-size", "0.5rem")
+                        .style("font-size", "0.75rem")
                         .attr("opacity", 1)
                         .text(function(d,i) { return "";} )
                             .transition()

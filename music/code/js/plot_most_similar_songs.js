@@ -3,7 +3,7 @@ setupButtons("#most_similar_songs_button");
 // Initial list: all decades
 function plot_most_similar_songs_initial() {
 	decade = "all";
-	most_similar_songs_file = "data/most_similar_songs/most_similar_songs.csv";
+	most_similar_songs_file = "data/most_similar_songs.csv";
     plot_most_similar_songs(most_similar_songs_file, decade)
 }
 plot_most_similar_songs_initial();
@@ -15,7 +15,7 @@ function most_similar_songs_button_click(id) {
     } else {
     	decade = "all";
     }
-    most_similar_songs_file = "data/most_similar_songs/most_similar_songs.csv";
+    most_similar_songs_file = "data/most_similar_songs.csv";
     plot_most_similar_songs(most_similar_songs_file, decade);
 }
 

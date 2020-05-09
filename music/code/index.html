@@ -159,6 +159,7 @@
 					<h3 class="text-center">Rhythm visualisation of songs</h3>
 				</div>
 			</div>
+			
 			<div class="row">
 	         	<div class="col-lg-12 text-center">
 	         		<!--
@@ -197,6 +198,11 @@
 					</div> 
 	          	</div>
 	        </div>
+	        <div class="row">
+				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center">
+					<div id="plot_song_artist_rhythm_visualisation_subtitle"></div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center plot_song_artist_rhythm_visualisation">
 					<div id="plot_song_artist_rhythm_visualisation"></div>
@@ -327,7 +333,7 @@
 			</div>
 		</div>
 
-
+		<!--
 		<div class="container decade_similarity">
 			<div class="row">
 				<div class="col-lg-12 col-12 decade_similarity_title text-center" id="decade_similarity_title">
@@ -340,6 +346,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 		<div class="container">
 			<div class="row">
@@ -433,8 +440,8 @@
 					<label class="switch-light switch-candy">
 					  <input type="checkbox" id="artist_inter_intra_toggle" onclick="all_artists_similarity_scores_button_click(this.id)">
 					  <span>
-					    <span>Inter songs</span>
-					    <span>Intra songs</span>
+					    <span>Other artists' songs</span>
+					    <span>Own songs</span>
 					    <a></a>
 					  </span>
 					</label>
@@ -510,7 +517,7 @@
 					-->
 					<div class="control-group">
 						<select id="artist_combobox" class="select2_select">
-							<option value="">Search for an artist...</option>
+							<option value="Lady Gaga">Search for an artist...</option>
 						</select> 
 					</div> 
 	          	</div>
@@ -525,13 +532,18 @@
 					<label class="switch-light switch-candy">
 					  <input type="checkbox" id="artist_viz_score_toggle" onclick="artist_viz_score_button_click(this.id)">
 					  <span>
-					    <span>Song visualisation</span>
 					    <span>Song similarity score</span>
+					    <span>Song visualisation</span>
 					    <a></a>
 					  </span>
 					</label>
 	          	</div>
 	        </div>
+	        <div class="row">
+				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center">
+					<div id="plot_artist_discography_artist_name"></div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center">
 					<div id="plot_artist_discography"></div>
@@ -641,7 +653,7 @@
 	<script src='js/plot_song_similarity_score.js'></script>
 	<!--<script src='js/autocomplete2.js'></script>-->
 	<script src='js/plot_song_discography.js'></script>
-	<script src='js/plot_decade_similarity.js'></script>
+	<!--<script src='js/plot_decade_similarity.js'></script>-->
 	<script src='js/plot_most_similar_songs.js'></script>
 	<script src='js/plot_artists_similarity_score.js'></script>
 	<script src='js/plot_artist_discography.js'></script>

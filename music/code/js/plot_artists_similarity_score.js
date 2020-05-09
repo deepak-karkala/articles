@@ -14,14 +14,14 @@ function plot_all_artists_similarity_score_initial() {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.30]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.40]);
     height_scale_factor = height_scale_factor_width(bb);
     var margin = {right:80, left:40, top:20, bottom:40};
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
-    file = "data/artist_uniqueness/artist_inter_intra_similarity_score.csv";
+    file = "data/artist_inter_intra_similarity_score.csv";
 
-    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([20, 30]);
+    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([10, 30]);
     force_collide_factor = force_collide_factor_width(bb);
     is_intra = false;
     plot_artist_similarity_score(idname, file, base_width, base_height, margin, colorScale, force_collide_factor, is_intra);
@@ -55,19 +55,19 @@ function plot_all_artists_similarity_score_initial() {
 
         var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
         width_scale_factor = width_scale_factor_width(bb);
-        var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.30]);
+        var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.40]);
         height_scale_factor = height_scale_factor_width(bb);
         var margin = {right:80, left:40, top:20, bottom:40};
         base_width = bb*width_scale_factor - margin.left - margin.right;
         base_height = bb*height_scale_factor - margin.top - margin.bottom;
-        var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([20, 30]);
+        var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([10, 30]);
         force_collide_factor = force_collide_factor_width(bb);
 
         if (is_intra == true) {
         } else {
 
         }
-        file = "data/artist_uniqueness/artist_inter_intra_similarity_score.csv";
+        file = "data/artist_inter_intra_similarity_score.csv";
         transition_artist_similarity_score(idname, file, is_intra, base_width, base_height, force_collide_factor, margin);       
         //plot_artist_similarity_score(idname, file, base_width, base_height, margin, colorScale, force_collide_factor, is_intra);
 
@@ -109,7 +109,7 @@ function plot_all_artists_similarity_score_initial() {
                 .transition()
                     .duration(2000)
                     .attr("x", function(d, i) {
-                        return data[i].x-10;
+                        return data[i].x;
                     })
                     .attr("y", function(d, i) { return d.y; });
 
@@ -214,7 +214,7 @@ function plot_all_artists_similarity_score_initial() {
                                         return d.x;
                                     })
                                     .attr("cy", function(d) { return d.y; })
-                                    .attr("r", function(d) { return "1.0rem"; }) //10
+                                    .attr("r", function(d) { return "0.50rem"; }) //10
                                     .style("fill", function(d) { return colorScale(d.similarity_score); });
 
             var text = svg.selectAll("text")
@@ -222,9 +222,9 @@ function plot_all_artists_similarity_score_initial() {
                         .enter()
                         .append("text")
                             .attr("class", "text_artist_name")
-                            .attr("x", function(d) { return d.x-10; })
-                            .attr("y", function(d) { return d.y; })
-                            .style("font-size", "1.0rem")
+                            .attr("x", function(d) { return d.x; })
+                            .attr("y", function(d) { return d.y-5; })
+                            .style("font-size", "0.75rem")
                             .attr("opacity", 1)
                             .text(function(d, i) { return "";} )
                             .transition()

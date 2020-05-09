@@ -19,7 +19,7 @@ function set_artist_discography_combobox() {
 		$('#artist_combobox').append(song_list);
 	});
     */
-    artist_info_file = "data/rhythm_viz/all_songs_artist_list.csv";
+    artist_info_file = "data/all_songs_artist_list.csv";
     d3.csv(artist_info_file, function(data) {
         //var song_list = ''; //<option value="">Search for a song...</option>';
         var artist_list = []
@@ -39,6 +39,7 @@ function set_artist_discography_combobox() {
         }
         $('#artist_combobox').append(option_list);
     })
+    //plot_artist_discography(toTitleCase("Lady Gaga"));
 }
 
 
@@ -47,13 +48,15 @@ $("#artist_combobox").change(function() {
 	//plot_artist_discography(artist);
     var is_score = document.getElementById("artist_viz_score_toggle").checked;
     if (is_score==true) {
-        plot_artist_discography(toTitleCase(artist));
-    } else {
         var viz_plot = document.getElementById("plot_artist_discography");
         viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist.replace(/\s+/g,'_').toLowerCase()+`__All_songs.jpg">`;
         var viz_legend = document.getElementById("artist_discography_legend");
         viz_legend.innerHTML = "";
+    } else {
+        plot_artist_discography(toTitleCase(artist));
     }
+    
+    document.getElementById("plot_artist_discography_artist_name").innerHTML = `<span>`+toTitleCase(artist)+`</span>`;
 });
 
 
@@ -104,10 +107,11 @@ function plot_artist_discography(artist) {
                     return 0;
                 }
             });
+    document.getElementById("plot_artist_discography_artist_name").innerHTML = `<span>`+toTitleCase(artist)+`</span>`;
 }
 
 
-plot_artist_discography_initial("Beyonce");
+plot_artist_discography_initial("Lady Gaga");
 plot_artist_score_legend_top();
 
 function plot_artist_discography_initial(artist) {
@@ -119,17 +123,19 @@ function plot_artist_discography_initial(artist) {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.30]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.45]);
     height_scale_factor = height_scale_factor_width(bb);
     var margin = {right:110, left:40, top:20, bottom:40};
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
-    file = "data/song_similarity/song_similarity_score.csv";
+    file = "data/song_similarity_score.csv";
 
-    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([15, 20]);
+    var force_collide_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([10, 10]);
     force_collide_factor = force_collide_factor_width(bb);
     //var artist = "Beyonce";
     plot_artist_song_similarity_score(idname, artist, file, base_width, base_height, margin, colorScale, force_collide_factor);
+    //document.getElementById("artist_combobox").value = artist;
+    document.getElementById("plot_artist_discography_artist_name").innerHTML = `<span>`+toTitleCase(artist)+`</span>`;
 }
 
 
@@ -245,7 +251,7 @@ function plot_artist_song_similarity_score(idname, artist, file, width, height, 
                                 .duration(2000)
                                 .attr("cx", function(d) { return d.x; })
                                 .attr("cy", function(d) { return d.y; })
-                                .attr("r", function(d) { return "1.0rem"; }) //10
+                                .attr("r", function(d) { return "0.50rem"; }) //10
                                 .style("fill", function(d) { return colorScale(d.similarity_score); });
 
         var text = svg.selectAll(".text")
@@ -253,8 +259,8 @@ function plot_artist_song_similarity_score(idname, artist, file, width, height, 
                     .enter()
                     .append("text")
                     .attr("class", "text")
-                    .attr("x", function(d) { return d.x-10; })
-                    .attr("y", function(d) { return d.y; })
+                    .attr("x", function(d) { return d.x; })
+                    .attr("y", function(d) { return d.y-5; })
                     .style("font-size", "0.75rem")
                     .attr("opacity", function(d) {
                     	if (toTitleCase(d.artist) == artist) {
@@ -290,7 +296,7 @@ function plot_artist_song_similarity_score(idname, artist, file, width, height, 
           .append("text")
             .attr("class", "label_histogram")
             .attr("x", width+40)
-            .attr("y", 15)
+            .attr("y", 35)
             .style("text-anchor", "end")
             .text("Similarity score")
             .attr("fill", "white")
@@ -305,12 +311,11 @@ function artist_viz_score_button_click(id) {
     var is_score = document.getElementById("artist_viz_score_toggle").checked;
     var artist = document.getElementById("artist_combobox").value;
     if (is_score==true) {
-        plot_artist_discography_initial(toTitleCase(artist));
-    } else {
         var viz_plot = document.getElementById("plot_artist_discography");
         viz_plot.innerHTML = `<img src="data/rhythm_viz/viz/`+artist.replace(/\s+/g,'_').toLowerCase()+`__All_songs.jpg">`;
         var viz_legend = document.getElementById("artist_discography_legend");
         viz_legend.innerHTML = "";
-
+    } else {
+        plot_artist_discography_initial(toTitleCase(artist));
     }
 }

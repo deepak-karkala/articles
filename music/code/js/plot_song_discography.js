@@ -18,9 +18,9 @@ function plot_song_similar_to_top(song_id) {
 	var margin = {right:80, left:40, top:20, bottom:40};
 	base_width = bb*width_scale_factor - margin.left - margin.right;
 	base_height = bb*height_scale_factor - margin.top - margin.bottom;
-	similar_song_id_file = "data/song_similarity/top_songs_similar_to_ids.csv";
-	similar_song_scores_file = "data/song_similarity/top_songs_similar_to_scores.csv";
-	song_info_file = "data/song_similarity/song_similarity_score.csv";
+	similar_song_id_file = "data/top_songs_similar_to_ids.csv";
+	similar_song_scores_file = "data/top_songs_similar_to_scores.csv";
+	song_info_file = "data/song_similarity_score.csv";
 	//song_id = 0;
 	plot_song_similar_to(idname, base_width, base_height, margin, song_id, similar_song_id_file, similar_song_scores_file, song_info_file);
 }
@@ -86,7 +86,7 @@ function plot_song_similar_to(idname, width, height, margin, song_id, similar_so
 
 					top_similar_songs_rows += `	<tr>
 													<th scope="row">`+(i+1)+`</th>
-													<td><span class="similar-table-song-name">`+song_name+` - `+`</span><span class="similar-table-song-artist-year">`+song_artist+`, `+song_year+`</span></td>
+													<td><span class="similar-table-song-name">`+song_name+` - `+`</span><span class="similar-table-song-artist-year">`+song_artist+`</span></td>
 													<td>
 												      	<div class="progress" style="height: 20px;">
 									  						<div class="progress-bar" role="progressbar" style="width: `+Math.round(similar_song_scores[i]*100)+`%;" aria-valuemin="0" aria-valuemax="100">`+similar_song_scores[i]+`</div>
@@ -123,7 +123,7 @@ function plot_song_similar_to(idname, width, height, margin, song_id, similar_so
 set_song_discography_combobox();
 
 function set_song_discography_combobox() {
-	song_info_file = "data/song_similarity/song_similarity_score.csv";
+	song_info_file = "data/song_similarity_score.csv";
 	d3.csv(song_info_file, function (data) {
 		var song_info_arr = [];
 		data.forEach(function(d,i){
