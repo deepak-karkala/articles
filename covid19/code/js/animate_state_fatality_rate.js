@@ -60,7 +60,6 @@ function animate_state_fatality_rate(idname, file, width, height) {
 		const diff_time = Math.abs(end_date - start_date);
 		const num_days = Math.ceil(diff_time / (1000 * 60 * 60 * 24)); 
 
-		
 
 		data = data.filter(function(d,i) {
 			return +d[end_date_str+"_cases"]>=min_case_count_to_show_testing_rate;

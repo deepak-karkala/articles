@@ -78,6 +78,7 @@
     <script src="vendor/mdb/js/addons/datatables-select2.min.js" type="text/javascript"></script>
 
     <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/scroll_style.css" rel="stylesheet">
 
   </head>
 
@@ -150,6 +151,7 @@
     </div>
 
 
+  <!--
     <main>
       <section id='scrolly'>
 
@@ -179,7 +181,150 @@
 
       <section id='outro'></section>
     </main>
+  -->
 
+  <!--
+  <div class="row">
+    <div class="col-lg-12 col-12">
+      <div id="scroll1_test"></div>
+    </div>
+  </div>
+  -->
+
+
+
+  <section id='scroll1'>
+    <div class='scroll__graphic1'>
+        <div class="row">
+          <div class="col-lg-10 col-12">
+            <div id="scroll1_chart_title"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-12">
+            <div id="scroll1_chart"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-12">
+            <div id="scroll1_chart2"></div>
+          </div>
+        </div>
+    </div>
+    <div class='scroll__text1'>
+      <div class='step1 step_bkg' data-step='0'>
+        <p></p>
+      </div>
+      <div class='step1' data-step='1'>
+        <p>The coronavirus outbreak was first reported in Wuhan, China in late 2019. Since then, it has turned into a pandemic affecting nearly every country across the world.</p>
+      </div>
+      <div class='step1' data-step='2'>
+        <p>The outbreak spread comparatively late in India but the cases are now rising fast in May 2020.</p>
+      </div>
+      <div class='step1' data-step='3'>
+        <p>This report explores how the outbreak started in India, analyses the current scenario, state wise analysis and predicts a few scenarios how the outbreak may turn out in the coming months.</p>
+      </div>
+      <div class='step1' data-step='4'>
+        <p>Continue scrolling to explore more.</p>
+      </div>
+      <div class='step1' data-step='5'>
+        <p>As of May 8 2020, India has close to 60,000 confirmed cases of Covid19 each shown as a red dot here. Hover over the dots to get patient data.</p>
+      </div>
+      <div class='step1' data-step='6'>
+        <p>How did we get here ? How did it all start in India ? We analyse about 2000 early cases which were mapped to known sources.</p>
+      </div>
+      <div class='step1' data-step='7'>
+        <p>We track how the pandemic spread by drawing a link between the source where the patient contracted the virus to the destination where the patient was diagnosed.</p>
+      </div>
+      <div class='step1' data-step='8'>
+        <p>Notice how the initial cases were almost exclusively tied to international travel history. Cases linked to Delhi religious conference can be see in early April. In recent weeks, most cases are linked to family members and other close contacts.</p>
+      </div>
+      <div class='step1' data-step='9'>
+        <p>What started out as few isolated cases is now a full blown crisis with close to 60,000 cases as of May 8 2020.</p>
+      </div>
+      <div class='step1' data-step='10'>
+        <p>Sadly close to 2,000 people (shown as black dots) have lost their lives, but the good news is that close to 18,000 (shown as green dots) have recovered.</p>
+      </div>
+      <div class='step1' data-step='11'>
+        <p>We now visualize how the number of cases have risen over the first 100 days since the first reported case in India. Encouragingly, notice how most early patients have now recovered.</p>
+      </div>
+      <div class='step1' data-step='12'>
+        <p>Mapping the cases to districts,</p>
+      </div>
+      <div class='step1' data-step='13'>
+        <p>Combining cases by state,</p>
+      </div>
+      <div class='step1' data-step='14'>
+        <p>Size of the circle is based on the number of cases in that state,</p>
+      </div>
+      <div class='step1' data-step='15'>
+        <p>Arranging states by case count,</p>
+      </div>
+      <div class='step1' data-step='16'>
+        <p>Let us know inspect how well are the states testing, by arranging circles based on number of tests per thousand people.</p>
+      </div>
+      <div class='step1' data-step='17'>
+        <p>State testing observation,</p>
+      </div>
+      <div class='step1' data-step='18'>
+        <p>Let us move the states on vertical axis based on number of cases per million people.</p>
+      </div>
+      <div class='step1' data-step='19'>
+        <p>Let us now see how well is India testing compared to other countries,</p>
+      </div>
+      <div class='step1' data-step='20'>
+        <p>India is alongside other populous countries such as Mexico, Indonesia in terms of number of tests conducted.</p>
+      </div>
+      <div class='step1' data-step='21'>
+        <p>India's testing count is abysmally low compared to most other Asian and European countries.</p>
+      </div>
+      <div class='step1' data-step='22'>
+        <p>So the true case count could be much higher than the current reported numbers.</p>
+      </div>
+      <div class='step1' data-step='23'>
+        <p>Now we get to the question on everyone's mind, when will this be over and when will life get back to normal ?</p>
+      </div>
+      <div class='step1' data-step='24'>
+        <p>We build a few prediction models to answer when will India reach its infection peak ? How many cases and deaths per day can we expect at the peak ? When will the outbreak stop ?</p>
+      </div>
+      <div class='step1' data-step='25'>
+        <p>We consider three scenarios: Scenario 1: Lockdown extended, Scenario 2: Lockdown lifted but with social distancing, Scenario 3: Lockdown lifted with no social distancing.</p>
+      </div>
+      <div class='step1' data-step='26'>
+        <p>Let us now see what the models predict under these three sceanrios ?</p>
+      </div>
+      <div class='step1' data-step='27'>
+        <p>Scenario 1: Lockdown extended</p>
+      </div>
+      <div class='step1' data-step='28'>
+        <p>Scenario 2: Lockdown lifted but with social distancing</p>
+      </div>
+      <div class='step1' data-step='29'>
+        <p>Scenario 3: Lockdown lifted with no social distancing</p>
+      </div>
+      <div class='step1' data-step='30'>
+        <p>Although the actual absolute numbers may differ widely in reality, what the models do indicate is the dramatic effect of following better social distancing.</p>
+      </div>
+      <div class='step1' data-step='31'>
+        <p>India's case count as of May 8 is close to 60,000 and quickly rising. Sadly the number of cases and deaths will continue to rise rapidly over next few weeks.</p>
+      </div>
+      <div class='step1' data-step='32'>
+        <p>But by following social distancing, we can avoid this crisis from turning into an outright catastrophe. The onus of which is upon each and everyone of us.</p>
+      </div>
+      <div class='step1 step_bkg' data-step='33'>
+        <p></p>
+      </div>
+      <div class='step1 step_bkg' data-step='34'>
+        <p></p>
+      </div>
+      <div class='step1 step_bkg' data-step='35'>
+        <p>The report that follows lets you inspect and analyse various coronavirus related data and statistics specific to India. Continue reading to explore more.</p>
+      </div>
+      <div class='step1 step_bkg' data-step='36'>
+        <p>You can inspect how well are the states flattening their curves, the top district wise hotspots, daily district wise growth rate of cases, testing and recovery rates of states, districts free of virus. You can also compare India's case trajectory and testing rates with those of other countries.</p>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -1152,6 +1297,12 @@
     
     <script src='js/stickyfill.min.js'></script>
     <script src='js/scrollama.min.js'></script>
+
+
+    <script src="js/scroll/load_data.js"></script>
+    <script src="js/scroll/scroll_script1.js"></script>
+    <script src="js/scroll/plot_over_time.js"></script>
+    <script src="js/scroll/draw_scroll_outbreak_spread_map.js"></script>
     <script src="js/scroll_script.js"></script>
 
     <!--<script src="js/draw_maps.js"></script>-->
@@ -1176,6 +1327,7 @@
     <!--<script src="js/draw_outbreak_spread_map.js"></script>-->
     <!--<script src="js/draw_country_case_count.js"></script>-->
     <!--<script src="js/draw_country_testing_rate.js"></script>-->
+
 
   </body>
 

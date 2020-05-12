@@ -415,9 +415,10 @@ select.classic {
 
 /* Scrolly */
 /* Sticky overlay */
+/*
 #scrolly {
   position: relative;
-  background-color: black; /*#f3f3f3;*/
+  background-color: black; 
   padding: 1rem;
 }
 article {
@@ -435,7 +436,7 @@ figure {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  background-color: black; /*#8a8a8a;*/
+  background-color: black; 
 }
 figure p {
   text-align: center;
@@ -453,22 +454,22 @@ figure p {
 .step {
   margin: 0 auto 0.5rem auto;
   color: #fff;
-  background-color: transparent; /*black; /*rgba(0,0,0,0.1)*/
+  background-color: transparent; 
 }
 .step:last-child {
   margin-bottom: 0;
 }
 .step.is-active p {
-  background-color: transparent; /*black; /*goldenrod;*/
-  color: white; /*#3b3b3b;*/
+  background-color: transparent; 
+  color: white; 
 }
 .step p {
   text-align: center;
   padding: 1rem;
   font-size: 1.5rem;
-  background-color: transparent; /*black; /*#3b3b3b;*/
+  background-color: transparent; 
 }
-
+*/
 
 
 
@@ -947,3 +948,21 @@ bottom: .5em;
   padding: 5px;
 }
 
+/* Scroll */
+.tooltip_scroll {
+  position: absolute;           
+  text-align: center;           
+  width: 180px;                  
+  height: 40px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
