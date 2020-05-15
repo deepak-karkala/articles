@@ -50,7 +50,7 @@ function handleContainerExit(response) {
 
     div = document.getElementById("text1");
     div.innerHTML = '';
-    d3.select("#graphic1").select("svg").remove();
+    //d3.select("#graphic1").select("svg").remove();
 }
 
 function handleStepTransition(data_step_id) {
@@ -72,6 +72,10 @@ function handleStepTransition(data_step_id) {
     } else {
         set_zindex('figure', 'zindex_0', 'zindex_10');
     }
+
+    //if ((data_step_id!=7) && (data_step_id!=10)) {
+    d3.select("#graphic1").select("svg").remove();
+    //}
 
     if (data_step_id==1) {
         div = document.getElementById("text1");
@@ -121,7 +125,7 @@ function handleStepTransition(data_step_id) {
         //graphic: rhythm viz: Static
         csv_processed_file = "data/rhythm_viz/Ed_Sheeran/Shape_of_you_trim.csv";
 
-        d3.select(idname).select("svg").remove();
+        //d3.select(idname).select("svg").remove();
         var bb = d3.select(idname).node().offsetWidth;
         var minDeviceWidth = 375;
         var maxDeviceWidth = 1024;
@@ -146,7 +150,7 @@ function handleStepTransition(data_step_id) {
         // Onclick transition handler
         rhythm_viz_transition_onclick([button_id], idname, base_width, is_big_radius);
 
-    } else if ((data_step_id==6)) {
+    } else if ((data_step_id==6) || (data_step_id==7)) {
 
         //graphic: 4 songs: rhythm viz: d3 transition with music playing
         div = document.getElementById("text1");
@@ -183,7 +187,9 @@ function handleStepTransition(data_step_id) {
         add_button_icon("button_icon_8");
         add_button_icon("button_icon_9");
     
-    } else if ((data_step_id==7)) {
+    } 
+    /*
+    else if ((data_step_id==7)) {
 
         //graphic: 4 songs: rhythm viz: d3 transition with music playing
         div = document.getElementById("text1");
@@ -219,8 +225,10 @@ function handleStepTransition(data_step_id) {
         add_button_icon("button_icon_7");
         add_button_icon("button_icon_8");
         add_button_icon("button_icon_9");
+    } 
+    */
 
-    } else if ((data_step_id==9) || (data_step_id==10)) {
+    else if ((data_step_id==9) || (data_step_id==10)) {
         //Similarity score of songs
         //Measure of how close the rhythms in these songs are to Ed Sheeran's <em>Shape of You</em>
         //Backing our visual interpretation, the rhythms in Ed Sheeran's <em>Shape of You</em> and Sia's <em>Cheap Thrills</em>
@@ -240,9 +248,9 @@ function handleStepTransition(data_step_id) {
 
         idname = "#text1";
         var width_scale_factor = 0.70;
-        var height_scale_factor = 0.60;
+        var height_scale_factor = 0.50;
 
-        d3.select(idname).select("svg").remove();
+        //d3.select(idname).select("svg").remove();
         var bb = d3.select(idname).node().offsetWidth;
         base_width = bb*width_scale_factor; //- margin.left - margin.right;
         base_height = bb*height_scale_factor; //- margin.top - margin.bottom;
@@ -254,7 +262,7 @@ function handleStepTransition(data_step_id) {
     } else if (data_step_id==11) {
         div = document.getElementById("text1");
         div.innerHTML = '';
-        d3.select("#graphic1").select("svg").remove();
+        //d3.select("#graphic1").select("svg").remove();
 
     } else if (data_step_id==12) {
         //graphic: 4 songs: rhythm viz: d3 transition with music playing
@@ -281,7 +289,7 @@ function handleStepTransition(data_step_id) {
     } else if (data_step_id==13) {
         div = document.getElementById("text1");
         div.innerHTML = '';
-        d3.select("#graphic1").select("svg").remove();
+        //d3.select("#graphic1").select("svg").remove();
     }
 }
 
@@ -447,7 +455,7 @@ function song_play_pause_onclick(id) {
 function plot_rhythm_viz_top(idname, csv_processed_file, button_id_arr) {
     //graphic: rhythm viz: Static
     var margin = {right:10, left:10, top:10, bottom:10};
-    d3.select(idname).select("svg").remove();
+    //d3.select(idname).select("svg").remove();
     var bb = d3.select(idname).node().offsetWidth;
     
     //var width_scale_factor = 0.70;
@@ -630,7 +638,7 @@ function set_text(text, div_class) {
 
 function plot_rhythm_viz(idname, csv_processed_file, width, height, is_big_radius) {
 
-    d3.select(idname).select("svg").remove();
+    //d3.select(idname).select("svg").remove();
 
     d3.csv(csv_processed_file, function (data) {
 
@@ -778,7 +786,7 @@ function plot_score_explainer(idname, score_file, song_file, width, height) {
                                 .duration(2000)
                                 .attr("cx", function(d) { return d.x; })
                                 .attr("cy", function(d) { return d.y; })
-                                .attr("r", function(d) { return "0.25rem"; })
+                                .attr("r", function(d) { return "0.15rem"; })
                                 .style("fill", function(d) { return colorScale(d.score); });
 
         var text = svg.selectAll(".text")

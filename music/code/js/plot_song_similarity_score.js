@@ -14,7 +14,7 @@ function plot_all_songs_similarity_score_initial() {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.50]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.450]);
     height_scale_factor = height_scale_factor_width(bb);
     var margin = {right:80, left:40, top:20, bottom:20};
     base_width = bb*width_scale_factor - margin.left - margin.right;
@@ -88,6 +88,13 @@ function plot_all_songs_similarity_score_initial() {
 
     function plot_song_similarity_score(idname, file, width, height, margin, colorScale, force_collide_factor) {
 
+        var tooltip = d3.select("body")
+                      .append("div")
+                      .attr("class", "tooltip_song_similarity_score")
+                      .style("position", "absolute")
+                      .style("z-index", "10")
+                      .style("visibility", "hidden");
+
         d3.csv(file, function (data) {
             data.forEach(function(d) {
                 d.similarity_score = +d.similarity_score;
@@ -154,6 +161,23 @@ function plot_all_songs_similarity_score_initial() {
                                 .attr("r", function(d) { return 0; })
                                 .style("fill", function(d) { return colorScale(d.similarity_score); }) //#87ceeb
                                 .attr("opacity", 1)
+                                .on("mouseover", function(d){
+                                  d3.select(this).style('stroke', 'white').style("stroke-width", 1).style("stroke-opacity", 1.0);
+                                  return tooltip.html(`<div><span class="song_name tooltip_song_name">`+toTitleCase(d.song_name)+`</span></br><span class="artist_name"><b>`+toTitleCase(d.artist)+`</b></span>`+
+                                            `</br>Similarity score: <b>`+d.similarity_score+`</b></div>`)
+                                        .style("visibility", "visible");
+                                })
+                                .on("mousemove", function(){
+                                  if (event.pageX >= window.innerwidth*0.75/2) {
+                                    return tooltip.style("top", (event.pageY-10)+"px").style("right",(width-event.pageX-100)+"px");
+                                  } else {
+                                      return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+                                  }
+                                })
+                                .on("mouseout", function(){
+                                  d3.select(this).style('stroke', 'white').style("stroke-opacity", 0);
+                                  return tooltip.style("visibility", "hidden");
+                                })
                                 .transition()
                                     .ease(d3.easeBounce)
                                     .duration(2000)
@@ -164,13 +188,13 @@ function plot_all_songs_similarity_score_initial() {
 
             var text = svg.selectAll(".text")
                         .data(data.filter(function(d,i) {
-                            return d.similarity_score < 0.5;
-                            //return d.song_name == "count on me";
+                            //return d.similarity_score < 0.5;
+                            return ["Stupid Love", "Dangerously", "Shape Of You", "Bad Romance", "Love Me Do", "Trouble"].includes(toTitleCase(d.song_name));
                         }))
                         .enter()
                         .append("text")
                         .attr("class", "text")
-                        .attr("x", function(d) { return d.x-10; })
+                        .attr("x", function(d) { return d.x-30; })
                         .attr("y", function(d) { return d.y-5; })
                         .style("font-size", "0.75rem")
                         .attr("opacity", 1)
@@ -180,7 +204,7 @@ function plot_all_songs_similarity_score_initial() {
                                 .attr("x", function(d) { return d.x-10; })
                                 .attr("y", function(d) { return d.y-5; })
                                 .text(function(d,i) { 
-                                    return d.song_name; 
+                                    return toTitleCase(d.song_name); 
                                 })
                                 .style("fill", "white");
 

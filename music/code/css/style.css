@@ -9,8 +9,9 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/*  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	/*
 	font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	min-height: 1280px;
@@ -18,9 +19,10 @@ body {
 	font-size: 24px;
 	*/
  	background-color: #aba6bf; /*black; /*#a9a9a9;*/
-	text-align: justify;
+	/*text-align: justify;*/
 }
 
+/*
 p,
 h1,
 h2,
@@ -38,6 +40,7 @@ a:hover {
   text-decoration: none;
   border-bottom: 2px solid currentColor;
 }
+*/
 
 #scrolly {
 	position: relative;
@@ -47,7 +50,7 @@ a:hover {
 article {
 	position: relative;
 	padding: 0;
-	max-width: 30rem;
+	max-width: 45rem;
 	margin: 0 auto;
 }
 figure {
@@ -60,7 +63,7 @@ figure {
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
-	font-family: Didot, serif;
+	font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 figure p {
 	text-align: center;
@@ -73,7 +76,7 @@ figure p {
 	transform: translate(-50%, -50%);
 	width: 50rem;
 	color: #f58231;
-	font-size: 2.5rem
+	font-size: 2rem
 }
 .step {
 	margin: 0 auto 60rem auto;
@@ -90,7 +93,7 @@ figure p {
 }
 */
 .step p {
-	font-family: Bookman, URW Bookman L, serif;
+	font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	text-align: center;
 	font-size: 1.15rem;
 	color: black;
@@ -142,7 +145,7 @@ figure p {
 .artist_name {
 	text-align: left;
 	font-size: 0.75rem;
-	font-family: Georgia, serif;
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	/*color: #4363d8;*/
 }
 
@@ -153,7 +156,7 @@ figure p {
 .song_name {
 	text-align: left;
 	font-size: 0.85rem;
-	font-family: Georgia, serif;
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	/*color: #f58231;*/
 }
@@ -185,7 +188,7 @@ figure p {
   cursor: pointer;
   text-align: center;
   /*font-size: 14px;*/
-  font-family: Times New Roman;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   /*border: 1px solid #e0e0e0;*/
   border: 1px solid #ffffff;
@@ -242,7 +245,7 @@ figure p {
 }
 
 .song_discography, .decade_similarity, .most_similar_songs, .artist_discography,
-.plot_rhythm_visualisation_types, .plot_song_artist_rhythm_visualisation {
+.plot_rhythm_visualisation_types, .plot_song_artist_rhythm_visualisation, .top_unique_songs {
 	margin-top: 30px;
 	padding-top: 20px;
 	border: 1px solid black; /*#3f3f3f;*/
@@ -253,11 +256,13 @@ figure p {
 
 .all_songs_similarity_scores_title, .song_discography_title,
 .decade_similarity_title, .most_similar_songs_title, .all_artists_similarity_scores_title,
-.artist_discography_title, .plot_song_artist_rhythm_visualisation_title, .plot_rhythm_visualisation_types_title {
+.artist_discography_title, .plot_song_artist_rhythm_visualisation_title, .plot_rhythm_visualisation_types_title,
+.top_unique_songs_title {
 	font-size: 2rem;
-	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #f58231; /*#87CEFA;*/
 	font-weight: bolder;
+	padding-bottom: 20px;
 }
 
 
@@ -325,3 +330,142 @@ figure p {
 	margin-bottom: 20px;
 }
 
+.rhythm_type_title {
+	color: #f58231; /*#87CEFA;*/
+	font-weight: bold;
+}
+
+.rhythm_type_song_title {
+	color: #5DADE2; /*#c0c0c0;*/
+	font-size: 1rem;
+}
+
+.rhythm_viz_song_title {
+	color: #c0c0c0; /*#c0c0c0;*/
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.rhythm_type_artist_title {
+	color: #5DADE2; /*#c0c0c0;*/
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+#plot_song_artist_rhythm_visualisation_subtitle {
+	color: #5DADE2; /*#f58231; /*#87CEFA;*/
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.tooltip_song_similarity_score {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: absolute;           
+  text-align: center;           
+  width: 200px;                  
+  height: 60px;                 
+  padding: 10px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 0px;      
+  border-radius: 2px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);
+}
+
+.tooltip_artist_song_similarity_score {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: absolute;           
+  text-align: center;           
+  width: 200px;                  
+  height: 60px;                 
+  padding: 10px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 0px;      
+  border-radius: 2px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);     
+}
+
+.tooltip_song_name {
+	color: #f58231; /*#87CEFA;*/
+}
+.legend_text {
+	color: #c0c0c0;
+	font-size: 0.75rem;
+}
+
+.song_discography_subtitle {
+	color: #f58231;
+}
+
+.song_discography_subtitle_song {
+	color: #5DADE2;
+	font-weight: bold;
+}
+
+.song_discography_subtitle_artist {
+	color: #5DADE2;
+}
+
+#plot_artist_discography_artist_name {
+	color: #5DADE2;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.artist_score_type {
+	color: #f58231; /*#87CEFA;*/
+}
+.all_artists_similarity_scores_subtitle {
+	font-size: 1rem;
+}
+
+.tooltip_artist_similarity_score {
+	font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	position: absolute;           
+	text-align: center;           
+	width: 200px;                  
+	height: 60px;                 
+	padding: 5px;             
+	background: white;   
+	border: 0px;      
+	border-radius: 2px;           
+	pointer-events: none;
+	color: black;
+	border-color: black;
+	font-size: 0.75rem;
+	box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);
+}
+
+.explainer_song_name {
+	color: #f58231; /*#87CEFA;*/
+	font-weight: bold;
+}
+
+.artist_all_songs_viz {
+	padding: 10px;
+}
+
+.unique-table-song-name {
+	color: #5DADE2;
+	font-size: 1.0rem;
+}
+
+.similar-table-song-name {
+	color: #5DADE2;
+}
+
+.unique-table-artist-name{
+	color: #c0c0c0;
+	font-size: 0.75rem;
+}
+
+.similar-table-artist-name {
+	color: #c0c0c0;
+}

@@ -115,6 +115,7 @@ function plot_rhythm_visualisation(idname, csv_processed_file, width, height) {
 }
 
 var song_list = '';
+var all_songs_artist_data;
 
 function set_song_viz_combobox() {
     /*
@@ -148,8 +149,9 @@ function set_song_viz_combobox() {
             d["artist_song_folder"] = d.artist_song_folder;
             song_list += `<option value="`+d["artist_song_folder"]+`">`+d["artist_song"]+`</option>`;
         })
-        console.log(song_list);
         $('#viz_combobox').append(song_list);
+
+        all_songs_artist_data = data;
     })
 
 }
@@ -167,8 +169,34 @@ $("#viz_combobox").change(function() {
     el.innerHTML = ``;
 
     if (song_folder=="All_songs") {
+        artist = toTitleCase(artist_folder.split("_").join(" "));
         var el = document.getElementById("plot_song_artist_rhythm_visualisation");
-        el.innerHTML = `<img src="data/rhythm_viz/viz/`+artist_song_folder+`.jpg">`;
+
+        //el.innerHTML = `<img src="data/rhythm_viz/viz/`+artist_song_folder+`.jpg">`;
+        artist_data = all_songs_artist_data.filter(function(d,i){
+            return ((d.artist==artist) && (d.song!="All songs"));
+        });
+        //console.log(artist_data);
+
+        el.innerHTML = ``;
+        for (var i=0; i<artist_data.length; i++) {
+            artist_song_folder = artist_data[i].artist_song_folder;
+            song_name = toTitleCase(artist_data[i].song);
+
+            el.innerHTML += `<div class="col-lg-3 col-4 artist_all_songs_viz" id="artist_song_`+i+`"><span class="rhythm_viz_song_title">`+song_name+`</span></div>`;
+            idname = "#artist_song_"+i;
+
+            var bb = d3.select(idname).node().offsetWidth;
+            width_scale_factor = 0.8;
+            height_scale_factor = 0.8;
+            var margin = {right:10, left:10, top:30, bottom:10};
+            base_width = bb*width_scale_factor - margin.left - margin.right;
+            base_height = bb*height_scale_factor - margin.top - margin.bottom;
+            csv_processed_file = "data/rhythm_viz/viz_csv/"+artist_song_folder+".csv";
+            plot_rhythm_visualisation_types(idname, csv_processed_file, base_width, base_height);
+        }
+
+        document.getElementById("plot_song_artist_rhythm_visualisation_subtitle").innerHTML = `<span>`+artist+` - All Songs</span>`;
     } else {
         var bb = d3.select(idname).node().offsetWidth;
         width_scale_factor = 0.4;

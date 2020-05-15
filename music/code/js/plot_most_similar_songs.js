@@ -56,7 +56,7 @@ function plot_most_similar_songs(most_similar_songs_file, decade) {
 			top_most_similar_songs_rows += `
 				<tr>
 					<th scope="row">`+(i+1)+`</th>
-					<td><span class="similar-table-song-name">`+song1_name+` - `+`</span><span class="similar-table-song-artist-year">`+song1_artist+`</span> & <span class="similar-table-song-name">`+song2_name+` - `+`</span><span class="similar-table-song-artist-year">`+song2_artist+`</span></td>
+					<td><span class="similar-table-song-name">`+song1_name+` - `+`</span><span class="similar-table-artist-name">`+song1_artist+`</span> & <span class="similar-table-song-name">`+song2_name+` - `+`</span><span class="similar-table-artist-name">`+song2_artist+`</span></td>
 					<td>
 				      	<div class="progress" style="height: 20px;">
 	  						<div class="progress-bar" role="progressbar" style="width: `+Math.round(similarity_score*100)+`%;" aria-valuemin="0" aria-valuemax="100">`+similarity_score+`</div>

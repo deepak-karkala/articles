@@ -14,7 +14,7 @@ function plot_all_artists_similarity_score_initial() {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.40]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.35]);
     height_scale_factor = height_scale_factor_width(bb);
     var margin = {right:80, left:40, top:20, bottom:40};
     base_width = bb*width_scale_factor - margin.left - margin.right;
@@ -55,7 +55,7 @@ function plot_all_artists_similarity_score_initial() {
 
         var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
         width_scale_factor = width_scale_factor_width(bb);
-        var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.40]);
+        var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.35]);
         height_scale_factor = height_scale_factor_width(bb);
         var margin = {right:80, left:40, top:20, bottom:40};
         base_width = bb*width_scale_factor - margin.left - margin.right;
@@ -120,6 +120,13 @@ function plot_all_artists_similarity_score_initial() {
 
 
     function plot_artist_similarity_score(idname, file, width, height, margin, colorScale, force_collide_factor, is_intra) {
+
+        var tooltip = d3.select("body")
+                      .append("div")
+                      .attr("class", "tooltip_artist_similarity_score")
+                      .style("position", "absolute")
+                      .style("z-index", "10")
+                      .style("visibility", "hidden");
 
         d3.csv(file, function (data) {
             data.forEach(function(d) {
@@ -188,13 +195,6 @@ function plot_all_artists_similarity_score_initial() {
             ///////////////////////////////////////
 
 
-            var tooltip = d3.select("body")
-                .append("div")
-                .attr("class", "tooltip_artist_similarity")
-                .style("position", "absolute")
-                .style("z-index", "10")
-                .style("visibility", "hidden");
-
             var circles = svg.selectAll("circle")
                             .data(data)
                             .enter()
@@ -205,6 +205,24 @@ function plot_all_artists_similarity_score_initial() {
                                 .attr("r", function(d) { return 0; })
                                 .style("fill", function(d) { return colorScale(d.similarity_score); }) //#87ceeb
                                 .attr("opacity", 1)
+                                .on("mouseover", function(d){
+                                  d3.select(this).style('stroke', 'white').style("stroke-width", 1).style("stroke-opacity", 1.0);
+                                  return tooltip.html(`<div><span class="artist_name"><b>`+toTitleCase(d.artist)+`</b></span>`+
+                                            `</br>Inter-Artist similarity score: <b>`+(+d.inter_songs_similarity_score).toFixed(2)+`</b>`+
+                                            `</br>Intra-Artist similarity score: <b>`+(+d.intra_songs_similarity_score).toFixed(2)+`</b></div>`)
+                                        .style("visibility", "visible");
+                                })
+                                .on("mousemove", function(){
+                                  if (event.pageX >= window.innerwidth*0.75/2) {
+                                    return tooltip.style("top", (event.pageY-10)+"px").style("right",(width-event.pageX-100)+"px");
+                                  } else {
+                                      return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+                                  }
+                                })
+                                .on("mouseout", function(){
+                                  d3.select(this).style('stroke', 'white').style("stroke-opacity", 0);
+                                  return tooltip.style("visibility", "hidden");
+                                })
                                 .transition()
                                     .ease(d3.easeBounce)
                                     .duration(2000)

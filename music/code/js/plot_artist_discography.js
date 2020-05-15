@@ -123,9 +123,9 @@ function plot_artist_discography_initial(artist) {
     //height_scale_factor = 0.80;
     var width_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([1.0, 0.70]);
     width_scale_factor = width_scale_factor_width(bb);
-    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.45]);
+    var height_scale_factor_width = d3.scaleLinear().domain([minDeviceWidth, maxDeviceWidth]).range([0.70, 0.35]);
     height_scale_factor = height_scale_factor_width(bb);
-    var margin = {right:110, left:40, top:20, bottom:40};
+    var margin = {right:110, left:40, top:20, bottom:60};
     base_width = bb*width_scale_factor - margin.left - margin.right;
     base_height = bb*height_scale_factor - margin.top - margin.bottom;
     file = "data/song_similarity_score.csv";
@@ -176,6 +176,13 @@ function plot_artist_score_legend(idname, width, height, shapeWidth, colorScale)
 
 
 function plot_artist_song_similarity_score(idname, artist, file, width, height, margin, colorScale, force_collide_factor) {
+    var tooltip = d3.select("body")
+                      .append("div")
+                      .attr("class", "tooltip_artist_song_similarity_score")
+                      .style("position", "absolute")
+                      .style("z-index", "10")
+                      .style("visibility", "hidden");
+
     d3.csv(file, function (data) {
         data.forEach(function(d) {
 	        d.similarity_score = +d.similarity_score;
@@ -245,6 +252,23 @@ function plot_artist_song_similarity_score(idname, artist, file, width, height, 
                             	} else {
                             		return 0;
                             	}
+                            })
+                            .on("mouseover", function(d){
+                              d3.select(this).style('stroke', 'white').style("stroke-width", 1).style("stroke-opacity", 1.0);
+                              return tooltip.html(`<div><span class="song_name tooltip_song_name">`+toTitleCase(d.song_name)+`</span></br><span class="artist_name"><b>`+toTitleCase(d.artist)+`</b></span>`+
+                                        `</br>Similarity score: <b>`+d.similarity_score+`</b></div>`)
+                                    .style("visibility", "visible");
+                            })
+                            .on("mousemove", function(){
+                              //if (event.pageX >= window.innerwidth*0.75/2) {
+                              //  return tooltip.style("top", (event.pageY-10)+"px").style("right",(width-event.pageX-100)+"px");
+                              //} else {
+                                return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+                              //}
+                            })
+                            .on("mouseout", function(){
+                              d3.select(this).style('stroke', 'white').style("stroke-opacity", 0);
+                              return tooltip.style("visibility", "hidden");
                             })
                             .transition()
                                 .ease(d3.easeBounce)

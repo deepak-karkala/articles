@@ -29,6 +29,8 @@
     <link href="vendor/toggle-switch/toggle-switch.css" rel="stylesheet">
     <link href="vendor/toggle-switch/toggle-switch-px.css" rel="stylesheet">
     <link href="vendor/toggle-switch/toggle-switch-rem.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  	<link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 </head>
 
 <body style="background-color:#2a2a2a; color:white;"> <!--#f1e0d6-->
@@ -86,22 +88,22 @@
 			</div>
 		
 			<div class='step' data-step='6'>
-				<p>Notice how similar Ed Sheeran's <em>Shape of You</em> and Sia's <em>Cheap Thrills</em> are visually.</p>
+				<p>Notice how similar Ed Sheeran's <em class="explainer_song_name">Shape of You</em> and Sia's <em class="explainer_song_name">Cheap Thrills</em> are visually.</p>
 			</div>
 			<div class='step' data-step='7'>
 				<p>We quantify the differences in rhythms to assign similarity scores to each pair of songs.</p>
 			</div>
 			<div class='step' data-step='8'>
-				<p>For example, the following graphic shows how similar songs are rhythmically to Ed Sheeran's <em>Shape of You</em></p>
+				<p>For example, the following graphic shows how similar songs are rhythmically to Ed Sheeran's <em class="explainer_song_name">Shape of You</em></p>
 			</div>
 			<div class='step' data-step='9'>
-				<p>Backing our visual interpretation, the algorithm does assign very high similarity score to <em>Shape of You</em> and <em>Cheap Thrills</em></p>
+				<p>Backing our visual interpretation, the algorithm does assign very high similarity score to <em class="explainer_song_name">Shape of You</em> and <em class="explainer_song_name">Cheap Thrills</em></p>
 			</div>
 			<div class='step' data-step='10'>
-				<p>To substantiate this method of measuring rhythm similarity, let us hear the vocals of one song to rhythm of another song.</p>
+				<p>To substantiate this method of measuring rhythm similarity, let us hear the mashup by combining vocals of one song with rhythm of another song.</p>
 			</div>
 			<div class='step' data-step='11'>
-				<p>Notice how well the rhythm of <em>Shape of You</em> fits to <em>Cheap Thrills</em> whereas fails miserably with Beyonce's <em>Halo</em></p>
+				<p>Notice how well the rhythm of <em class="explainer_song_name">Shape of You</em> fits to <em class="explainer_song_name">Cheap Thrills</em> whereas fails miserably with Beyonce's <em class="explainer_song_name">Halo</em></p>
 			</div>
 			<div class='step' data-step='12'>
 				<p>Thus we have now established a reliable way of measuring similarity of rhythms in two tracks.</p>
@@ -135,6 +137,31 @@
 					<h3 class="text-center">Types of Rhythms</h3>
 				</div>
 			</div>
+			</br>
+			<div class="row text-center justify-content-center">
+				<div class="col-lg-12 col-12">
+					<div class="row rhythm_type_title">
+						<div class="col-lg-3 col-3">Repetitive</div>
+						<div class="col-lg-3 col-3">Alternating</div>
+						<div class="col-lg-3 col-3">Staggered</div>
+						<div class="col-lg-3 col-3">Many notes</div>
+					</div>
+					</br>
+					<div class="row ">
+						<div class="col-lg-3 col-3" id="rhythm_type_song1"><span class="rhythm_type_song_title">Viva la vida</span>, <span class="rhythm_type_artist_title">Coldplay</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song2"><span class="rhythm_type_song_title">Love is gone</span>, <span class="rhythm_type_artist_title">David Guetta</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song3"><span class="rhythm_type_song_title">I kissed a girl</span>, <span class="rhythm_type_artist_title">Katy Perry</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song4"><span class="rhythm_type_song_title">Focus</span>, <span class="rhythm_type_artist_title">Ariana Grande</span></div>
+					</div>
+					</br>
+					<div class="row">
+						<div class="col-lg-3 col-3" id="rhythm_type_song5"><span class="rhythm_type_song_title">Shape of you</span>, <span class="rhythm_type_artist_title">Ed Sheeran</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song6"><span class="rhythm_type_song_title">Love the way you lie</span>,<span class="rhythm_type_artist_title">Eminem</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song7"><span class="rhythm_type_song_title">Outside</span>, <span class="rhythm_type_artist_title">Calvin Harris</span></div>
+						<div class="col-lg-3 col-3" id="rhythm_type_song8"><span class="rhythm_type_song_title">Work</span>, <span class="rhythm_type_artist_title">Rihanna</span></div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center">
 					<div id="plot_rhythm_visualisation_types"></div>
@@ -156,7 +183,7 @@
 		<div class="container plot_song_artist_rhythm_visualisation">
 			<div class="row">
 				<div class="col-lg-12 col-12 plot_song_artist_rhythm_visualisation_title" id="plot_song_artist_rhythm_visualisation_title">
-					<h3 class="text-center">Rhythm visualisation of songs</h3>
+					<h3 class="text-center">Visualize rhythm of a song</h3>
 				</div>
 			</div>
 			
@@ -205,7 +232,8 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10 col-md-12 col-12 mx-auto justify-content-center text-center plot_song_artist_rhythm_visualisation">
-					<div id="plot_song_artist_rhythm_visualisation"></div>
+					<div class="row justify-content-center" id="plot_song_artist_rhythm_visualisation">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -283,11 +311,42 @@
 			</div>
 		</div>
 
+		<div class="container top_unique_songs">
+			<div class="row">
+				<div class="col-lg-12 col-12 top_unique_songs_title text-center" id="top_unique_songs_title">
+					<h3 class="text-center">Top 25 most unqiue songs</h3>
+				</div>
+			</div>
+	        <div class="row">
+				<div class="col-lg-12 col-12 top_unique_songs_subtitle">
+					<div class="text-center" id="top_unique_songs_subtitle"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-12 col-12 top_unique_songs_table mx-auto justify-content-center text-center">
+					<div id="top_unique_songs_table"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<p>
+						Nam consectetur turpis et nulla hendrerit, eu sodales sapien pretium. Nulla dui diam, pulvinar in venenatis et, congue sed dui. Proin vestibulum viverra dolor, sit amet vestibulum quam. Pellentesque diam diam, hendrerit a tortor ut, vehicula tincidunt lorem. Maecenas efficitur nec eros nec imperdiet. Donec aliquam orci egestas turpis luctus scelerisque. 
+					</p>
+					<p>
+						Nam consectetur turpis et nulla hendrerit, eu sodales sapien pretium. Nulla dui diam, pulvinar in venenatis et, congue sed dui. Proin vestibulum viverra dolor, sit amet vestibulum quam. Pellentesque diam diam, hendrerit a tortor ut, vehicula tincidunt lorem. Maecenas efficitur nec eros nec imperdiet. Donec aliquam orci egestas turpis luctus scelerisque. 
+					</p>
+				</div>
+			</div>
+		</div>
+
 
 		<div class="container song_discography">
 			<div class="row">
 				<div class="col-lg-12 col-12 song_discography_title text-center" id="song_discography_title">
-					Select a song and see which other songs are rhythmically most similar to it
+					<h3 class="text-center">Select a song and see which other songs are rhythmically most similar to it</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -435,13 +494,18 @@
 					<h3 class="text-center">Rhythm Similarity Scores of Artists</h3>
 				</div>
 			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-12 all_artists_similarity_scores_subtitle">
+					<p>Similarity score of artists can be computed either by comparing an artist's songs with one's own songs (<b class="artist_score_type">Intra-Artist</b>) or with those from other artists (<b class="artist_score_type">Inter-Artist</b>). Toggle switch to compare the two scores</p>
+				</div>
+			</div>
 			<div class="row">
 	         	<div class="col-lg-4 mx-auto justify-content-center text-center">
 					<label class="switch-light switch-candy">
 					  <input type="checkbox" id="artist_inter_intra_toggle" onclick="all_artists_similarity_scores_button_click(this.id)">
 					  <span>
-					    <span>Other artists' songs</span>
-					    <span>Own songs</span>
+					    <span>Inter-Artist</span>
+					    <span>Intra-Artist</span>
 					    <a></a>
 					  </span>
 					</label>
@@ -647,17 +711,18 @@
 	<script src='scrollama.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 
-	
 
 	<script src='js/script1.js'></script>
+	<script src="js/plot_rhythm_visualisation.js"></script>
+	<script src="js/plot_rhythm_types.js"></script>
 	<script src='js/plot_song_similarity_score.js'></script>
+	<script src="js/plot_top_unique_songs.js"></script>
 	<!--<script src='js/autocomplete2.js'></script>-->
 	<script src='js/plot_song_discography.js'></script>
 	<!--<script src='js/plot_decade_similarity.js'></script>-->
 	<script src='js/plot_most_similar_songs.js'></script>
 	<script src='js/plot_artists_similarity_score.js'></script>
 	<script src='js/plot_artist_discography.js'></script>
-	<script src="js/plot_rhythm_visualisation.js"></script>
 
 </body>
 

@@ -46,7 +46,7 @@ function plot_song_similar_to(idname, width, height, margin, song_id, similar_so
 
 			if (d.id == song_id) {
 				subtitle = document.getElementById("song_discography_subtitle");
-				subtitle.innerHTML = `Rhythmically most similar songs to <span class="song_discography_subtitle_song">` + toTitleCase(song_info["song_name"]) + `</span> - <span class="song_discography_subtitle_artist">` + toTitleCase(song_info["artist"]) + `</span>`;
+				subtitle.innerHTML = `Rhythmically most similar songs to <span class="song_discography_subtitle_song">` + toTitleCase(song_info["song_name"]) + `, </span><span class="song_discography_subtitle_artist">` + toTitleCase(song_info["artist"]) + `</span>`;
 			}
 		})
 
@@ -86,7 +86,7 @@ function plot_song_similar_to(idname, width, height, margin, song_id, similar_so
 
 					top_similar_songs_rows += `	<tr>
 													<th scope="row">`+(i+1)+`</th>
-													<td><span class="similar-table-song-name">`+song_name+` - `+`</span><span class="similar-table-song-artist-year">`+song_artist+`</span></td>
+													<td><span class="similar-table-song-name">`+song_name+` - `+`</span><span class="similar-table-artist-name">`+song_artist+`</span></td>
 													<td>
 												      	<div class="progress" style="height: 20px;">
 									  						<div class="progress-bar" role="progressbar" style="width: `+Math.round(similar_song_scores[i]*100)+`%;" aria-valuemin="0" aria-valuemax="100">`+similar_song_scores[i]+`</div>
