@@ -10,7 +10,7 @@
 .scroll__graphic1, .scroll__graphic2, .scroll__graphic3, .scroll__graphic4, .scroll__graphic5, .scroll__graphic6, .scroll__graphic7 {
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 	/*right: 10px; /*1rem;*/
 	bottom: auto;
 	-webkit-transform: translate3d(0, 0, 0);
@@ -78,6 +78,20 @@
 	width: 33%;
 	/*top: 50%;
 	left: 50%;*/
+	z-index: 10;
+}
+
+/*
+.step1.center_step {
+	margin-left: 25rem;
+}
+.right_step {
+	margin-left: 50rem;
+}
+*/
+
+.step1.high-z-index p {
+	z-index: 30;
 }
 
 @media (max-width: 767px) {

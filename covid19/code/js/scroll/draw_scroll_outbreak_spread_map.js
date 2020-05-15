@@ -1,20 +1,48 @@
 
-idname = "#scroll1_test";
-d3.select(idname).select("svg").remove();
-filename = "data/scroll/scroll_data_test.csv";
-width_scale_factor = 0.90;
-height_scale_factor = 0.60;
-var bb = d3.select(idname).node().offsetWidth;
-var margin = {right:20, left:40, top:10, bottom:60};
-base_width = bb*width_scale_factor - margin.left - margin.right;
-base_height = bb*height_scale_factor - margin.top - margin.bottom;
-draw_scroll_outbreak_spread_map(idname, filename, base_width, base_height);
-
 function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
+function district_to_state_transition(idname) {
+
+	d3.select(idname).selectAll(".outbreak_spread_circles")
+		.transition()
+			.duration(1000)
+			.style("opacity", 1);
+
+	
+
+	d3.select(idname).selectAll(".outbreak_spread_circles")
+		.transition()
+			.duration(3000)
+			.delay(function(d,i){
+				return d.state_id*0.1;
+			})
+			.attr("cx", function(d,i){
+				//console.log(projection([d.state_long, d.state_lat])[0]);
+				return projection([d.state_long, d.state_lat])[0];
+			})
+			.attr("cy", function(d,i){
+				return projection([d.state_long, d.state_lat])[1];
+			});
+			//.attr("r", "0.15rem");	
+}
+
+function state_to_district_transition(idname) {
+
+	d3.select(idname).selectAll(".outbreak_spread_circles")
+		.transition()
+			.duration(3000)
+			.attr("cx", function(d,i){
+				//console.log(projection([d.state_long, d.state_lat])[0]);
+				return projection([d.district_long, d.district_lat])[0];
+			})
+			.attr("cy", function(d,i){
+				return projection([d.district_long, d.district_lat])[1];
+			});	
+}
+
+function draw_scroll_outbreak_spread_map(idname, filename, width, height, margin) {
 
 	// set the ranges
     var x = d3.scaleLinear().range([0, width]);
@@ -25,7 +53,7 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 
 	var tooltip = d3.select("body")
         .append("div")
-        .attr("class", "tooltip_outbreak_spread")
+        .attr("class", "tooltip_outbreak_spread_scroll")
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden");
@@ -46,7 +74,7 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 	    .scale(6000)
 	    .translate([width / 2, height / 2]);
 	*/
-	var projection = d3.geoMercator();
+	//var projection = d3.geoMercator();
 
     var path = d3.geoPath()
         .projection(projection)
@@ -59,16 +87,19 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 	    .on("zoom", zoomed);
 
 	/* SVG */
-	var svg = d3.select(idname).append("svg")
-              .attr("width", width)
-              .attr("height", height)
+	svg_map = d3.select(idname).append("svg")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
+              //.style("left", "50rem")
               .append("g")
-              .call(zoom);
-    var g = svg.append("g");
-    var g2 = svg.append("g");
+              	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+              //.call(zoom);
+    var g = svg_map.append("g");
+    var g2 = svg_map.append("g");
 
 
     // Load external data and boot
+    //if scroll_data
     d3.queue()
         .defer(d3.json, "data/india_topojson.json")
         .defer(d3.csv, filename) //, data_ready)
@@ -77,25 +108,21 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
     function ready(error, india, data) {
         if (error) throw error;
 
-        //data = scroll_data;
-        data = data.filter(function(d,i){
-			return i%100==0;
-			//return i==0;
-		})
-		//data = data.filter(function(d,i) {
-		//	return +d.district_long!=0;
+        /*
+        data = scroll_data;
+		*/
+        //data = data.filter(function(d,i){
+		//	return i%100==0;
 		//})
-        //console.log(data);
-
 
         // Zoom to India
         var o = topojson.mesh(india, india.objects.india, function(a, b) { return a === b; });
       	projection
-          .scale(1)
-          .translate([0, 0]);
+	          .scale(1)
+	          .translate([0, 0]);
 		var b = path.bounds(o),
-		  s = 1 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
-		  t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+			  s = 1 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+			  t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
         projection = projection.scale(s).translate(t);
 
         path = d3.geoPath()
@@ -119,9 +146,11 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 			.attr("d", path)
 			.style("fill", "#fff")
 			.style("stroke", "#c0c0c0")
+			.style("opacity", 1);
 
 
         // Form list of network arcs
+        /*
         var link = [];
 		data.forEach(function(d, i){
 			d.date = parseTime(d.date);
@@ -137,15 +166,30 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 				link.push(topush)
 			}
 		})
-		
+		*/
+		//data = scroll_data;
 
 		data.forEach(function(d,i) {
 			d.date = parseTime(d.date);
+			//console.log(d.date);
+			d.district = d.district;
+			d.state = d.state;
+			d.status = d.status;
 			d.status_change_date = parseTime(d.status_change_date);
-			d.district_lat = +d.district_lat;
-			d.district_long = +d.district_long;
-			d.state_long = +d.state_long;
-			d.state_lat = +d.state_lat;
+			d.district_id = +d.district_id;
+			d.num_cases_in_district = +d.num_cases_in_district;
+			d.num_cases_in_state = +d.num_cases_in_state;
+
+			random_district_radius = randomNumber(0, d.num_cases_in_district/5e3);
+			random_district_theta = randomNumber(0, 360)*Math.PI/180;
+
+			random_state_radius = randomNumber(0, d.num_cases_in_state/5e2);
+			random_state_theta = randomNumber(0, 360)*Math.PI/180;
+
+			d.district_lat = +d.district_lat  +  random_district_radius * Math.cos(random_district_theta);  
+			d.district_long = +d.district_long +  random_district_radius * Math.sin(random_district_theta);  
+			d.state_long = +d.state_long + random_state_radius * Math.sin(random_state_theta);
+			d.state_lat = +d.state_lat + random_state_radius * Math.cos(random_state_theta);
 		});
 
 
@@ -219,24 +263,49 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 					//return randomNumber(0, height);
 					return projection([d.district_long, d.district_lat])[1];
 				})
-				.attr("r", "0.15rem")
+				.attr("r", "0.20rem")
 				.style("fill", "#0000FF")
-				.style("opacity", 1)
-			.transition()
-				.duration(3000)
-				.attr("cx", function(d,i){
-					console.log(projection([d.state_long, d.state_lat])[0]);
-					return projection([d.state_long, d.state_lat])[0];
-					//return x(d.district_long);
-					//console.log(d);
-					//return randomNumber(0, width);
+				.style("opacity", 0)
+				.on("mouseover", function(d, i) {
+				    //d3.selectAll(".scroll_randompos_circles").style("opacity", 0.5);
+				    d3.select(this).style('stroke-width', '2px').style("opacity", 1.0);
+				    if (d.status=="Hospitalized") {
+				    	return tooltip.html(`<div class='well'>Case detected on `+
+							month_abbrv_list[d.date.getMonth()]+` `+d.date.getDate()+` at `+d.district + `, `+d.state_code+
+		                    `</div>`)
+		             		 .style("visibility", "visible");
+				    } else if (d.status=="Recovered"){
+				    	return tooltip.html(`<div class='well'>Patient `+
+							` at `+d.district + `-`+d.state_code+
+		                    `, recovered on `+month_abbrv_list[d.status_change_date.getMonth()]+` `+d.status_change_date.getDate()+`</div>`)
+		             		 .style("visibility", "visible");
+				    } else if (d.status=="Deceased"){
+				    	return tooltip.html(`<div class='well'>Patient `+
+							` at `+d.district + `-`+d.state_code+
+		                    `, passed away on `+month_abbrv_list[d.status_change_date.getMonth()]+` `+d.status_change_date.getDate()+`</div>`)
+		             		 .style("visibility", "visible");
+				    }
+				  }
+				)
+				.on("mousemove", function(){
+					return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
 				})
-				.attr("cy", function(d,i){
-					//console.log(y(d.district_lat));
-					//return y(d.district_lat);
-					//return randomNumber(0, height);
-					return projection([d.state_long, d.state_lat])[1];
-				});
+				.on("mouseout", function(d, i){
+				    //d3.selectAll(".scroll_randompos_circles").style("opacity", 1.0);
+				    d3.select(this).style('stroke-width', '0.25px').style("opacity", 1.0);
+					return tooltip.style("visibility", "hidden");
+				})
+				/*
+					.transition()
+						.duration(2000)
+						.delay(function(d,i){
+							console.log(d.district);
+							return d.district_id*0.1
+						})
+						.attr("r", "0.15rem")
+						.style("opacity", 1);
+				*/
+
 
 		
 
@@ -271,9 +340,9 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 
 				*/
 				
-				g.selectAll(".outbreak_spread_cases")
+				g2.selectAll(".outbreak_spread_circles")
 					.transition()
-					.duration(10)
+					.duration(100)
 						.style("opacity", function(d, i) {
 							dt = d.date;
 							if (current_date >= dt) {
@@ -283,6 +352,7 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 							}
 							//return 1;
 						})
+						
 						.style("fill", function(d, i) {
 							if (current_date >= d.status_change_date) {
 								if (d.status == "Recovered") {
@@ -296,11 +366,12 @@ function draw_scroll_outbreak_spread_map(idname, filename, width, height) {
 								return "#FA8072";
 							}
 						});
+						
 			}
 		}
 
 		for (let i=1; i<=num_sim_days; i++) {
-			//setTimeout( update_date, i*num_milliseconds_per_date );
+			outbreak_spread_timeouts.push(setTimeout( update_date, i*num_milliseconds_per_date ));
 		}
 
 

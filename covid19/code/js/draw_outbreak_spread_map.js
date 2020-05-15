@@ -7,7 +7,9 @@ var bb = d3.select(idname).node().offsetWidth;
 var margin = {right:20, left:40, top:10, bottom:60};
 base_width = bb*width_scale_factor - margin.left - margin.right;
 base_height = bb*height_scale_factor - margin.top - margin.bottom;
-draw_outbreak_spread_map(idname, filename, base_width, base_height);
+//draw_outbreak_spread_map(idname, filename, base_width, base_height);
+draw_scroll_outbreak_spread_map(idname, filename, base_width, base_height, margin);
+
 
 
 function draw_outbreak_spread_map(idname, filename, width, height) {

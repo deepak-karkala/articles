@@ -231,6 +231,7 @@
                   <button type="button" class="btn map_option_button" id="district_deaths">District deaths</button>
                   <button type="button" class="btn map_option_button" id="state_cases">State cases</button>
                   <button type="button" class="btn map_option_button" id="state_deaths">State deaths</button>
+                  <button type="button" class="btn map_option_button" id="animate_time">Animate over time</button>
                 </div>
               </div>
             </div>
@@ -329,6 +330,21 @@
                 </div>
               </div>
             </div>
+            <!--
+            <div class="row">
+              <div class="col-lg-12">
+                  <h5 class="section_subtitle">State wise confirmed cases</h5>
+              </div>
+            </div>
+            -->
+            <!--
+            <h3 class="section_title">Current Hotspots</h3>
+            <div class="row div_fig_background">
+              <div class="col-lg-12" id="hotspot_map_container">
+                  <div id="hotspot_map" style="height: 125vh;"></div>
+              </div>
+            </div>
+            -->
 
             <h3 class="section_title">Which States are Flattening the Curve ?</h3>
 
@@ -1105,12 +1121,18 @@
     <script src='js/stickyfill.min.js'></script>
     <script src='js/scrollama.min.js'></script>
 
+    <script src="js/scroll/load_data.js"></script>
+    <!--script src="js/draw_predictions.js"></script>-->
+    <script src="js/scroll/draw_scroll_outbreak_spread_map.js"></script>
+    <script src="js/scroll/plot_state_circles.js"></script>
+    <script src="js/scroll/plot_over_time.js"></script>
+    <script src="js/animate_state_fatality_rate.js"></script>
+    <script src="js/scroll_script.js"></script>
 
 
-
-    <script src="js/draw_maps.js"></script>
-    <script src="js/draw_daily_cases_deaths.js"></script>
-    <script src="js/draw_total_cases_deaths.js"></script>
+    <!--<script src="js/draw_maps.js"></script>-->
+    <!--<script src="js/draw_daily_cases_deaths.js"></script>
+    <script src="js/draw_total_cases_deaths.js"></script>-->
     
     <!--Unused<script src="js/hotspot_flattening_curve.js"></script>-->
     <!--<script src="js/draw_state_case_count.js"></script>-->
@@ -1126,10 +1148,7 @@
     <!--<script src="js/cluster_table.js"></script>-->
     <!--<script src="js/draw_cluster_map.js"></script>-->
     <!--<script src="js/draw_district_daily_case_count.js"></script>-->
-    <!--<script src="js/animate_state_fatality_rate.js"></script>
-    <script src="js/scroll/draw_scroll_outbreak_spread_map.js"></script>
-    <script src="js/draw_outbreak_spread_map.js"></script>-->
-
+    <!--<script src="js/draw_outbreak_spread_map.js"></script>-->
     <!--<script src="js/draw_country_case_count.js"></script>-->
     <!--<script src="js/draw_country_testing_rate.js"></script>-->
 

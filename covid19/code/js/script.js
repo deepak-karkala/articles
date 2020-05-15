@@ -33,6 +33,33 @@ function setupButtons() {
 // setup the buttons.
 setupButtons();
 
+
+/*
+function setupPredictionScenarioButtons() {
+  d3.select('#scenario_toolbar')
+    .selectAll('.button')
+    .on('click', function () {
+      console.log("Click handler");
+      // Remove active class from all buttons
+      d3.selectAll('.button').classed('active', false);
+      // Find the button just clicked
+      var button = d3.select(this);
+
+      // Set it as the active button
+      button.classed('active', true);
+
+      // Get the id of the button
+      var buttonId = button.attr('id');
+
+      // Toggle the bubble chart based on
+      // the currently clicked button.
+      //myBubbleChart.toggleDisplay(buttonId);
+    });
+}
+// setup the buttons.
+setupPredictionScenarioButtons();
+*/
+
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

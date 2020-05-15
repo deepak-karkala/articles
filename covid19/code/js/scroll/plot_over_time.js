@@ -11,6 +11,7 @@ function plot_over_time(idname, width, height, margin) {
 	//x.domain([0, scroll_data.length-1]);
 	//x.domain([0, 60000]);
     y.domain([0, 4000]);
+    //y.domain([0, 400]);
 
     //console.log(scroll_data);
 	console.log(height - margin.bottom);
@@ -28,7 +29,7 @@ function plot_over_time(idname, width, height, margin) {
 		.transition()
 			.duration(1000)
 			.delay(function(d,i){
-				return (Math.ceil(Math.abs(d.date - new Date(2020,2,1)) / (1000 * 60 * 60 * 24))+d.day_id)*2;
+				return (Math.ceil(Math.abs(d.date - new Date(2020,2,1)) / (1000 * 60 * 60 * 24))+d.day_id)*1;
 			})
 			.attr("cx", function(d,i) {
 				//console.log(x(d.date));

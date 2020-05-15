@@ -966,3 +966,40 @@ bottom: .5em;
   font-weight: bold;
   padding: 5px;
 }
+
+.tooltip_outbreak_spread_scroll {
+  position: absolute;           
+  text-align: center;           
+  width: 180px;                  
+  height: 40px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
+
+.tooltip_scroll_state_circles {
+  position: absolute;           
+  text-align: center;           
+  width: 180px;                  
+  height: 100px;                 
+  font-size: 0.75rem;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;        
+  background: white;   
+  border: 2px;      
+  border-radius: 3px;           
+  pointer-events: none;
+  color: black;
+  border-color: black;
+  box-shadow: 3px 3px 2px 1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  padding: 5px;
+}
+

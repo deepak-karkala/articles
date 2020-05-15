@@ -1,11 +1,22 @@
 
 
-
 function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 var scroll_data;
+var projection = d3.geoMercator();
+var svg_map;
+var scroll_state_data;
+var scroll_country_data;
+var prediction_data;
+var prediction_scenario_id = 0;
+var outbreak_spread_timeouts = [];
+var minDeviceWidth = 375;
+var maxDeviceWidth = 1024;
+var g4;
+var scroll_show_state_list = ["DL", "MH", "GJ", "WB", "KL", "KA", "MP", "AP", "TN", "RJ", "PB", "BR", "JK", "HR"];
+
 function load_data(idname, filename, width, height, margin) {
 
 	// parse the date / time
@@ -23,7 +34,6 @@ function load_data(idname, filename, width, height, margin) {
         .style("z-index", "10")
         .style("visibility", "hidden");
 
-
     var svg = d3.select(idname).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -36,9 +46,9 @@ function load_data(idname, filename, width, height, margin) {
 	d3.csv(filename, function(error, data) {
 		if (error) throw error;
 
-		data = data.filter(function(d,i){
-			return i%100==0;
-		})
+		//data = data.filter(function(d,i){
+		//	return i%100==0;
+		//})
 
 		scroll_data = data;
 		data.forEach(function(d, i) {
@@ -80,7 +90,12 @@ function load_data(idname, filename, width, height, margin) {
 			  }
 			)
 			.on("mousemove", function(){
-				return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+				if (event.pageX >= width/2) {
+		            return tooltip.style("top", (event.pageY-10)+"px").style("right",(width-event.pageX)+"px");
+		        } else {
+		        	return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+		        }
+				//return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
 			})
 			.on("mouseout", function(d, i){
 			    //d3.selectAll(".scroll_randompos_circles").style("opacity", 1.0);
@@ -104,7 +119,7 @@ function hide_existing_cases(idname, opacity) {
 }
 
 
-function show_individual_cases(idname, width, height, opacity) {
+function show_individual_cases(idname, width, height, margin, opacity) {
 
 	// Tooltip
     var tooltip = d3.select("body")
@@ -150,7 +165,12 @@ function show_individual_cases(idname, width, height, opacity) {
 			  }
 			)
 			.on("mousemove", function(){
-				return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+				  if (event.pageX >= width/2) {
+		            return tooltip.style("top", (event.pageY-10)+"px").style("right",(width-event.pageX)+"px");
+		          } else {
+		            return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+		          }
+				//return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
 			})
 			.on("mouseout", function(d, i){
 			    //d3.selectAll(".scroll_randompos_circles").style("opacity", 1.0);
@@ -209,7 +229,7 @@ function color_case_by_status(idname) {
 			return tooltip.style("visibility", "hidden");
 		})
 		.transition()
-		.duration(1000)
+		.duration(2000)
 			.attr("fill", function(d,i) {
 				return status_color_mapping[d.status];
 			});
